@@ -1,1 +1,12 @@
+html, body {
+    user-select: none;
+}
 
+img, svg {
+    user-select: none;
+    pointer-events: none;
+}
+
+.active #menu {
+    border: 3px solid #9AD5FFE5 !important;
+}

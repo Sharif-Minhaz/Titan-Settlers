@@ -2,15 +2,17 @@ import profile from "../../assets/images/profile.png";
 
 export default function Profile() {
 	return (
-		<div>
-			<img src={profile} alt="profile" />
+		<div className="flex gap-3 items-center py-2">
 			<div>
-				<span className="text-justify text-white text-2xl font-medium tracking-wide">
+				<img src={profile} alt="profile" />
+			</div>
+			<div className="flex flex-col">
+				<span className="font-inter text-justify text-white text-xl font-medium tracking-wide">
 					AKP
 				</span>
-				<div className="text-justify">
-					<span className="text-white text-base font-normal tracking-wide">87/4515 Xp</span>
-				</div>
+				<span className="font-poppins text-white text-base font-thin tracking-wide">
+					87/4515 Xp
+				</span>
 			</div>
 		</div>
 	);
