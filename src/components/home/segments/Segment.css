@@ -1,0 +1,49 @@
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.conic {
+    position: relative;
+    z-index: 0;
+    /* margin: 20px; */
+    overflow: hidden;
+    /* padding: 2rem; */
+}
+
+.conic::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    /* background-color: #1a232a; */
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(transparent, #a8efff, transparent 30%);
+    animation: rotate 4s linear infinite;
+}
+
+.conic::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 2px;
+    top: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: radial-gradient(circle, #0a1f38 3%, #092452 60%, #0e2c4f);
+}
+
+@keyframes opacityChange {
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -9,7 +9,7 @@ import GetStartedSection from "../components/intro/GetStartedSection";
 
 export default function IntroPage() {
 	return (
-		<MainBackground src="bg-intro-img">
+		<MainBackground src="bg-intro-img" enableScaling={true}>
 			<nav className="flex justify-between items-center px-[70px] py-2">
 				<img src={titanSatelliteImg} alt="titan satellite" />
 				<img src={brandImg} alt="space-logo" />

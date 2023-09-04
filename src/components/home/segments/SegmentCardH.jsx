@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 export default function SegmentCardH({ cardInfo }) {
 	return (
-		<article className="h-full bg-sky-950 bg-opacity-50 border-2 group border-cyan-400 backdrop-blur-2xl flex gap-1">
-			<div className=" w-[500px] overflow-hidden">
+		<article className="h-full bg-sky-950 bg-opacity-50 group conic backdrop-blur-2xl flex gap-1">
+			<div className=" w-[500px] overflow-hidden p-0.5">
 				<img
 					className="h-full w-full object-cover pointer-events-auto transition-all group-hover:scale-110"
 					src={cardInfo.img}

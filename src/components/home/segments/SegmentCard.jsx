@@ -1,12 +1,12 @@
+import "./Segment.css";
 import playIcon from "../../../assets/icons/play.svg";
 import lockIcon from "../../../assets/icons/locked.svg";
 import PropTypes from "prop-types";
-import "./Segment.css";
 
 export default function SegmentCard({cardInfo}) {
 	return (
-		<article className="w-[307px] bg-sky-950 bg-opacity-50 border-2 border-cyan-400 backdrop-blur-2xl group">
-			<div className="h-[135px] w-full overflow-hidden">
+		<article className="w-[307px] bg-sky-950 bg-opacity-50 backdrop-blur-2xl conic group">
+			<div className="h-[135px] w-full overflow-hidden p-0.5">
 				<img
 					className="h-full w-full object-cover pointer-events-auto transition-all group-hover:scale-110"
 					src={cardInfo.img}
