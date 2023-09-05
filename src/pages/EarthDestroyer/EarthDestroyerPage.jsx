@@ -59,79 +59,83 @@ export default function EarthDestroyerPage() {
 				<Loading />
 			) : (
 				<MainBackground src="bg-astroid-destroyer-img">
-					<nav className="px-[70px] pt-8 fixed top-0">
-						<img
-							onClick={() => navigate(-1)}
-							className="pointer-events-auto cursor-pointer w-7"
-							src={prevIcon}
-							alt="previous"
-						/>
-					</nav>
-					<div className="relative h-screen">
-						<div className="mt-14">
-							<h2 className="text-center font-inter text-white text-5xl font-normal uppercase tracking-widest">
-								{images[selectedIndex]}
-							</h2>
-							<p className="text-center font-poppins mt-4 text-gray-200 text-[21px] font-normal tracking-widest">
-								{getImageDescription(images[selectedIndex])}
-							</p>
-						</div>
-
-						<div
-							onClick={onPrevClick}
-							className="flex items-center mt-8 absolute -left-28 top-[140px] w-[320px]"
-						>
-							<motion.img
-								className="pointer-events-auto w-[200px] z-10 cursor-pointer"
-								src={getImageSrc(
-									images[(selectedIndex - 1 + images.length) % images.length]
-								)}
-								alt=""
+					<div className="bg-black/25 absolute inset-0">
+						<nav className="px-[70px] pt-8 fixed top-0">
+							<img
+								onClick={() => navigate(-1)}
+								className="pointer-events-auto cursor-pointer w-7"
+								src={prevIcon}
+								alt="previous"
 							/>
-							<span className="text-center whitespace-nowrap text-white text-2xl font-poppins uppercase font-normal tracking-widest">
-								{images[(selectedIndex - 1 + images.length) % images.length]}
-							</span>
-						</div>
+						</nav>
+						<div className="relative h-screen">
+							<div className="mt-14">
+								<h2 className="text-center font-inter text-white text-5xl font-normal uppercase tracking-widest">
+									{images[selectedIndex]}
+								</h2>
+								<p className="text-center font-poppins mt-4 text-gray-200 text-[21px] font-normal tracking-widest">
+									{getImageDescription(images[selectedIndex])}
+								</p>
+							</div>
 
-						<div className="absolute left-1/2 top-1/5 w-[350px] z-30 -translate-x-1/2">
+							<div
+								onClick={onPrevClick}
+								className="flex items-center mt-8 absolute -left-28 top-[140px] w-[320px]"
+							>
+								<motion.img
+									className="pointer-events-auto w-[200px] z-10 cursor-pointer"
+									src={getImageSrc(
+										images[(selectedIndex - 1 + images.length) % images.length]
+									)}
+									alt=""
+								/>
+								<span className="text-center whitespace-nowrap text-white text-2xl font-poppins uppercase font-normal tracking-widest">
+									{images[(selectedIndex - 1 + images.length) % images.length]}
+								</span>
+							</div>
+
+							<div className="absolute left-1/2 top-1/5 w-[350px] z-30 -translate-x-1/2">
+								<motion.img
+									onClick={() =>
+										navigate(`/earth-destroyer/${images[selectedIndex]}`)
+									}
+									className="pointer-events-auto mt-8 z-10 cursor-pointer"
+									src={getImageSrc(images[selectedIndex])}
+									alt=""
+									initial={{ rotate: 0, opacity: 0 }}
+									animate={{ rotate: [360, 0, -360], opacity: 1 }}
+									transition={{
+										rotate: { duration: 250, delay: 0, repeat: Infinity },
+										opacity: { duration: 2 },
+									}}
+								/>
+							</div>
+
 							<motion.img
-								onClick={() => navigate(`/earth-destroyer/${images[selectedIndex]}`)}
-								className="pointer-events-auto mt-8 z-10 cursor-pointer"
-								src={getImageSrc(images[selectedIndex])}
-								alt=""
-								initial={{ rotate: 0, opacity: 0 }}
-								animate={{ rotate: [360, 0, -360], opacity: 1 }}
-								transition={{
-									rotate: { duration: 250, delay: 0, repeat: Infinity },
-									opacity: { duration: 2 },
-								}}
+								className="w-[73%] mx-auto mt-6"
+								initial={{ rotate: 0 }}
+								animate={{ rotate: rotateDeg }}
+								src={solarPanel}
+								alt="Solar Panel"
 							/>
-						</div>
 
-						<motion.img
-							className="w-[73%] mx-auto mt-6"
-							initial={{ rotate: 0 }}
-							animate={{ rotate: rotateDeg }}
-							src={solarPanel}
-							alt="Solar Panel"
-						/>
-
-						<div
-							onClick={onNextClick}
-							className={`flex items-center absolute -right-6 top-24  ${
-								images[(selectedIndex + 1) % images.length] === "cosmic ray"
-									? "w-[320px] mt-12"
-									: "w-[240px] mt-16"
-							}`}
-						>
-							<span className="text-center whitespace-nowrap text-white text-2xl font-poppins font-normal uppercase tracking-widest">
-								{images[(selectedIndex + 1) % images.length]}
-							</span>
-							<motion.img
-								className="pointer-events-auto w-[280px] z-10 cursor-pointer"
-								src={getImageSrc(images[(selectedIndex + 1) % images.length])}
-								alt=""
-							/>
+							<div
+								onClick={onNextClick}
+								className={`flex items-center absolute -right-6 top-24  ${
+									images[(selectedIndex + 1) % images.length] === "cosmic ray"
+										? "w-[320px] mt-12"
+										: "w-[240px] mt-16"
+								}`}
+							>
+								<span className="text-center whitespace-nowrap text-white text-2xl font-poppins font-normal uppercase tracking-widest">
+									{images[(selectedIndex + 1) % images.length]}
+								</span>
+								<motion.img
+									className="pointer-events-auto w-[280px] z-10 cursor-pointer"
+									src={getImageSrc(images[(selectedIndex + 1) % images.length])}
+									alt=""
+								/>
+							</div>
 						</div>
 					</div>
 				</MainBackground>
