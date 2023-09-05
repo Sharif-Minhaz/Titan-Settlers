@@ -14,6 +14,7 @@ export default {
 			backgroundImage: {
 				"intro-img": "url('/background-images/intro-bg.jpeg')",
 				"home-img": "url('/background-images/home-bg.jpeg')",
+				"earth-into-img": "url('/background-images/earth-intro-bg.jpg')",
 			},
 		},
 	},

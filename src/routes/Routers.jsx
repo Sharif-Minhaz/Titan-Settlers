@@ -4,6 +4,7 @@ import BlankLayout from "../layout/BlankLayout";
 import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
 import IntroPage from "../pages/IntroPage";
+import EarthIntroPage from "../pages/EarthIntroPage";
 
 export default function Routers() {
 	return (
@@ -11,6 +12,7 @@ export default function Routers() {
 			<Routes>
 				<Route path="/" element={<BlankLayout />}>
 					<Route index element={<IntroPage />} />
+					<Route path="/earth-intro" element={<EarthIntroPage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<HomePage />} />

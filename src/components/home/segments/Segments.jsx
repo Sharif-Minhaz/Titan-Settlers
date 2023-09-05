@@ -30,6 +30,7 @@ const horizontalCardInfo = {
 	description:
 		"Launch spaceship, save lives by exploring Titan, establish colony, and prevent human extinction with mission completion.",
 	route: "/mission-intro",
+	playable: false,
 };
 
 export default function Segments() {

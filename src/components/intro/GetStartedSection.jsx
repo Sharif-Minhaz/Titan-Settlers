@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ActionButton from './../buttons/ActionButton';
 
 export default function GetStartedSection() {
 	return (
@@ -16,9 +17,7 @@ export default function GetStartedSection() {
 				Titan Settlers
 			</div>
 			<Link to="/function/">
-				<button className="w-28 h-10 mt-2 bg-gradient-to-b text-white from-cyan-300 via-sky-500 to-sky-600 rounded-3xl shadow-inner border border-sky-300">
-					Explore
-				</button>
+				<ActionButton text="Explore" />
 			</Link>
 		</motion.div>
 	);
