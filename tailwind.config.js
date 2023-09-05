@@ -15,6 +15,8 @@ export default {
 				"intro-img": "url('/background-images/intro-bg.jpeg')",
 				"home-img": "url('/background-images/home-bg.jpeg')",
 				"earth-into-img": "url('/background-images/earth-intro-bg.jpg')",
+				"img-404": "url('/background-images/404.jpg')",
+				"astroid-destroyer-img": "url('/background-images/earth-destroyer-bg.jpg')",
 			},
 		},
 	},

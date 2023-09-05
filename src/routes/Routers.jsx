@@ -5,6 +5,8 @@ import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
 import IntroPage from "../pages/IntroPage";
 import EarthIntroPage from "../pages/EarthIntroPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import AstroidPage from "../pages/EarthDestroyer/AstroidPage";
 
 export default function Routers() {
 	return (
@@ -13,10 +15,14 @@ export default function Routers() {
 				<Route path="/" element={<BlankLayout />}>
 					<Route index element={<IntroPage />} />
 					<Route path="/earth-intro" element={<EarthIntroPage />} />
+					<Route path="earth-destroyer">
+						<Route index element={<AstroidPage />} />
+					</Route>
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<HomePage />} />
 				</Route>
+				<Route path="*" element={<NotFoundPage />} />
 			</Routes>
 		</AnimatePresence>
 	);

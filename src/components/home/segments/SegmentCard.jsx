@@ -1,4 +1,4 @@
-import "./Segment.css";
+import styles from "./segment.module.css";
 import playIcon from "../../../assets/icons/play.svg";
 import lockIcon from "../../../assets/icons/locked.svg";
 import PropTypes from "prop-types";
@@ -9,7 +9,9 @@ export default function SegmentCard({ cardInfo }) {
 	const navigate = useNavigate();
 
 	return (
-		<article className="w-[307px] bg-sky-950 bg-opacity-50 backdrop-blur-2xl conic group">
+		<article
+			className={`w-[307px] bg-sky-950 bg-opacity-50 backdrop-blur-2xl group ${styles.conic}`}
+		>
 			<div className="h-[135px] w-full overflow-hidden p-0.5">
 				<img
 					className="h-full w-full object-cover pointer-events-auto transition-all group-hover:scale-110"

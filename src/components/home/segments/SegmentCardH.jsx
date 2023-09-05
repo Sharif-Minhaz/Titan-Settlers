@@ -3,12 +3,15 @@ import lockIcon from "../../../assets/icons/locked.svg";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import styles from "./segment.module.css";
 
 export default function SegmentCardH({ cardInfo }) {
 	const navigate = useNavigate();
 
 	return (
-		<article className="h-full bg-sky-950 bg-opacity-50 group conic backdrop-blur-2xl flex gap-1">
+		<article
+			className={`h-full bg-sky-950 bg-opacity-50 group backdrop-blur-2xl flex gap-1 ${styles.conic}`}
+		>
 			<div className="w-[500px] overflow-hidden p-0.5">
 				<img
 					className="h-full w-full object-cover pointer-events-auto transition-all group-hover:scale-110"
