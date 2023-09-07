@@ -7,6 +7,7 @@ export default {
 				inter: "'Inter', sans-serif",
 				goldman: "'Goldman', cursive",
 				poppins: "'Poppins', sans-serif",
+				roboto: "'Roboto', sans-serif",
 			},
 			backgroundPosition: {
 				"center-bottom": "center bottom",
@@ -16,7 +17,7 @@ export default {
 				"home-img": "url('/background-images/home-bg.jpeg')",
 				"earth-into-img": "url('/background-images/earth-intro-bg.jpg')",
 				"img-404": "url('/background-images/404.jpg')",
-				"astroid-destroyer-img": "url('/background-images/earth-destroyer-bg.jpg')",
+				"dark-sky-img": "url('/background-images/earth-destroyer-bg.webp')",
 			},
 		},
 	},

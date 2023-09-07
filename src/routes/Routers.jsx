@@ -6,7 +6,7 @@ import HomePage from "../pages/HomePage";
 import IntroPage from "../pages/IntroPage";
 import EarthIntroPage from "../pages/EarthIntroPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import AstroidPage from "../pages/EarthDestroyer/AstroidPage.jsx";
+import AsteroidPage from "../pages/EarthDestroyer/AsteroidPage";
 import EarthDestroyerPage from "../pages/EarthDestroyer/EarthDestroyerPage";
 import SunPage from "../pages/EarthDestroyer/SunPage";
 import CosmicRayPage from "../pages/EarthDestroyer/CosmicRayPage";
@@ -20,7 +20,7 @@ export default function Routers() {
 					<Route path="earth-intro" element={<EarthIntroPage />} />
 					<Route path="earth-destroyer">
 						<Route index element={<EarthDestroyerPage />} />
-						<Route path="astroid" element={<AstroidPage />} />
+						<Route path="asteroid" element={<AsteroidPage />} />
 						<Route path="sun" element={<SunPage />} />
 						<Route path="cosmic ray" element={<CosmicRayPage />} />
 					</Route>

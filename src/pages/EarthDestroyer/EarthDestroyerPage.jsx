@@ -1,38 +1,38 @@
 import { motion } from "framer-motion";
 import MainBackground from "../../components/MainBackground";
-import astroid from "../../assets/images/asteroid.png";
+import asteroid from "../../assets/images/asteroid.png";
 import sun from "../../assets/images/sun.png";
 import cosmic from "../../assets/images/cosmic-ray.png";
 import solarPanel from "../../assets/images/solar-panel.png";
-import prevIcon from "../../assets/icons/prev.svg";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import { useState } from "react";
+import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
 
 export default function EarthDestroyerPage() {
 	const navigate = useNavigate();
 	const [loading] = useState(false);
 	const [rotateDeg, setRotateDeg] = useState(0);
 
-	const images = ["astroid", "cosmic ray", "sun"];
+	const images = ["asteroid", "cosmic ray", "sun"];
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const getImageSrc = (imgName) => {
 		switch (imgName) {
-			case "astroid":
-				return astroid;
+			case "asteroid":
+				return asteroid;
 			case "sun":
 				return sun;
 			case "cosmic ray":
 				return cosmic;
 			default:
-				return astroid;
+				return asteroid;
 		}
 	};
 
 	const getImageDescription = (imgName) => {
 		switch (imgName) {
-			case "astroid":
+			case "asteroid":
 				return "Asteroid's cataclysmic collision with Earth leads to catastrophic devastation.";
 			case "sun":
 				return "Sun's expansion engulfs Earth as it becomes a red giant during its later stages.";
@@ -58,16 +58,9 @@ export default function EarthDestroyerPage() {
 			{loading ? (
 				<Loading />
 			) : (
-				<MainBackground src="bg-astroid-destroyer-img">
+				<MainBackground src="bg-dark-sky-img">
 					<div className="bg-black/25 absolute inset-0">
-						<nav className="px-[70px] pt-8 fixed top-0">
-							<img
-								onClick={() => navigate(-1)}
-								className="pointer-events-auto cursor-pointer w-7"
-								src={prevIcon}
-								alt="previous"
-							/>
-						</nav>
+						<EarthDestroyerNavbar />
 						<div className="relative h-screen">
 							<div className="mt-14">
 								<h2 className="text-center font-inter text-white text-5xl font-normal uppercase tracking-widest">
