@@ -2,16 +2,16 @@ import { format } from "date-fns";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-export default function StatusInfo({ deg = 0 }) {
+export default function StatusInfo({ position = 0 }) {
 	const [currentTime, setCurrentTime] = useState(Date.now());
 
 	useEffect(() => {
-		const timeoutId = setInterval(() => {
+		const time = setInterval(() => {
 			setCurrentTime(Date.now());
 		}, 1000);
 
 		return () => {
-			clearInterval(timeoutId);
+			clearInterval(time);
 		};
 	}, []);
 
@@ -20,7 +20,7 @@ export default function StatusInfo({ deg = 0 }) {
 			<div className="flex flex-col mb-2">
 				<span className="text-white text-[18px] font-medium">Rotation</span>
 				<span className="text-stone-200 text-opacity-60 text-[14px] font-normal">
-					Left side {deg}°
+					Left side {position}°
 				</span>
 			</div>
 			<div className="flex flex-col">
@@ -37,5 +37,5 @@ export default function StatusInfo({ deg = 0 }) {
 }
 
 StatusInfo.propTypes = {
-	deg: PropTypes.number,
+	position: PropTypes.number,
 };

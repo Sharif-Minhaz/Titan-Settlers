@@ -4,8 +4,12 @@ import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroy
 import StatusInfo from "../../components/earth-destroyers/StatusInfo";
 import asteroid from "../../assets/images/des-asteroid.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
+import earthDestroying from "../../assets/images/earth-destroying.jpeg";
+import earthDestroyingGif from "../../assets/gifs/earth-destroying.gif";
 import { motion } from "framer-motion";
-import PredictionAsteroid from "../../components/earth-destroyers/PredictionAsteroid";
+import Prediction from "../../components/earth-destroyers/Prediction";
+import { useState } from "react";
+import Tip from "./Tip";
 
 const data = [
 	{ _id: "attr-01", heading: "age", value: "4.6B years" },
@@ -15,21 +19,76 @@ const data = [
 	{ _id: "attr-05", heading: "TYPE", value: "C-type, S-type, M-type" },
 ];
 
+const tips = [
+	{
+		_id: "tip-01",
+		heading: "Size & Shape",
+		desc: "Small rocky fragments to massive bodies several kilometers in diameter.",
+	},
+	{
+		_id: "tip-02",
+		heading: "Weight",
+		desc: "The two main groups are the 'Main Belt' asteroids, and 'Near-Earth Asteroids' (NEAs).",
+		link: "https://en.wikipedia.org/wiki/Asteroid",
+	},
+	{
+		_id: "tip-03",
+		heading: "Temperature",
+		desc: "Temperatures vary drastically, with shadowed areas experiencing extreme cold while directly sunlit regions become scorchingly hot.",
+		link: "https://solarsystem.nasa.gov/news/456/neowise-thermal-data-reveal-surface-properties-of-over-100-asteroids/",
+	},
+	{
+		_id: "tip-04",
+		heading: "Length",
+		desc: "Exhibiting diverse forms, including irregularly shaped, elongated, and often spherical structures",
+	},
+	{
+		_id: "tip-05",
+		heading: "Speed",
+		desc: "Spanning a speed range from a few kilometers per hour to velocities reaching tens of kilometers per second.",
+		link: "https://www.youtube.com/watch?v=m4D2CjmoIIU",
+	},
+];
+
+const deg = [-10, +10];
+
 export default function AsteroidPage() {
+	const [asteroidRotate, setAsteroidRotate] = useState(0);
+	const [tipCount, setTipCount] = useState(-1);
+
+	const handleAsteroidPos = () => {
+		setAsteroidRotate(asteroidRotate + deg[Math.floor(Math.random() * 2)]);
+		setTipCount((prev) => {
+			if (tips.length - 1 === prev) {
+				return 0;
+			}
+			return prev + 1;
+		});
+	};
+
 	return (
 		<MainBackground src="bg-dark-sky-img">
 			<EarthDestroyerNavbar />
 			<div className="mt-3.5 px-10">
 				<Attributes data={data} title="asteroid" />
 			</div>
-			<motion.img
-				initial={{ y: 0, rotate: 0 }}
-				animate={{ y: ["-5px", "2px", "-5px"] }}
-				transition={{ duration: 8, repeat: Infinity }}
-				className="w-[330px] absolute left-48 top-1/3 -translate-y-1/2 pointer-events-auto cursor-pointer"
-				src={asteroid}
-			/>
-			<PredictionAsteroid />
+			<div className="w-[330px] absolute left-48 top-[56%] -translate-y-1/2">
+				<div className="relative">
+					<motion.img
+						onClick={handleAsteroidPos}
+						initial={{ y: 0, rotate: 0 }}
+						animate={{ y: ["-6px", "2px", "-6px"], rotate: asteroidRotate }}
+						transition={{
+							y: { duration: 8, repeat: Infinity },
+							rotate: { duration: 1.5, delay: 0.5 },
+						}}
+						className="w-full pointer-events-auto cursor-pointer"
+						src={asteroid}
+					/>
+					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
+				</div>
+			</div>
+			<Prediction gif={earthDestroyingGif} stableImg={earthDestroying} />
 			<motion.img
 				initial={{ rotate: 0 }}
 				animate={{ rotate: 360 }}
@@ -37,7 +96,7 @@ export default function AsteroidPage() {
 				className="w-[900px] absolute -right-[390px] -bottom-[470px]"
 				src={roundingEarth}
 			/>
-			<StatusInfo />
+			<StatusInfo position={asteroidRotate} />
 		</MainBackground>
 	);
 }

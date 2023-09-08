@@ -94,12 +94,13 @@ export default function EarthDestroyerPage() {
 									}
 									className="pointer-events-auto mt-8 z-10 cursor-pointer"
 									src={getImageSrc(images[selectedIndex])}
-									alt=""
+									alt="selected-item"
+									key={selectedIndex}
 									initial={{ rotate: 0, opacity: 0 }}
 									animate={{ rotate: [360, 0, -360], opacity: 1 }}
 									transition={{
 										rotate: { duration: 250, delay: 0, repeat: Infinity },
-										opacity: { duration: 2 },
+										opacity: { duration: 0.3 },
 									}}
 								/>
 							</div>
