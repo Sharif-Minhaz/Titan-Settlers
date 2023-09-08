@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 
-export default function StatusInfo({ position = 0 }) {
+export default function StatusInfo({ position = 0, distance = false }) {
 	const [currentTime, setCurrentTime] = useState(Date.now());
 
 	useEffect(() => {
@@ -18,9 +18,11 @@ export default function StatusInfo({ position = 0 }) {
 	return (
 		<footer className="absolute bottom-0 px-10 pb-10 font-poppins">
 			<div className="flex flex-col mb-2">
-				<span className="text-white text-[18px] font-medium">Rotation</span>
+				<span className="text-white text-[18px] font-medium">
+					{distance ? "Distance" : "Rotation"}
+				</span>
 				<span className="text-stone-200 text-opacity-60 text-[14px] font-normal">
-					Left side {position}°
+					{distance ? "151.76 million km" : `Left side ${position}°`}
 				</span>
 			</div>
 			<div className="flex flex-col">
@@ -38,4 +40,5 @@ export default function StatusInfo({ position = 0 }) {
 
 StatusInfo.propTypes = {
 	position: PropTypes.number,
+	distance: PropTypes.bool,
 };

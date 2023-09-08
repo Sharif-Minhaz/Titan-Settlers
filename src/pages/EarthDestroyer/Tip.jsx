@@ -9,7 +9,7 @@ export default function Tip({ tipInfo }) {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.5, delay: 0.2 }}
-			className="absolute w-[320px] top-14 -right-[360px] z-50"
+			className="absolute w-[320px] top-14 -right-[360px] z-[60]"
 		>
 			<div className="relative bg-slate-400 bg-opacity-20 rounded-tl-3xl rounded-br-3xl border-[3px] border-slate-400">
 				<img src={pointer} className="absolute -left-[192px] top-14" />

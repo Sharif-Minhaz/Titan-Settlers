@@ -3,6 +3,7 @@ import Attributes from "../../components/earth-destroyers/Attributes";
 import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
 import StatusInfo from "../../components/earth-destroyers/StatusInfo";
 import asteroid from "../../assets/images/des-asteroid.png";
+import littleAsteroid from "../../assets/images/little-asteroid.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import earthDestroying from "../../assets/images/earth-destroying.jpeg";
 import earthDestroyingGif from "../../assets/gifs/earth-destroying.gif";
@@ -72,7 +73,7 @@ export default function AsteroidPage() {
 			<div className="mt-3.5 px-10">
 				<Attributes data={data} title="asteroid" />
 			</div>
-			<div className="w-[330px] absolute left-48 top-[56%] -translate-y-1/2">
+			<div className="w-[330px] absolute left-48 top-[56%] -translate-y-1/2 z-30">
 				<div className="relative">
 					<motion.img
 						onClick={handleAsteroidPos}
@@ -88,7 +89,12 @@ export default function AsteroidPage() {
 					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
 				</div>
 			</div>
-			<Prediction gif={earthDestroyingGif} stableImg={earthDestroying} />
+			<Prediction
+				titleImg={littleAsteroid}
+				question="How Asteroid destroy Earth?"
+				gif={earthDestroyingGif}
+				stableImg={earthDestroying}
+			/>
 			<motion.img
 				initial={{ rotate: 0 }}
 				animate={{ rotate: 360 }}

@@ -30,7 +30,7 @@ export default function GifModal({ closeModal, stableImg, gif }) {
 				transition={{ duration: 0.4, ease: "easeInOut" }}
 				className="w-[682px] relative h-96 bg-black bg-opacity-10 shadow border border-slate-400"
 			>
-				<img className="w-full" src={content} alt="content" />
+				<img className="w-full object-cover h-full" src={content} alt="content" />
 				{!content.includes(".gif") && (
 					<img
 						onClick={play}
