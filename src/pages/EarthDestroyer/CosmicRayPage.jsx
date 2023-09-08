@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import Prediction from "../../components/earth-destroyers/Prediction";
 import { useState } from "react";
 import Tip from "./Tip";
+import OutsideClickHandler from "react-outside-click-handler";
 
 const data = [
 	{ _id: "attr-01", heading: "NATURE", value: "Protons & nuclei" },
@@ -62,6 +63,10 @@ export default function CosmicRayPage() {
 		});
 	};
 
+	const closeTip = () => {
+		setTipCount(-1);
+	};
+
 	return (
 		<MainBackground src="bg-dark-sky-img">
 			<EarthDestroyerNavbar />
@@ -69,14 +74,14 @@ export default function CosmicRayPage() {
 				<Attributes data={data} title="cosmic ray" />
 			</div>
 			<div className="w-[520px] absolute left-9 top-[56%] -translate-y-1/2 z-30">
-				<div className="relative">
+				<OutsideClickHandler onOutsideClick={closeTip} className="relative">
 					<motion.img
 						onClick={handleAsteroidPos}
 						className="w-full pointer-events-auto cursor-pointer"
 						src={cosmicRay}
 					/>
 					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
-				</div>
+				</OutsideClickHandler>
 			</div>
 			<Prediction
 				titleImg={littleCosmic}

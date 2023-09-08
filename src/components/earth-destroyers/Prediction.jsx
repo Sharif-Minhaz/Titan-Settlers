@@ -5,7 +5,7 @@ import Overlay from "../Overlay";
 import { useState } from "react";
 import GifModal from "../modal/GifModal";
 
-export default function Prediction({ titleImg, question, gif, stableImg }) {
+export default function Prediction({ titleImg, question, gif, stableImg, className }) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const openModal = () => {
@@ -18,7 +18,9 @@ export default function Prediction({ titleImg, question, gif, stableImg }) {
 
 	return (
 		<>
-			<article className="flex flex-col items-center absolute right-7 mt-8 w-max z-40">
+			<article
+				className={`flex flex-col items-center absolute right-7 mt-8 w-max z-40 ${className}`}
+			>
 				{titleImg && (
 					<motion.img
 						className="text-center"
@@ -29,7 +31,7 @@ export default function Prediction({ titleImg, question, gif, stableImg }) {
 						width={50}
 					/>
 				)}
-				<div className="w-32 my-2 text-center text-white text-[15px] leading-snug font-normal font-poppins">
+				<div className="w-40 my-2 text-center text-white text-opacity-75 text-[15px] leading-snug font-normal font-poppins">
 					{question}
 				</div>
 				<button
@@ -52,6 +54,7 @@ export default function Prediction({ titleImg, question, gif, stableImg }) {
 Prediction.propTypes = {
 	question: PropTypes.string,
 	titleImg: PropTypes.string,
+	className: PropTypes.string,
 	gif: PropTypes.string,
 	stableImg: PropTypes.string,
 };
