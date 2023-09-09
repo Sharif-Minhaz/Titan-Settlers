@@ -1,18 +1,20 @@
+import OutsideClickHandler from "react-outside-click-handler";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
 import MainBackground from "../../components/MainBackground";
-import Attributes from "../../components/earth-destroyers/Attributes";
-import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
-import StatusInfo from "../../components/earth-destroyers/StatusInfo";
+import Attributes from "../../components/earth-destruction/Attributes";
+import EarthDestroyerNavbar from "../../components/earth-destruction/EarthDestroyerNavbar";
+import StatusInfo from "../../components/earth-destruction/StatusInfo";
+import Prediction from "../../components/earth-destruction/Prediction";
+import Tip from "../../components/earth-destruction/Tip";
+
 import asteroid from "../../assets/images/des-asteroid.png";
 import littleAsteroid from "../../assets/images/little-asteroid.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import earthDestroying from "../../assets/images/earth-destroying.jpeg";
 import earthDestroyingGif from "../../assets/gifs/earth-destroying.gif";
-import { motion } from "framer-motion";
-import Prediction from "../../components/earth-destroyers/Prediction";
-import { useState } from "react";
-import Tip from "./Tip";
-import OutsideClickHandler from "react-outside-click-handler";
-import { useNavigate } from "react-router-dom";
 
 const data = [
 	{ _id: "attr-01", heading: "age", value: "4.6B years" },

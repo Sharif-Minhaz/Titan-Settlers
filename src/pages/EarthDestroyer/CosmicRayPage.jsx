@@ -1,18 +1,20 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import MainBackground from "../../components/MainBackground";
-import Attributes from "../../components/earth-destroyers/Attributes";
-import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
-import StatusInfo from "../../components/earth-destroyers/StatusInfo";
+import Attributes from "../../components/earth-destruction/Attributes";
+import EarthDestroyerNavbar from "../../components/earth-destruction/EarthDestroyerNavbar";
+import StatusInfo from "../../components/earth-destruction/StatusInfo";
+import Prediction from "../../components/earth-destruction/Prediction";
+import Tip from "../../components/earth-destruction/Tip";
+import OutsideClickHandler from "react-outside-click-handler";
+
 import littleCosmic from "../../assets/images/little-cosmic.png";
 import cosmicRay from "../../assets/images/cosmic-ray-lightning.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import cosmicRayStable from "../../assets/images/cosmic-ray-stable.png";
 import cosmicRayDestroyingGif from "../../assets/gifs/cosmic-ray-destroying.gif";
-import { motion } from "framer-motion";
-import Prediction from "../../components/earth-destroyers/Prediction";
-import { useState } from "react";
-import Tip from "./Tip";
-import OutsideClickHandler from "react-outside-click-handler";
-import { useNavigate } from "react-router-dom";
 
 const data = [
 	{ _id: "attr-01", heading: "NATURE", value: "Protons & nuclei" },

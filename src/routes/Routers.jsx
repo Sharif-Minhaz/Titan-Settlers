@@ -6,10 +6,10 @@ import HomePage from "../pages/HomePage";
 import IntroPage from "../pages/IntroPage";
 import EarthIntroPage from "../pages/EarthIntroPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import AsteroidPage from "../pages/EarthDestroyer/AsteroidPage";
+import AsteroidPage from "../pages/earthDestroyer/AsteroidPage";
 import EarthDestroyerPage from "../pages/earthDestroyer/EarthDestroyerPage";
-import SunPage from "../pages/EarthDestroyer/SunPage";
-import CosmicRayPage from "../pages/EarthDestroyer/CosmicRayPage";
+import SunPage from "../pages/earthDestroyer/SunPage";
+import CosmicRayPage from "../pages/earthDestroyer/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 
 export default function Routers() {

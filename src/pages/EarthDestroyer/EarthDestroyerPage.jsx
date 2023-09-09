@@ -1,16 +1,18 @@
-import { motion } from "framer-motion";
-import MainBackground from "../../components/MainBackground";
-import asteroid from "../../assets/images/asteroid.png";
-import sun from "../../assets/images/sun.png";
-import cosmic from "../../assets/images/cosmic-ray.png";
-import solarPanel from "../../assets/images/solar-panel.png";
-import { useNavigate } from "react-router-dom";
-import Loading from "../../components/loading/Loading";
 import { useState } from "react";
-import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+
+import MainBackground from "../../components/MainBackground";
+import Loading from "../../components/loading/Loading";
+import EarthDestroyerNavbar from "../../components/earth-destruction/EarthDestroyerNavbar";
 import Overlay from "../../components/Overlay";
 import ConfirmationModal from "../../components/modal/ConfirmationModal";
 import CompleteModal from "../../components/modal/CompleteModal";
+
+import sun from "../../assets/images/sun.png";
+import cosmic from "../../assets/images/cosmic-ray.png";
+import solarPanel from "../../assets/images/solar-panel.png";
+import asteroid from "../../assets/images/asteroid.png";
 
 export default function EarthDestroyerPage() {
 	const navigate = useNavigate();
