@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import styles from "./segment.module.css";
+import { MissionStatusContext } from "../../../contexts/MissionStatusContext";
+import { useContext } from "react";
 
 export default function SegmentCardH({ cardInfo }) {
 	const navigate = useNavigate();
+	const { missions } = useContext(MissionStatusContext);
 
 	return (
 		<article
@@ -31,7 +34,7 @@ export default function SegmentCardH({ cardInfo }) {
 						Play Now
 					</span>
 					<div className="cursor-pointer">
-						{cardInfo.playable ? (
+						{missions[cardInfo.mission] ? (
 							<img
 								className="w-5 pointer-events-auto"
 								onClick={() => navigate(cardInfo.route)}

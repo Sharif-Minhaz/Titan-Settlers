@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import tipIcon from "../../assets/icons/tip.svg";
 import pointer from "../../assets/images/pointer.png";
 
-export default function Tip({ tipInfo }) {
+export default function Tip({count, total, tipInfo }) {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ export default function Tip({ tipInfo }) {
 				<img src={pointer} className="absolute -left-[192px] top-14" />
 				<div className="px-4 py-2.5 flex gap-1 text-sky-100 text-xl font-medium tracking-wide font-inter">
 					<img src={tipIcon} alt="tip" />
-					{tipInfo.heading}
+					{tipInfo.heading} <span>({count}/{total})</span>
 				</div>
 				<div className="text-zinc-100 px-4 pb-2 text-base font-normal font-poppins">
 					{tipInfo.desc}
@@ -34,4 +34,6 @@ export default function Tip({ tipInfo }) {
 
 Tip.propTypes = {
 	tipInfo: PropTypes.object.isRequired,
+	count: PropTypes.number,
+	total: PropTypes.number
 };

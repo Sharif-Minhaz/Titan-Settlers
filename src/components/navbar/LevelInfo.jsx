@@ -6,11 +6,15 @@ import mailImg from "../../assets/icons/mail.svg";
 import settingsImg from "../../assets/icons/settings.svg";
 import NavButton from "./NavButton";
 import Resource from "./Resource";
+import { useContext } from "react";
+import { MissionStatusContext } from "../../contexts/MissionStatusContext";
 
 export default function LevelInfo() {
+	const { coins } = useContext(MissionStatusContext);
+
 	return (
 		<div className="flex gap-7">
-			<Resource img={coinImg} amount="2000" />
+			<Resource img={coinImg} amount={coins} />
 			<Resource img={gemImg} amount="100" />
 			<div className="cursor-pointer">
 				<img src={levelImg} alt="level" />

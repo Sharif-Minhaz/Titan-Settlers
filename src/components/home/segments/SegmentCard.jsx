@@ -4,9 +4,12 @@ import lockIcon from "../../../assets/icons/locked.svg";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { MissionStatusContext } from "../../../contexts/MissionStatusContext";
 
 export default function SegmentCard({ cardInfo }) {
 	const navigate = useNavigate();
+	const { missions } = useContext(MissionStatusContext);
 
 	return (
 		<article
@@ -31,7 +34,7 @@ export default function SegmentCard({ cardInfo }) {
 						Play Now
 					</span>
 					<div className="cursor-pointer">
-						{cardInfo.playable ? (
+						{missions[cardInfo.mission] ? (
 							<img
 								className="w-5 pointer-events-auto"
 								onClick={() => navigate(cardInfo.route)}
@@ -42,9 +45,7 @@ export default function SegmentCard({ cardInfo }) {
 							<img
 								className="w-7 pointer-events-auto"
 								onClick={() =>
-									toast.error("Complete the previous mission to unlock", {
-										position: "bottom-right",
-									})
+									toast.error("Complete the previous mission to unlock")
 								}
 								src={lockIcon}
 								alt="locked"

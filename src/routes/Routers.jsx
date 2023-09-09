@@ -7,9 +7,10 @@ import IntroPage from "../pages/IntroPage";
 import EarthIntroPage from "../pages/EarthIntroPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import AsteroidPage from "../pages/EarthDestroyer/AsteroidPage";
-import EarthDestroyerPage from "../pages/EarthDestroyer/EarthDestroyerPage";
+import EarthDestroyerPage from "../pages/earthDestroyer/EarthDestroyerPage";
 import SunPage from "../pages/EarthDestroyer/SunPage";
 import CosmicRayPage from "../pages/EarthDestroyer/CosmicRayPage";
+import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 
 export default function Routers() {
 	return (
@@ -24,6 +25,7 @@ export default function Routers() {
 						<Route path="sun" element={<SunPage />} />
 						<Route path="cosmic ray" element={<CosmicRayPage />} />
 					</Route>
+					<Route path="/explore-titan-intro" element={<ExploreTitanIntro />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<HomePage />} />

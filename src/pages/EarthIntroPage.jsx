@@ -9,7 +9,7 @@ import ActionButton from './../components/buttons/ActionButton';
 
 export default function EarthIntroPage() {
 	return (
-		<MainBackground src="bg-earth-into-img">
+		<MainBackground src="bg-earth-intro-img">
 			<div className="relative w-full h-full flex justify-center items-center">
 				<motion.div
 					initial={{ rotate: 0, scale: 1 }}
@@ -46,7 +46,7 @@ export default function EarthIntroPage() {
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					transition={{ duration: 1.5, delay: 2 }}
+					transition={{ duration: 1.5, delay: 1 }}
 					className="absolute inset-0 bg-black/50 flex items-center"
 				>
 					<div className="flex flex-col gap-3 w-[700px] m-auto">

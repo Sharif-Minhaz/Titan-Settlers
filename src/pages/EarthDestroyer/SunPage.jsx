@@ -12,6 +12,7 @@ import { useState } from "react";
 import Tip from "./Tip";
 import EarthTip from "./EarthTip";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useNavigate } from "react-router-dom";
 
 const data = [
 	{ _id: "attr-01", heading: "AGE", value: "4.6B years" },
@@ -93,10 +94,13 @@ const earthTips = [
 export default function SunPage() {
 	const [tipCount, setTipCount] = useState(-1);
 	const [earthTipCount, setEarthTipCount] = useState(-1);
+	const [completed, setCompleted] = useState({ sun: false, earth: false });
+	const navigate = useNavigate();
 
 	const handleTips = () => {
 		setTipCount((prev) => {
 			if (tips.length - 1 === prev) {
+				setCompleted((prev) => ({ ...prev, sun: true }));
 				return 0;
 			}
 			return prev + 1;
@@ -106,11 +110,16 @@ export default function SunPage() {
 	const handleEarthTips = () => {
 		setEarthTipCount((prev) => {
 			if (earthTips.length - 1 === prev) {
+				setCompleted((prev) => ({ ...prev, earth: true }));
 				return 0;
 			}
 			return prev + 1;
 		});
 	};
+
+	if (completed.earth && completed.sun) {
+		return navigate("/earth-destroyer");
+	}
 
 	const closeEarthTips = () => {
 		setEarthTipCount(-1);
@@ -136,7 +145,14 @@ export default function SunPage() {
 						className="w-full pointer-events-auto cursor-pointer"
 						src={sunImg}
 					/>
-					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
+					{tipCount !== -1 && (
+						<Tip
+							key={tipCount}
+							total={tips.length}
+							count={tipCount + 1}
+							tipInfo={tips[tipCount]}
+						/>
+					)}
 				</OutsideClickHandler>
 			</div>
 
@@ -151,7 +167,12 @@ export default function SunPage() {
 						onClick={handleEarthTips}
 					/>
 					{earthTipCount !== -1 && (
-						<EarthTip key={earthTipCount} tipInfo={earthTips[earthTipCount]} />
+						<EarthTip
+							key={earthTipCount}
+							count={earthTipCount + 1}
+							total={earthTips.length}
+							tipInfo={earthTips[earthTipCount]}
+						/>
 					)}
 				</OutsideClickHandler>
 			</div>

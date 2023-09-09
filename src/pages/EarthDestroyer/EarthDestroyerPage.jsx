@@ -8,10 +8,15 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import { useState } from "react";
 import EarthDestroyerNavbar from "../../components/earth-destroyers/EarthDestroyerNavbar";
+import Overlay from "../../components/Overlay";
+import ConfirmationModal from "../../components/modal/ConfirmationModal";
+import CompleteModal from "../../components/modal/CompleteModal";
 
 export default function EarthDestroyerPage() {
 	const navigate = useNavigate();
 	const [loading] = useState(false);
+	const [isOpenConfirmationModal, setIsOpenConfirmationModal] = useState(false);
+	const [isTaskComplete, setIsTaskComplete] = useState(false);
 	const [rotateDeg, setRotateDeg] = useState(0);
 
 	const images = ["asteroid", "cosmic ray", "sun"];
@@ -53,6 +58,11 @@ export default function EarthDestroyerPage() {
 		setSelectedIndex((prevIndex) => (prevIndex + 1) % images.length);
 	};
 
+	const openModal = () => setIsOpenConfirmationModal(true);
+	const closeModal = () => setIsOpenConfirmationModal(false);
+
+	const completeTask = () => setIsTaskComplete(true);
+
 	return (
 		<>
 			{loading ? (
@@ -60,7 +70,7 @@ export default function EarthDestroyerPage() {
 			) : (
 				<MainBackground src="bg-dark-sky-img">
 					<div className="bg-black/25 absolute inset-0">
-						<EarthDestroyerNavbar />
+						<EarthDestroyerNavbar openModal={openModal} />
 						<div className="relative h-screen">
 							<div className="mt-14">
 								<h2 className="text-center font-inter text-white text-5xl font-normal uppercase tracking-widest">
@@ -133,6 +143,17 @@ export default function EarthDestroyerPage() {
 						</div>
 					</div>
 				</MainBackground>
+			)}
+			{isOpenConfirmationModal && (
+				<Overlay>
+					<ConfirmationModal handleCompleteTask={completeTask} closeModal={closeModal} />
+				</Overlay>
+			)}
+
+			{isTaskComplete && (
+				<Overlay>
+					<CompleteModal />
+				</Overlay>
 			)}
 		</>
 	);

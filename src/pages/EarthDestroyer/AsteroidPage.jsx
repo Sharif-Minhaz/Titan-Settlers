@@ -12,6 +12,7 @@ import Prediction from "../../components/earth-destroyers/Prediction";
 import { useState } from "react";
 import Tip from "./Tip";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useNavigate } from "react-router-dom";
 
 const data = [
 	{ _id: "attr-01", heading: "age", value: "4.6B years" },
@@ -56,12 +57,15 @@ const deg = [-10, +10];
 
 export default function AsteroidPage() {
 	const [asteroidRotate, setAsteroidRotate] = useState(0);
+	const [completed, setCompleted] = useState(false);
 	const [tipCount, setTipCount] = useState(-1);
+	const navigate = useNavigate();
 
 	const handleAsteroidPos = () => {
 		setAsteroidRotate(asteroidRotate + deg[Math.floor(Math.random() * 2)]);
 		setTipCount((prev) => {
 			if (tips.length - 1 === prev) {
+				setCompleted(true);
 				return 0;
 			}
 			return prev + 1;
@@ -70,6 +74,10 @@ export default function AsteroidPage() {
 
 	const closeTip = () => setTipCount(-1);
 
+	if (completed) {
+		return navigate("/earth-destroyer");
+	}
+
 	return (
 		<MainBackground src="bg-dark-sky-img">
 			<EarthDestroyerNavbar />
@@ -77,7 +85,7 @@ export default function AsteroidPage() {
 				<Attributes data={data} title="asteroid" />
 			</div>
 			<div className="w-[330px] absolute left-48 top-[56%] -translate-y-1/2 z-30">
-				<OutsideClickHandler onOutsideClick={closeTip} className="relative">
+				<OutsideClickHandler onOutsideClick={closeTip}>
 					<motion.img
 						onClick={handleAsteroidPos}
 						initial={{ y: 0, rotate: 0 }}
@@ -89,7 +97,14 @@ export default function AsteroidPage() {
 						className="w-full pointer-events-auto cursor-pointer"
 						src={asteroid}
 					/>
-					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
+					{tipCount !== -1 && (
+						<Tip
+							key={tipCount}
+							count={tipCount + 1}
+							total={tips.length}
+							tipInfo={tips[tipCount]}
+						/>
+					)}
 				</OutsideClickHandler>
 			</div>
 			<Prediction

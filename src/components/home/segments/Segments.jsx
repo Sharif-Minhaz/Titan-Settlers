@@ -11,7 +11,7 @@ const segmentCardInfo = [
 		title: "Earth Explore",
 		description: "Alert humans of Earth's danger and save lives through action.",
 		route: "/earth-intro",
-		playable: true,
+		mission: "earth",
 	},
 	{
 		id: "s-2",
@@ -19,7 +19,7 @@ const segmentCardInfo = [
 		title: "Titan Exploration",
 		description: "Set up labs, study Titan and ensure survival for colonization.",
 		route: "/mars-intro",
-		playable: false,
+		mission: "titan",
 	},
 ];
 
@@ -30,7 +30,7 @@ const horizontalCardInfo = {
 	description:
 		"Launch spaceship, save lives by exploring Titan, establish colony, and prevent human extinction with mission completion.",
 	route: "/mission-intro",
-	playable: false,
+	mission: "launch",
 };
 
 export default function Segments() {

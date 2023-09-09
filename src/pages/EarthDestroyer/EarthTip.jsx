@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import tipIcon from "../../assets/icons/tip.svg";
 import pointer from "../../assets/images/pointer.png";
 
-export default function EarthTip({ tipInfo }) {
+export default function EarthTip({ count, total, tipInfo }) {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -15,6 +15,9 @@ export default function EarthTip({ tipInfo }) {
 				<div className="px-4 py-2.5 flex gap-1 text-sky-100 text-xl font-medium tracking-wide font-inter">
 					<img src={tipIcon} alt="tip" />
 					{tipInfo.heading}
+					<span>
+						({count}/{total})
+					</span>
 				</div>
 				<div className="text-zinc-100 px-4 pb-2 text-base font-normal font-poppins">
 					{tipInfo.desc}
@@ -35,4 +38,6 @@ export default function EarthTip({ tipInfo }) {
 EarthTip.propTypes = {
 	tipInfo: PropTypes.object.isRequired,
 	closeEarthTips: PropTypes.func,
+	count: PropTypes.number,
+	total: PropTypes.number,
 };

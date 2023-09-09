@@ -15,9 +15,11 @@ export default {
 			backgroundImage: {
 				"intro-img": "url('/background-images/intro-bg.jpeg')",
 				"home-img": "url('/background-images/home-bg.jpeg')",
-				"earth-into-img": "url('/background-images/earth-intro-bg.jpg')",
+				"earth-intro-img": "url('/background-images/earth-intro-bg.jpg')",
 				"img-404": "url('/background-images/404.jpg')",
 				"dark-sky-img": "url('/background-images/earth-destroyer-bg.webp')",
+				"complete-task-img": "url('/background-images/complete-task.jpeg')",
+				"intro-dark-img": "url('/background-images/intro-dark.jpeg')"
 			},
 		},
 	},

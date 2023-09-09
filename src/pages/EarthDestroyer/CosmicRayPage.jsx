@@ -12,6 +12,7 @@ import Prediction from "../../components/earth-destroyers/Prediction";
 import { useState } from "react";
 import Tip from "./Tip";
 import OutsideClickHandler from "react-outside-click-handler";
+import { useNavigate } from "react-router-dom";
 
 const data = [
 	{ _id: "attr-01", heading: "NATURE", value: "Protons & nuclei" },
@@ -53,10 +54,13 @@ const tips = [
 
 export default function CosmicRayPage() {
 	const [tipCount, setTipCount] = useState(-1);
+	const [completed, setCompleted] = useState(false);
+	const navigate = useNavigate();
 
 	const handleAsteroidPos = () => {
 		setTipCount((prev) => {
 			if (tips.length - 1 === prev) {
+				setCompleted(true);
 				return 0;
 			}
 			return prev + 1;
@@ -66,6 +70,10 @@ export default function CosmicRayPage() {
 	const closeTip = () => {
 		setTipCount(-1);
 	};
+
+	if (completed) {
+		return navigate("/earth-destroyer");
+	}
 
 	return (
 		<MainBackground src="bg-dark-sky-img">
@@ -80,7 +88,14 @@ export default function CosmicRayPage() {
 						className="w-full pointer-events-auto cursor-pointer"
 						src={cosmicRay}
 					/>
-					{tipCount !== -1 && <Tip key={tipCount} tipInfo={tips[tipCount]} />}
+					{tipCount !== -1 && (
+						<Tip
+							key={tipCount}
+							count={tipCount + 1}
+							total={tips.length}
+							tipInfo={tips[tipCount]}
+						/>
+					)}
 				</OutsideClickHandler>
 			</div>
 			<Prediction
