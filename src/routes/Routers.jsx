@@ -1,15 +1,16 @@
 import { AnimatePresence } from "framer-motion";
 import { Route, Routes } from "react-router-dom";
+
 import BlankLayout from "../layout/BlankLayout";
 import MainLayout from "../layout/MainLayout";
 import HomePage from "../pages/HomePage";
 import IntroPage from "../pages/IntroPage";
 import EarthIntroPage from "../pages/EarthIntroPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import AsteroidPage from "../pages/earthDestroyer/AsteroidPage";
-import EarthDestroyerPage from "../pages/earthDestroyer/EarthDestroyerPage";
-import SunPage from "../pages/earthDestroyer/SunPage";
-import CosmicRayPage from "../pages/earthDestroyer/CosmicRayPage";
+import AsteroidPage from "../pages/earthDestroyers/AsteroidPage";
+import EarthDestroyerPage from "../pages/earthDestroyers/EarthDestroyerPage";
+import SunPage from "../pages/earthDestroyers/SunPage";
+import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 
 export default function Routers() {

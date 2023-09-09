@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import prevIcon from "../../assets/icons/prev.svg";
 import PropTypes from "prop-types";
+
+import prevIcon from "../../assets/icons/prev.svg";
 
 export default function EarthDestroyerNavbar({ openModal }) {
 	const navigate = useNavigate();

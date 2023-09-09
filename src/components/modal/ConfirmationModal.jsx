@@ -1,9 +1,10 @@
+import { useContext } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
-import ActionButton from "../buttons/ActionButton";
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
+
+import ActionButton from "../buttons/ActionButton";
 import coins from "../../assets/images/coins.png";
-import { useContext } from "react";
 import { MissionStatusContext } from "../../contexts/MissionStatusContext";
 
 export default function ConfirmationModal({ closeModal, handleCompleteTask }) {

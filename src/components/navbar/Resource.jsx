@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import addImg from "../../assets/icons/add.svg";
 
 export default function Resource({ img, amount }) {

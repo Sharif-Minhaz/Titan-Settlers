@@ -1,13 +1,15 @@
+import { useContext } from "react";
+
+import NavButton from "./NavButton";
+import Resource from "./Resource";
+import { MissionStatusContext } from "../../contexts/MissionStatusContext";
+
 import coinImg from "../../assets/images/coins.png";
 import gemImg from "../../assets/images/gems.png";
 import levelImg from "../../assets/images/level.png";
 import charactersImg from "../../assets/icons/characters.svg";
 import mailImg from "../../assets/icons/mail.svg";
 import settingsImg from "../../assets/icons/settings.svg";
-import NavButton from "./NavButton";
-import Resource from "./Resource";
-import { useContext } from "react";
-import { MissionStatusContext } from "../../contexts/MissionStatusContext";
 
 export default function LevelInfo() {
 	const { coins } = useContext(MissionStatusContext);

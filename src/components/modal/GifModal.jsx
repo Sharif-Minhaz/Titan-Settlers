@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
-import OutsideClickHandler from "react-outside-click-handler";
-import videoPlayer from "../../assets/icons/video-player.svg";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+import OutsideClickHandler from "react-outside-click-handler";
+
+import videoPlayer from "../../assets/icons/video-player.svg";
 
 export default function GifModal({ closeModal, stableImg, gif }) {
 	const [content, setContent] = useState(stableImg);

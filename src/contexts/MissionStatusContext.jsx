@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 import { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 

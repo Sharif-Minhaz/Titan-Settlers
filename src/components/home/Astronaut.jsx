@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import astronautImg from "../../assets/images/home-astro.png";
 
 export default function Astronaut() {

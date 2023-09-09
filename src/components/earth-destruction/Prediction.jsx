@@ -1,8 +1,9 @@
-import PropTypes from "prop-types";
-import playVid from "../../assets/icons/play-vid.svg";
-import { motion } from "framer-motion";
-import Overlay from "../Overlay";
 import { useState } from "react";
+import PropTypes from "prop-types";
+import { motion } from "framer-motion";
+
+import playVid from "../../assets/icons/play-vid.svg";
+import Overlay from "../Overlay";
 import GifModal from "../modal/GifModal";
 
 export default function Prediction({ titleImg, question, gif, stableImg, className }) {

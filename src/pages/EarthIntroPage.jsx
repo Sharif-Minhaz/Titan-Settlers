@@ -1,11 +1,13 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import MainBackground from "../components/MainBackground";
+import ActionButton from './../components/buttons/ActionButton';
+
 import earthImg from "../assets/images/rounding-earth.png";
 import roundingPlanets from "../assets/images/rounding-planets.png";
 import roundingLittlePlanets from "../assets/images/roundinglittle-planets.png";
 import planetRing from "../assets/images/ring.png";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import ActionButton from './../components/buttons/ActionButton';
 
 export default function EarthIntroPage() {
 	return (

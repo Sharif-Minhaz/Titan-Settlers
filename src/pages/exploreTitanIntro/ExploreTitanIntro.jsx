@@ -1,13 +1,15 @@
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
+import MainBackground from "./../../components/MainBackground";
+import ActionButton from "../../components/buttons/ActionButton";
+
 import partialEarth from "../../assets/images/half-earth.png";
 import partialTitan from "../../assets/images/half-titan.png";
 import radarBase from "../../assets/images/radar-component.png";
 import radarArea from "../../assets/images/radar-env.png";
 import radarSignal from "../../assets/images/radar-signal.png";
 import rocket from "../../assets/images/rocket.png";
-import MainBackground from "./../../components/MainBackground";
-import { motion } from "framer-motion";
-import ActionButton from "../../components/buttons/ActionButton";
 
 export default function ExploreTitanIntro() {
 	const navigate = useNavigate();

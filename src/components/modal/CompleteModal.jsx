@@ -1,8 +1,9 @@
-import ActionButton from "../buttons/ActionButton";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
+import ActionButton from "../buttons/ActionButton";
 import congrats from "../../assets/images/congrats.svg";
 import trophy from "../../assets/images/trophy.png";
-import { Link } from "react-router-dom";
 
 export default function CompleteModal() {
 	return (

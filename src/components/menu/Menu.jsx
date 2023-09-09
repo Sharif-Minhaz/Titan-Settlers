@@ -3,6 +3,7 @@ import questIcon from "../../assets/icons/quests.svg";
 import missionIcon from "../../assets/icons/mission.svg";
 import eventsIcon from "../../assets/icons/event.svg";
 import storeIcon from "../../assets/icons/store.svg";
+
 import SingleMenu from "./SingleMenu";
 
 const menuItems = [

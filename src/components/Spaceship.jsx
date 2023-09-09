@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import spaceship from "../assets/images/spaceship.png";
 
 export default function Spaceship() {

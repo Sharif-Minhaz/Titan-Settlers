@@ -3,6 +3,7 @@ import brandImg from "../assets/icons/nasa-spaceship-challenge-Icon.svg";
 import earthImg from "../assets/images/earth.png";
 import astronaut from "../assets/images/astronaut.png";
 import stars from "../assets/icons/stars.svg";
+
 import MainBackground from "../components/MainBackground";
 import Spaceship from "../components/Spaceship";
 import GetStartedSection from "../components/intro/GetStartedSection";

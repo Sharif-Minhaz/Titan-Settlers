@@ -1,6 +1,7 @@
 import earthMissionImg from "../../../assets/images/earth-explore.png";
 import marsMissionImg from "../../../assets/images/titan-exploration.png";
 import launchMissionImg from "../../../assets/images/launch-mission.png";
+
 import SegmentCard from "./SegmentCard";
 import SegmentCardH from "./SegmentCardH";
 

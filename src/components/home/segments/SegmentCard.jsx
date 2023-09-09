@@ -1,10 +1,11 @@
 import styles from "./segment.module.css";
-import playIcon from "../../../assets/icons/play.svg";
-import lockIcon from "../../../assets/icons/locked.svg";
-import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useContext } from "react";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
+
+import playIcon from "../../../assets/icons/play.svg";
+import lockIcon from "../../../assets/icons/locked.svg";
 import { MissionStatusContext } from "../../../contexts/MissionStatusContext";
 
 export default function SegmentCard({ cardInfo }) {

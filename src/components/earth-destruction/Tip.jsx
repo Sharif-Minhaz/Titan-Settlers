@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
+
 import tipIcon from "../../assets/icons/tip.svg";
 import pointer from "../../assets/images/pointer.png";
 

@@ -1,6 +1,7 @@
 import newsIcon from "../../../assets/icons/newspaper.svg";
 import earnIcon from "../../../assets/icons/monetize.svg";
 import calenderIcon from "../../../assets/icons/calendar.svg";
+
 import SideMenuButton from "./SideMenuButton";
 
 const sideMenu = [
