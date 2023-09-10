@@ -31,7 +31,7 @@ export default function ExploreTitanIntro() {
 					src={radarArea}
 					alt=""
 				/>
-				{/* demo */}
+				
 				<motion.img
 					className="absolute w-[300px] m-auto top-1/2 left-0 -translate-y-1/2 -translate-x-1/2"
 					src={radarSignal}

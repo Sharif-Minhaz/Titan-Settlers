@@ -10,6 +10,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import AsteroidPage from "../pages/earthDestroyers/AsteroidPage";
 import EarthDestroyerPage from "../pages/earthDestroyers/EarthDestroyerPage";
 import SunPage from "../pages/earthDestroyers/SunPage";
+import TitanQuizPage from "../pages/exploreTitanIntro/ExploreTitanQuizPage"
 import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 
@@ -27,6 +28,7 @@ export default function Routers() {
 						<Route path="cosmic ray" element={<CosmicRayPage />} />
 					</Route>
 					<Route path="/explore-titan-intro" element={<ExploreTitanIntro />} />
+					<Route path="/titan-quiz" element={<TitanQuizPage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<HomePage />} />

@@ -1,5 +1,5 @@
 import earthMissionImg from "../../../assets/images/earth-explore.png";
-import marsMissionImg from "../../../assets/images/titan-exploration.png";
+import titanMissionImg from "../../../assets/images/titan-exploration.png";
 import launchMissionImg from "../../../assets/images/launch-mission.png";
 
 import SegmentCard from "./SegmentCard";
@@ -16,10 +16,10 @@ const segmentCardInfo = [
 	},
 	{
 		id: "s-2",
-		img: marsMissionImg,
+		img: titanMissionImg,
 		title: "Titan Exploration",
 		description: "Set up labs, study Titan and ensure survival for colonization.",
-		route: "/mars-intro",
+		route: "/titan-quiz",
 		mission: "titan",
 	},
 ];
