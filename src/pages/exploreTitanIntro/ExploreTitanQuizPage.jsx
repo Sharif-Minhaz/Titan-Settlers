@@ -1,6 +1,8 @@
 import useSWR from "swr";
 import { useState, useEffect } from "react";
 
+const MAX_ALLOWED_ITERATION = 150;
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function ExploreTitanQuizPage() {
@@ -13,63 +15,22 @@ export default function ExploreTitanQuizPage() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
 	const [showResult, setShowResult] = useState(false);
-	// 	if (data?.collection?.items) {
-	// 		const shuffledData = [...data.collection.items];
-
-	// 		for (let i = shuffledData.length - 1; i > 0; i--) {
-	// 			const j = Math.floor(Math.random() * (i + 1));
-	// 			[shuffledData[i], shuffledData[j]] = [shuffledData[j], shuffledData[i]];
-	// 		}
-
-	// 		// select 3 random questions
-	// 		const selectedQuestions = shuffledData.slice(0, 3);
-
-	// 		// for each question, randomly select one correct image and three unique incorrect images
-	// 		const quizQuestions = selectedQuestions.map((question) => {
-	// 			const correctIndex = Math.floor(Math.random() * 4);
-
-	// 			const answers = Array.from({ length: 4 }, (_, i) =>
-	// 				i === correctIndex
-	// 					? {
-	// 							isCorrect: true,
-	// 							imageUrl: question.links[0]?.href,
-	// 							title: question.data[0]?.title,
-	// 						}
-	// 					: {
-	// 							isCorrect: false,
-	// 							imageUrl:
-	// 								shuffledData[Math.floor(Math.random() * shuffledData.length)]
-	// 									.links[0]?.href,
-	// 							title: shuffledData[Math.floor(Math.random() * shuffledData.length)]
-	// 								.data[0]?.title,
-	// 						}
-	// 			);
-
-	// 			// Shuffle the answers for each question
-	// 			shuffleArray(answers);
-
-	// 			return {
-	// 				question: question.data[0]?.title,
-	// 				answers: shuffleArray(answers),
-	// 				correctIndex,
-	// 			};
-	// 		});
-
-	// 		setQuestions(quizQuestions);
-	// 	}
-	// }, [data]);
 
 	useEffect(() => {
 		if (!data?.collection?.items) return;
 
 		const shuffledData = shuffleArray([...data.collection.items]);
-		const selectedQuestions = shuffledData.slice(0, 3);
+		const selectedQuestions = shuffledData.slice(0, 6);
 
 		const quizQuestions = selectedQuestions.map((question) => {
-			const answers = Array.from(
-				{ length: 4 },
-				(_, i) => createAnswer(i === 0, question, shuffledData) // Assuming the correct answer is at index 0 before shuffling
-			);
+			let answers = [];
+			const usedTitles = [];
+
+			// selecting 4 options
+			for (let i = 0; i < 4; i++) {
+				let answer = createAnswer(i === 0, question, shuffledData, usedTitles);
+				answers.push(answer);
+			}
 
 			// Shuffle the answers
 			const shuffledAnswers = shuffleArray(answers);
@@ -87,8 +48,10 @@ export default function ExploreTitanQuizPage() {
 		setQuestions(quizQuestions);
 	}, [data]);
 
-	const createAnswer = (isCorrect, question, shuffledData) => {
+	const createAnswer = (isCorrect, question, shuffledData, usedTitles) => {
 		if (isCorrect) {
+			usedTitles.push(question.data[0]?.title);
+
 			return {
 				isCorrect: true,
 				imageUrl: question.links[0]?.href,
@@ -96,7 +59,24 @@ export default function ExploreTitanQuizPage() {
 			};
 		}
 
-		const randomQuestion = shuffledData[Math.floor(Math.random() * shuffledData.length)];
+		let count = 0,
+			index = 0;
+
+		// eslint-disable-next-line no-constant-condition
+		while (true) {
+			count++;
+			index = Math.floor(Math.random() * 100);
+			const title = shuffledData[index].data[0]?.title;
+			if (!usedTitles.includes(title)) {
+				usedTitles.push(title);
+				break;
+			}
+
+			if (count >= MAX_ALLOWED_ITERATION) break;
+		}
+
+		const randomQuestion = shuffledData[index];
+
 		return {
 			isCorrect: false,
 			imageUrl: randomQuestion.links[0]?.href,
@@ -128,17 +108,18 @@ export default function ExploreTitanQuizPage() {
 		return shuffledArray;
 	};
 
+	if (isLoading) return <p>Loading...</p>;
+	if (error) return <p>Error: {error.message}</p>;
+
 	return (
 		<div>
-			{isLoading && <p>Loading...</p>}
-			{error && <p>Error: {error.message}</p>}
 			{questions.length > 0 && (
 				<div>
 					<h1>Matching Quiz</h1>
 					<p>Question {currentQuestionIndex + 1}:</p>
 					<p>
 						Choose &quot;{questions[currentQuestionIndex].question}&quot; image from
-						below
+						below:
 					</p>
 					<div className="flex gap-2">
 						{questions[currentQuestionIndex].answers.map((answer, index) => (
@@ -147,7 +128,7 @@ export default function ExploreTitanQuizPage() {
 								src={answer.imageUrl}
 								alt={answer.title}
 								onClick={() => handleAnswerClick(index)}
-								className={`pointer-events-auto cursor-pointer w-40 h-40 object-cover`}
+								className="pointer-events-auto cursor-pointer w-40 h-40 object-cover"
 							/>
 						))}
 					</div>
