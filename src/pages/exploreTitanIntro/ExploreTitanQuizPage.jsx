@@ -88,7 +88,7 @@ export default function ExploreTitanQuizPage() {
 				<div>
 					<h1>Matching Quiz</h1>
 					<p>Question {currentQuestionIndex + 1}:</p>
-					<p>{questions[currentQuestionIndex].question}</p>
+					<p>Choose &quot;{questions[currentQuestionIndex].question}&quot; image from below</p>
 					<div className="flex gap-2">
 						{questions[currentQuestionIndex].answers.map((answer, index) => (
 							<img
@@ -96,9 +96,7 @@ export default function ExploreTitanQuizPage() {
 								src={answer.imageUrl}
 								alt={answer.title}
 								onClick={() => handleAnswerClick(index)}
-								className={`${
-									selectedAnswer === index ? "selected " : ""
-								} pointer-events-auto cursor-pointer w-40 h-40 object-cover`}
+								className={`pointer-events-auto cursor-pointer w-40 h-40 object-cover`}
 							/>
 						))}
 					</div>
