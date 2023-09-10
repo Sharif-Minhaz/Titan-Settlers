@@ -13,48 +13,96 @@ export default function ExploreTitanQuizPage() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
 	const [showResult, setShowResult] = useState(false);
+	// 	if (data?.collection?.items) {
+	// 		const shuffledData = [...data.collection.items];
+
+	// 		for (let i = shuffledData.length - 1; i > 0; i--) {
+	// 			const j = Math.floor(Math.random() * (i + 1));
+	// 			[shuffledData[i], shuffledData[j]] = [shuffledData[j], shuffledData[i]];
+	// 		}
+
+	// 		// select 3 random questions
+	// 		const selectedQuestions = shuffledData.slice(0, 3);
+
+	// 		// for each question, randomly select one correct image and three unique incorrect images
+	// 		const quizQuestions = selectedQuestions.map((question) => {
+	// 			const correctIndex = Math.floor(Math.random() * 4);
+
+	// 			const answers = Array.from({ length: 4 }, (_, i) =>
+	// 				i === correctIndex
+	// 					? {
+	// 							isCorrect: true,
+	// 							imageUrl: question.links[0]?.href,
+	// 							title: question.data[0]?.title,
+	// 						}
+	// 					: {
+	// 							isCorrect: false,
+	// 							imageUrl:
+	// 								shuffledData[Math.floor(Math.random() * shuffledData.length)]
+	// 									.links[0]?.href,
+	// 							title: shuffledData[Math.floor(Math.random() * shuffledData.length)]
+	// 								.data[0]?.title,
+	// 						}
+	// 			);
+
+	// 			// Shuffle the answers for each question
+	// 			shuffleArray(answers);
+
+	// 			return {
+	// 				question: question.data[0]?.title,
+	// 				answers: shuffleArray(answers),
+	// 				correctIndex,
+	// 			};
+	// 		});
+
+	// 		setQuestions(quizQuestions);
+	// 	}
+	// }, [data]);
 
 	useEffect(() => {
-		if (data?.collection?.items) {
-			const shuffledData = [...data.collection.items];
+		if (!data?.collection?.items) return;
 
-			for (let i = shuffledData.length - 1; i > 0; i--) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[shuffledData[i], shuffledData[j]] = [shuffledData[j], shuffledData[i]];
-			}
+		const shuffledData = shuffleArray([...data.collection.items]);
+		const selectedQuestions = shuffledData.slice(0, 3);
 
-			const selectedQuestions = shuffledData.slice(0, 3);
+		const quizQuestions = selectedQuestions.map((question) => {
+			const answers = Array.from(
+				{ length: 4 },
+				(_, i) => createAnswer(i === 0, question, shuffledData) // Assuming the correct answer is at index 0 before shuffling
+			);
 
-			const quizQuestions = selectedQuestions.map((question) => {
-				const correctIndex = Math.floor(Math.random() * 4);
+			// Shuffle the answers
+			const shuffledAnswers = shuffleArray(answers);
 
-				const answers = Array.from({ length: 4 }, (_, i) =>
-					i === correctIndex
-						? {
-								isCorrect: true,
-								imageUrl: question.links[0]?.href,
-								title: question.data[0]?.title,
-					}
-						: {
-								isCorrect: false,
-								imageUrl:
-									shuffledData[Math.floor(Math.random() * shuffledData.length)]
-										.links[0]?.href,
-								title: shuffledData[Math.floor(Math.random() * shuffledData.length)]
-									.data[0]?.title,
-					}
-				);
+			// Find the correct index after shuffling
+			const correctIndex = shuffledAnswers.findIndex((answer) => answer.isCorrect);
 
-				return {
-					question: question.data[0]?.title,
-					answers: shuffleArray(answers),
-					correctIndex,
-				};
-			});
+			return {
+				question: question.data[0]?.title,
+				answers: shuffledAnswers,
+				correctIndex,
+			};
+		});
 
-			setQuestions(quizQuestions);
-		}
+		setQuestions(quizQuestions);
 	}, [data]);
+
+	const createAnswer = (isCorrect, question, shuffledData) => {
+		if (isCorrect) {
+			return {
+				isCorrect: true,
+				imageUrl: question.links[0]?.href,
+				title: question.data[0]?.title,
+			};
+		}
+
+		const randomQuestion = shuffledData[Math.floor(Math.random() * shuffledData.length)];
+		return {
+			isCorrect: false,
+			imageUrl: randomQuestion.links[0]?.href,
+			title: randomQuestion.data[0]?.title,
+		};
+	};
 
 	const handleAnswerClick = (answerIndex) => {
 		setSelectedAnswer(answerIndex);
@@ -88,7 +136,10 @@ export default function ExploreTitanQuizPage() {
 				<div>
 					<h1>Matching Quiz</h1>
 					<p>Question {currentQuestionIndex + 1}:</p>
-					<p>Choose &quot;{questions[currentQuestionIndex].question}&quot; image from below</p>
+					<p>
+						Choose &quot;{questions[currentQuestionIndex].question}&quot; image from
+						below
+					</p>
 					<div className="flex gap-2">
 						{questions[currentQuestionIndex].answers.map((answer, index) => (
 							<img
