@@ -18,5 +18,5 @@ export default function Resource({ img, amount }) {
 
 Resource.propTypes = {
 	img: PropTypes.string.isRequired,
-	amount: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
 };

@@ -1,24 +1,18 @@
 import useSWR from "swr";
 import { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import Loading from "../../components/loading/Loading";
 import MainBackground from "../../components/MainBackground";
 import Navbar from "../../components/navbar/Navbar";
-import ActionButton from "../../components/buttons/ActionButton";
-import ideaImg from "../../assets/images/idea.png";
-// import achievement from "../../assets/images/coin-achievement.svg";
-import coin from "../../assets/images/coins.png";
-import questionBaseImg from "../../assets/images/question-base.png";
-import matching from "../../assets/images/matching.svg";
-import quiz from "../../assets/images/quiz.svg";
 import Overlay from "./../../components/Overlay";
 import QuizHintModal from "../../components/modal/QuizHintModal";
 import { shuffleArray } from "../../utils/shuffleArray";
-import correct from "../../assets/images/correct.svg";
-import wrong from "../../assets/images/wrong.svg";
-import sadEmoji from "../../assets/images/sad-emoji.png";
-import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
+import sadEmoji from "../../assets/images/sad-emoji.png";
+import QuizQuestion from "../../components/titan-quiz/QuizQuestion";
+import Reward from "../../components/titan-quiz/Reward";
+import QuizAction from "./../../components/titan-quiz/QuizAction";
+import QuizAnswerModal from "../../components/modal/QuizAnswerModal";
+import Option from "../../components/titan-quiz/Option";
 
 const MAX_ALLOWED_ITERATION = 150;
 
@@ -36,6 +30,7 @@ export default function ExploreTitanQuizPage() {
 	const [showResult, setShowResult] = useState(false);
 	const [imageClicked, setImageClicked] = useState(false);
 	const [modalOpen, setModalOpen] = useState(true);
+	const [correctAnsModalOpen, setCorrectAnsModalOpen] = useState(false);
 
 	useEffect(() => {
 		document.querySelector("main").style.overflowY = "auto";
@@ -46,7 +41,7 @@ export default function ExploreTitanQuizPage() {
 		const selectedQuestions = shuffledData.slice(0, 6);
 
 		const quizQuestions = selectedQuestions.map((question) => {
-			let answers = [];
+			const answers = [];
 			const usedTitles = [];
 
 			// selecting 4 options
@@ -116,6 +111,24 @@ export default function ExploreTitanQuizPage() {
 		setImageClicked(true);
 		setSelectedAnswer(answerIndex);
 		setShowResult(true);
+		// generate message according to answer
+		handleAnswer(answerIndex);
+	};
+
+	const handleAnswer = (answerIndex) => {
+		answerIndex === questions[currentQuestionIndex].correctIndex
+			? handleOpenAnsModal()
+			: toast.error(
+					() => (
+						<p className="flex items-center gap-1.5">
+							<img className="w-6 h-6" src={sadEmoji} alt="😥" />
+							Oops, not quite! Try another!
+						</p>
+					),
+					{
+						position: "top-right",
+					}
+			  );
 	};
 
 	const nextQuestion = () => {
@@ -134,6 +147,14 @@ export default function ExploreTitanQuizPage() {
 		setModalOpen(false);
 	};
 
+	const handleOpenAnsModal = () => {
+		setCorrectAnsModalOpen(true);
+	};
+
+	const handleCloseAnsModal = () => {
+		setCorrectAnsModalOpen(false);
+	};
+
 	if (isLoading) return <Loading />;
 	if (error) return <p>Error: {error.message}</p>;
 
@@ -143,7 +164,11 @@ export default function ExploreTitanQuizPage() {
 				<section className="fixed z-10 top-0 w-full flex flex-col justify-center border-b border-blue-300 bg-stars-img">
 					<Navbar />
 					<div className="flex justify-center gap-20 w-full py-5">
-						<QuizAction nextQuestion={nextQuestion} imageClicked={imageClicked} />
+						<QuizAction
+							currentQuestionIndex={currentQuestionIndex}
+							nextQuestion={nextQuestion}
+							imageClicked={imageClicked}
+						/>
 						<QuizQuestion
 							questions={questions}
 							currentQuestionIndex={currentQuestionIndex}
@@ -157,37 +182,17 @@ export default function ExploreTitanQuizPage() {
 					<Reward />
 					<div className="grid grid-cols-4 gap-6 px-[70px] py-4">
 						{questions[currentQuestionIndex]?.answers?.map((answer, index) => (
-							<div
-								key={answer?.nasa_id || index}
-								className={`${
-									imageClicked ? "cursor-not-allowed" : null
-								} relative bg-neutral-950 border overflow-hidden group border-cyan-300`}
-							>
-								<img
-									src={answer.imageUrl}
-									alt={answer.title}
-									onClick={() => handleAnswerClick(index)}
-									className={`${
-										imageClicked
-											? "pointer-events-none"
-											: "pointer-events-auto group-hover:scale-110"
-									} transition-all h-60 w-full cursor-pointer object-cover`}
-								/>
-								{showResult &&
-									(index === selectedAnswer ? (
-										selectedAnswer ===
-										questions[currentQuestionIndex].correctIndex ? (
-											<ResultIndicatorImg src={correct} />
-										) : (
-											<>
-												<ResultIndicatorImg src={wrong} />
-												{genWrongMessage()}
-											</>
-										)
-									) : index === questions[currentQuestionIndex].correctIndex ? (
-										<ResultIndicatorImg src={correct} />
-									) : null)}
-							</div>
+							<Option
+								key={index}
+								imageClicked={imageClicked}
+								answer={answer}
+								index={index}
+								handleAnswerClick={handleAnswerClick}
+								showResult={showResult}
+								selectedAnswer={selectedAnswer}
+								questions={questions}
+								currentQuestionIndex={currentQuestionIndex}
+							/>
 						))}
 					</div>
 				</section>
@@ -197,91 +202,14 @@ export default function ExploreTitanQuizPage() {
 					<QuizHintModal closeModal={handleCloseModal} />
 				</Overlay>
 			)}
+			{correctAnsModalOpen && (
+				<Overlay>
+					<QuizAnswerModal
+						correctImgInfo={questions[currentQuestionIndex].answers[selectedAnswer]}
+						handleCloseAnsModal={handleCloseAnsModal}
+					/>
+				</Overlay>
+			)}
 		</MainBackground>
 	);
 }
-
-function QuizAction({ nextQuestion, imageClicked }) {
-	return (
-		<div className="flex items-center gap-3">
-			<img className="h-[160px]" src={ideaImg} alt="idea" />
-			<div>
-				<img className="h-8" src={matching} alt="matching" />
-				<img className="h-7 mb-2" src={quiz} alt="quiz" />
-				<ActionButton
-					text="NEXT"
-					rounded="rounded-0"
-					textSize="text-[12px] font-bold"
-					width="w-16"
-					height="h-8"
-					disabled={!imageClicked}
-					onClick={nextQuestion}
-				/>
-			</div>
-		</div>
-	);
-}
-
-QuizAction.propTypes = {
-	nextQuestion: PropTypes.func,
-	imageClicked: PropTypes.bool,
-};
-
-function QuizQuestion({ questions, currentQuestionIndex }) {
-	return (
-		<div className="flex gap-3 items-center">
-			<div className="relative">
-				<img className="h-[120px] w-[600px]" src={questionBaseImg} alt="question" />
-				<p className="text-blue-100 text-2xl leading-snug font-normal absolute font-itim top-1/2 left-[88px] -translate-y-[75%]">
-					Identify the &quot;{questions[currentQuestionIndex]?.question}&quot;
-				</p>
-			</div>
-		</div>
-	);
-}
-
-function genWrongMessage() {
-	toast.error(
-		() => (
-			<p className="flex items-center gap-1.5">
-				<img className="w-6 h-6" src={sadEmoji} alt="😥" />
-				Oops, not quite! Try another!
-			</p>
-		),
-		{ position: "top-right" }
-	);
-}
-
-QuizQuestion.propTypes = {
-	questions: PropTypes.array,
-	currentQuestionIndex: PropTypes.number,
-};
-
-function Reward() {
-	return (
-		<p className="text-center flex justify-center pt-5 pb-4 gap-1.5">
-			<span className="text-white text-xl font-normal uppercase font-itim">
-				Choose the Correct Image and get
-			</span>
-			<span className="text-amber-200 items-center text-xl font-normal uppercase flex gap-1">
-				<img src={coin} className="w-5 h-6" alt="" /> 200
-			</span>
-		</p>
-	);
-}
-
-function ResultIndicatorImg({ src }) {
-	return (
-		<motion.img
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 0.7 }}
-			className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-			src={src}
-		/>
-	);
-}
-
-ResultIndicatorImg.propTypes = {
-	src: PropTypes.string,
-};

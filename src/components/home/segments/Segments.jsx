@@ -27,10 +27,10 @@ const segmentCardInfo = [
 const horizontalCardInfo = {
 	id: "s-3",
 	img: launchMissionImg,
-	title: "Earth Explore",
+	title: "Launch Mission",
 	description:
 		"Launch spaceship, save lives by exploring Titan, establish colony, and prevent human extinction with mission completion.",
-	route: "/mission-intro",
+	route: "/launch-mission",
 	mission: "launch",
 };
 

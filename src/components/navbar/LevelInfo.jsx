@@ -17,7 +17,7 @@ export default function LevelInfo() {
 	return (
 		<div className="flex gap-7">
 			<Resource img={coinImg} amount={coins} />
-			<Resource img={gemImg} amount="100" />
+			<Resource img={gemImg} amount={100} />
 			<div className="cursor-pointer">
 				<img src={levelImg} alt="level" />
 			</div>
