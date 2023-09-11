@@ -8,6 +8,7 @@ export default {
 				goldman: "'Goldman', cursive",
 				poppins: "'Poppins', sans-serif",
 				roboto: "'Roboto', sans-serif",
+				itim: "'Itim', cursive",
 			},
 			backgroundPosition: {
 				"center-bottom": "center bottom",
@@ -19,7 +20,9 @@ export default {
 				"img-404": "url('/background-images/404.jpg')",
 				"dark-sky-img": "url('/background-images/earth-destroyer-bg.webp')",
 				"complete-task-img": "url('/background-images/complete-task.jpeg')",
-				"intro-dark-img": "url('/background-images/intro-dark.jpeg')"
+				"intro-dark-img": "url('/background-images/intro-dark.jpeg')",
+				"stars-img": "url('/background-images/stars.jpeg')",
+				"dark-space-img": "url('/background-images/dark-space.png')",
 			},
 		},
 	},

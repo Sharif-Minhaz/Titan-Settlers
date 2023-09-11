@@ -1,6 +1,42 @@
-html, body {
+body {
     user-select: none;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* -----------------scrollbar------------------ */
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(172, 165, 235);
+    height: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(89, 197, 252);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #a8aed6;
+}
+
+::selection {
+    background-color: #9d73ff;
+    color: white;
+}
+
+img,
+svg {
+    pointer-events: none;
+    user-select: none;
 }
 
 img, svg {
@@ -11,3 +47,4 @@ img, svg {
 .active #menu {
     border: 3px solid #9AD5FFE5 !important;
 }
+

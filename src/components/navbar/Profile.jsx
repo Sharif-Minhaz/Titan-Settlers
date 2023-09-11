@@ -1,10 +1,18 @@
 import profile from "../../assets/images/profile.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
+	const navigate = useNavigate();
+
 	return (
 		<div className="flex gap-3 items-center py-2">
 			<div>
-				<img src={profile} alt="profile" />
+				<img
+					className="pointer-events-auto cursor-pointer"
+					onClick={() => navigate("/function")}
+					src={profile}
+					alt="profile"
+				/>
 			</div>
 			<div className="flex flex-col">
 				<span className="font-inter text-justify text-white text-xl font-medium tracking-wide">
