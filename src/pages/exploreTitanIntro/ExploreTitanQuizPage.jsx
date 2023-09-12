@@ -13,6 +13,7 @@ import Reward from "../../components/titan-quiz/Reward";
 import QuizAction from "./../../components/titan-quiz/QuizAction";
 import QuizAnswerModal from "../../components/modal/QuizAnswerModal";
 import Option from "../../components/titan-quiz/Option";
+import ChatContainer from './../../components/chat/ChatContainer';
 
 const MAX_ALLOWED_ITERATION = 150;
 
@@ -210,6 +211,7 @@ export default function ExploreTitanQuizPage() {
 					/>
 				</Overlay>
 			)}
+			<ChatContainer />
 		</MainBackground>
 	);
 }

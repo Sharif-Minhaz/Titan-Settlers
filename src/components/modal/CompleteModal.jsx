@@ -30,5 +30,5 @@ export default function CompleteModal() {
 }
 
 CompleteModal.propTypes = {
-	closeModal: PropTypes.func.isRequired,
+	closeModal: PropTypes.func,
 };

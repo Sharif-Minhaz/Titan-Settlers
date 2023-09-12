@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+// import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const MissionStatusContext = createContext();
 
 export const MissionStatusContextProvider = ({ children }) => {
 	const { state } = useLocation();
 	const [missions, setMissions] = useState({ earth: true, titan: false, launch: false });
-	const [coins, setCoins] = useState(0)
+	const [coins, setCoins] = useState(0);
 
 	useEffect(() => {
 		setMissions((prev) => ({ ...prev, ...state?.missions }));

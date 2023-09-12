@@ -31,7 +31,10 @@ export default function SegmentCardH({ cardInfo }) {
 					{cardInfo.description}
 				</p>
 				<div className="flex justify-between items-center">
-					<span className="text-justify font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 to-cyan-500 text-xl tracking-wide italic">
+					<span
+						onClick={() => navigate(cardInfo.route)}
+						className="text-justify cursor-pointer font-bold text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 to-cyan-500 text-xl tracking-wide italic"
+					>
 						Play Now
 					</span>
 					<div className="cursor-pointer">
