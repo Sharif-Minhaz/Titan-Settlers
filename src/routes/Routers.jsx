@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import BlankLayout from "../layout/BlankLayout";
 import MainLayout from "../layout/MainLayout";
@@ -10,9 +10,10 @@ import NotFoundPage from "../pages/NotFoundPage";
 import AsteroidPage from "../pages/earthDestroyers/AsteroidPage";
 import EarthDestroyerPage from "../pages/earthDestroyers/EarthDestroyerPage";
 import SunPage from "../pages/earthDestroyers/SunPage";
-import TitanQuizPage from "../pages/exploreTitanIntro/ExploreTitanQuizPage"
+import TitanQuizPage from "../pages/exploreTitanIntro/ExploreTitanQuizPage";
 import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
+import MissionsPage from "../pages/missions/MissionsPage";
 
 export default function Routers() {
 	return (
@@ -30,8 +31,10 @@ export default function Routers() {
 					<Route path="/explore-titan-intro" element={<ExploreTitanIntro />} />
 					<Route path="/titan-quiz" element={<TitanQuizPage />} />
 				</Route>
-				<Route path="/function" element={<MainLayout />}>
-					<Route index element={<HomePage />} />
+				<Route path="/function/" element={<MainLayout />}>
+					<Route index element={<Navigate to="/function/home" />} />
+					<Route path="home" element={<HomePage />} />
+					<Route path="missions" element={<MissionsPage />} />
 				</Route>
 				<Route path="*" element={<NotFoundPage />} />
 			</Routes>

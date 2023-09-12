@@ -14,7 +14,7 @@ export default function QuizAction({ currentQuestionIndex, nextQuestion, imageCl
 			position: "top-right",
 		});
 
-		navigate("/function", {
+		navigate("/function/missions", {
 			state: { missions: { launch: true } },
 			replace: true,
 		});

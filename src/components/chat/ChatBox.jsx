@@ -51,7 +51,6 @@ export default function ChatBox({ closeChat }) {
 							className="w-[100%] p-4 text-black focus:border-none focus:outline-none rounded-b-lg"
 						/>
 					</form>
-					{/* <Spinner /> */}
 				</div>
 			</div>
 		</div>
