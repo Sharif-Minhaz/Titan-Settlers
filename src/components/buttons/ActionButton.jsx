@@ -14,13 +14,14 @@ export default function ActionButton({
 	locked,
 	textSize,
 	rounded = "rounded-3xl",
+	className,
 	bg = "from-cyan-300 border-sky-300 via-sky-500 to-sky-600 hover:from-sky-600 hover:to-cyan-300",
 }) {
 	return (
 		<button
 			disabled={disabled}
 			onClick={onClick}
-			className={`${height} ${width} ${bg} ${textSize} ${rounded} inline-flex items-center justify-center mt-2 bg-gradient-to-b text-white transition-colors active:scale-95 shadow-inner border ${disabledStyle}`}
+			className={`${height} ${width} ${bg} ${textSize} ${rounded} ${className} inline-flex items-center justify-center mt-2 bg-gradient-to-b text-white transition-colors active:scale-95 shadow-inner border ${disabledStyle}`}
 		>
 			{typeof locked !== "undefined" &&
 				(locked ? (
@@ -37,6 +38,7 @@ ActionButton.propTypes = {
 	text: PropTypes.string.isRequired,
 	bg: PropTypes.string,
 	onClick: PropTypes.func,
+	className: PropTypes.string,
 	height: PropTypes.string,
 	width: PropTypes.string,
 	rounded: PropTypes.string,

@@ -24,7 +24,9 @@ export default {
 				"stars-img": "url('/background-images/stars.jpeg')",
 				"dark-space-img": "url('/background-images/dark-space.png')",
 				"titan-loading-img": "url('/background-images/titan-loading.png')",
-				"earth-base-img": "url('/background-images/spaceship-base.jpeg')"
+				"earth-base-img": "url('/background-images/spaceship-base.jpeg')",
+				"leaving-earth-img": "url('/background-images/leaving-earth.jpeg')",
+				"titan-surface-img": "url('/background-images/titan-surface.jpeg')",
 			},
 		},
 	},

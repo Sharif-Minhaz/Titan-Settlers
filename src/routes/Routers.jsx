@@ -16,6 +16,8 @@ import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 import MissionsPage from "../pages/missions/MissionsPage";
 import EarthMissionPage from "../pages/missions/EarthMissionPage";
 import EarthSpaceshipPage from "../pages/missions/EarthSpaceshipPage";
+import LaunchVideoPage from "../pages/missions/LaunchVideoPage";
+import TitanSurfacePage from "../pages/missions/TitanSurfacePage";
 
 export default function Routers() {
 	return (
@@ -34,6 +36,8 @@ export default function Routers() {
 					<Route path="/titan-quiz" element={<TitanQuizPage />} />
 					<Route path="/launch-mission-earth" element={<EarthMissionPage />} />
 					<Route path="/earth-spaceship-base" element={<EarthSpaceshipPage />} />
+					<Route path="/launch-video" element={<LaunchVideoPage />} />
+					<Route path="/titan-surface" element={<TitanSurfacePage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />
