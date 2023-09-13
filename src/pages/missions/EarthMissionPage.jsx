@@ -44,7 +44,7 @@ export default function EarthMissionPage() {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const gotoEarth = () => navigate("/earth");
+	const gotoEarth = () => navigate("/earth-spaceship-base");
 
 	return (
 		<>

@@ -15,6 +15,7 @@ import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 import MissionsPage from "../pages/missions/MissionsPage";
 import EarthMissionPage from "../pages/missions/EarthMissionPage";
+import EarthSpaceshipPage from "../pages/missions/EarthSpaceshipPage";
 
 export default function Routers() {
 	return (
@@ -32,8 +33,9 @@ export default function Routers() {
 					<Route path="/explore-titan-intro" element={<ExploreTitanIntro />} />
 					<Route path="/titan-quiz" element={<TitanQuizPage />} />
 					<Route path="/launch-mission-earth" element={<EarthMissionPage />} />
+					<Route path="/earth-spaceship-base" element={<EarthSpaceshipPage />} />
 				</Route>
-				<Route path="/function/" element={<MainLayout />}>
+				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />
 					<Route path="home" element={<HomePage />} />
 					<Route path="missions" element={<MissionsPage />} />
