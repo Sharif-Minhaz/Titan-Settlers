@@ -16,7 +16,7 @@ const missionsInfo = [
 		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
 		img: roverExp,
 		coins: 3000,
-		navigationRoute: "/titan",
+		navigationRoute: "/launch-mission-earth",
 		missionTitle: "MISSION 1",
 		locked: false,
 	},

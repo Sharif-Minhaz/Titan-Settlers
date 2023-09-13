@@ -23,6 +23,7 @@ export default {
 				"intro-dark-img": "url('/background-images/intro-dark.jpeg')",
 				"stars-img": "url('/background-images/stars.jpeg')",
 				"dark-space-img": "url('/background-images/dark-space.png')",
+				"titan-loading-img": "url('/background-images/titan-loading.png')",
 			},
 		},
 	},
