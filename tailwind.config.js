@@ -27,6 +27,7 @@ export default {
 				"earth-base-img": "url('/background-images/spaceship-base.jpeg')",
 				"leaving-earth-img": "url('/background-images/leaving-earth.jpeg')",
 				"titan-surface-img": "url('/background-images/titan-surface.jpeg')",
+				"titan-sky-img": "url('/background-images/titan-sky.jpeg')",
 			},
 		},
 	},
