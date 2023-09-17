@@ -13,7 +13,10 @@ import Reward from "../../components/titan-quiz/Reward";
 import QuizAction from "./../../components/titan-quiz/QuizAction";
 import QuizAnswerModal from "../../components/modal/QuizAnswerModal";
 import Option from "../../components/titan-quiz/Option";
-import ChatContainer from './../../components/chat/ChatContainer';
+import ChatContainer from "./../../components/chat/ChatContainer";
+import { useAudio } from "../../hooks/useAudio";
+import quizAudio from "../../assets/audios/many-moons-of-saturn-146147.mp3";
+import AudioModal from "../../components/modal/AudioModal";
 
 const MAX_ALLOWED_ITERATION = 150;
 
@@ -25,6 +28,7 @@ export default function ExploreTitanQuizPage() {
 		fetcher
 	);
 
+	const { play, stop } = useAudio(quizAudio, { loop: true });
 	const [questions, setQuestions] = useState([]);
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -212,6 +216,7 @@ export default function ExploreTitanQuizPage() {
 				</Overlay>
 			)}
 			<ChatContainer />
+			<AudioModal audioPlay={play} audioStop={stop} openModal={true} />
 		</MainBackground>
 	);
 }

@@ -7,7 +7,7 @@ export default function EarthDestroyerNavbar({ openModal }) {
 	const navigate = useNavigate();
 
 	return (
-		<nav className="px-10 pt-8 fixed top-0">
+		<nav className="px-16 pt-8 fixed top-0">
 			{openModal ? (
 				<img
 					onClick={openModal}

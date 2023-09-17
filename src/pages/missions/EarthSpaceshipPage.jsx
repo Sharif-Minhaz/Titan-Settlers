@@ -21,25 +21,23 @@ const data = [
 		_id: "d-1",
 		heading: "Space debris",
 		desc: "Residual fragments endanger space arks. NASA recommends active removal tech like nets and robotic arms to ensure safe cosmic journeys.",
-		link: "http://something.com",
+		link: "https://www.nasa.gov/pdf/503466main_space_tech_grand_challenges_12_02_10.pdf",
 	},
 	{
 		_id: "d-2",
 		heading: "Defending",
 		desc: "Asteroids and comets pose collision threats to space arks. NASA's approach combines detection and deflection.",
-		link: "http://something.com",
+		link: "https://www.nasa.gov/mission_pages/station/news/orbital_debris.html",
 	},
 	{
 		_id: "d-3",
 		heading: "Active Debris Removal",
 		desc: "NASA strongly recommends adopting active debris removal technologies to address this threat. Active debris removal involves actively capturing and eliminating space debris from Earth's orbit.",
-		link: "http://something.com",
 	},
 	{
 		_id: "d-4",
 		heading: "Preservation and Security",
 		desc: "Implementation of active debris removal measures ensures the preservation of the space ark.Removing space debris reduces the risk of collisions and potential damage during the ark's voyage.",
-		link: "http://something.com",
 	},
 ];
 

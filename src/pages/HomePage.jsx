@@ -2,8 +2,13 @@ import MainBackground from "../components/MainBackground";
 import Astronaut from "../components/home/Astronaut";
 import Segments from "../components/home/segments/Segments";
 import SideMenu from "../components/home/sidemenu/SideMenu";
+import homeSong from "../assets/audios/rings-of-saturn-162784.mp3";
+import AudioModal from "../components/modal/AudioModal";
+import { useAudio } from "../hooks/useAudio";
 
 export default function HomePage() {
+	const { play, stop } = useAudio(homeSong, { loop: true });
+
 	return (
 		<MainBackground src="bg-home-img">
 			<div className="flex h-full justify-between items-center px-[70px] py-2">
@@ -15,6 +20,7 @@ export default function HomePage() {
 					<Segments />
 				</div>
 			</div>
+			<AudioModal audioPlay={play} audioStop={stop} />
 		</MainBackground>
 	);
 }

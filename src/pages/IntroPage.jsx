@@ -3,12 +3,17 @@ import brandImg from "../assets/icons/nasa-spaceship-challenge-Icon.svg";
 import earthImg from "../assets/images/earth.png";
 import astronaut from "../assets/images/astronaut.png";
 import stars from "../assets/icons/stars.svg";
+import introSong from "../assets/audios/universe-space-161447.mp3";
+import AudioModal from "../components/modal/AudioModal";
 
 import MainBackground from "../components/MainBackground";
 import Spaceship from "../components/Spaceship";
 import GetStartedSection from "../components/intro/GetStartedSection";
+import { useAudio } from "../hooks/useAudio";
 
 export default function IntroPage() {
+	const { play, stop } = useAudio(introSong, { loop: true });
+
 	return (
 		<MainBackground src="bg-intro-img" enableScaling={true}>
 			<nav className="flex justify-between items-center px-[70px] py-2">
@@ -20,6 +25,7 @@ export default function IntroPage() {
 			<img className="right-20 top-24 absolute" src={earthImg} alt="earth" />
 			<img src={astronaut} className="absolute right-0 bottom-0 w-[22%]" alt="astronaut" />
 			<GetStartedSection />
+			<AudioModal audioPlay={play} audioStop={stop} openModal={true} />
 		</MainBackground>
 	);
 }
