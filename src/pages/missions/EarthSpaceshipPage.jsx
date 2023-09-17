@@ -19,6 +19,7 @@ import ActionButton from "./../../components/buttons/ActionButton";
 
 import commentary from "../../assets/audios/initial-commentary.mp3";
 import launch from "../../assets/audios/launch.mp3";
+import joinUs from "../../assets/audios/join-us.wav";
 import spaceDebris from "../../assets/audios/residual-fragment.wav";
 import defending from "../../assets/audios/asteroids.wav";
 import preservation from "../../assets/audios/implementation.wav";
@@ -64,15 +65,7 @@ const pointerPositions = [
 	"rotate-[3deg] w-[865px] left-[377px] top-[180px]",
 ];
 
-const voiceOvers = [
-	preservation,
-	spaceDebris,
-	defending,
-	activeDebris,
-	preservation,
-	commentary,
-	launch,
-];
+const voiceOvers = [joinUs, spaceDebris, defending, activeDebris, preservation, commentary, launch];
 
 export default function EarthSpaceshipPage() {
 	const [activeIndex, setActiveIndex] = useState([]);
