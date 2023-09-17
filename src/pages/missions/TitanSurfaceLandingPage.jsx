@@ -1,26 +1,34 @@
 import MainBackground from "../../components/MainBackground";
 import descentStage from "../../assets/images/descent-stage.png";
+import challenge from "../../assets/images/challenge.png";
+import frameT from "../../assets/images/frame-top.png";
+import frameB from "../../assets/images/frame-bottom.png";
 import { motion } from "framer-motion";
+import ActionButton from "./../../components/buttons/ActionButton";
+import { Link } from "react-router-dom";
 
 export default function TitanSurfaceLandingPage() {
 	return (
 		<MainBackground src="bg-titan-sky-img">
 			<div className="grid grid-cols-2 place-items-center h-screen">
-				<div className="w-[470px] bg-black bg-opacity-60 p-4">
-					<h1 className="text-red-100 text-3xl font-semibold font-inter uppercase tracking-wider mt-3 mb-7 text-center">
-						TASK
+				<div className="relative w-[470px] h-[320px] bg-black bg-opacity-60 p-4 flex flex-col justify-center items-center gap-3">
+					<h1 className="text-orange-200 flex items-center gap-2 justify-center text-2xl font-semibold font-inter uppercase tracking-wider">
+						<img src={challenge} alt="challenge" />
+						<span>Challenges</span>
 					</h1>
-					<ul className="list-inside list-disc flex flex-col gap-6 px-4 pb-4">
-						<li className="text-red-100 text-[18px] font-normal font-poppins">
+					<ul className="list-inside list-disc flex flex-col gap-6 px-4 mt-4 pb-4">
+						<li className="text-red-100 text-[18px] font-normal font-poppins text-center">
 							Phase 1: &quot;Open Parachute on Titan landing, navigate the thick
 							atmosphere, and earn 500 coins for your precision and skill.&quot;
 						</li>
-						<li className="text-red-100 text-[18px] font-normal font-poppins">
-							Phase 2: &quot;Establish a laboratory and RTG on Titan, generating
-							electricity, and earn 500 coins as you pioneer scientific
-							discovery.&quot;
-						</li>
 					</ul>
+					<div className="text-center">
+						<Link to="/showdown-stage">
+							<ActionButton text="Start" />
+						</Link>
+					</div>
+					<img className="absolute -left-2 -top-2" src={frameT} alt="" />
+					<img className="absolute -right-2 -bottom-2" src={frameB} alt="" />
 				</div>
 
 				<div className="relative flex flex-col items-center justify-center">
