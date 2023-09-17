@@ -30,8 +30,9 @@ export default function AudioModal({ openModal = false, audioPlay, audioStop }) 
 					{open && (
 						<a
 							className="underline text-blue-200 text-sm"
-							target="_black"
-							href="https://developer.chrome.com/blog/autoplay/#web-audio"
+							target="_blank"
+							rel="noreferrer"
+							href="https://developer.chrome.com/blog/autoplay/#webaudio"
 						>
 							Learn more
 						</a>

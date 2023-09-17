@@ -1,4 +1,8 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { motion, useAnimationControls } from "framer-motion";
+
 import MainBackground from "../../components/MainBackground";
 import mainTowerImg from "../../assets/images/tower.png";
 import leftTowerImg from "../../assets/images/station-tower-l.png";
@@ -10,11 +14,16 @@ import flames from "../../assets/images/rocket-flame.png";
 import lSmoke from "../../assets/images/smoke-l.png";
 import mSmoke from "../../assets/images/smoke-m.png";
 import rSmoke from "../../assets/images/smoke-r.png";
-import { Fragment, useState } from "react";
 import Tip from "../../components/earth-destruction/Tip";
-import { motion, useAnimationControls } from "framer-motion";
 import ActionButton from "./../../components/buttons/ActionButton";
-import { Link } from "react-router-dom";
+
+import commentary from "../../assets/audios/initial-commentary.mp3";
+import launch from "../../assets/audios/launch.mp3";
+import spaceDebris from "../../assets/audios/residual-fragment.wav";
+import defending from "../../assets/audios/asteroids.wav";
+import preservation from "../../assets/audios/implementation.wav";
+import activeDebris from "../../assets/audios/nasa.wav";
+import { useAudio } from "../../hooks/useAudio";
 
 const data = [
 	{
@@ -37,28 +46,46 @@ const data = [
 	{
 		_id: "d-4",
 		heading: "Preservation and Security",
-		desc: "Implementation of active debris removal measures ensures the preservation of the space ark.Removing space debris reduces the risk of collisions and potential damage during the ark's voyage.",
+		desc: "Implementation of active debris removal measures ensures the preservation of the space ark. Removing space debris reduces the risk of collisions and potential damage during the ark's voyage.",
 	},
 ];
 
 const positions = [
 	"bottom-[410px] right-10 w-[350px]",
 	"bottom-[440px] right-[420px] w-[355px]",
-	"bottom-[340px] right-[810px] w-[380px]",
+	"bottom-[330px] right-[810px] w-[380px]",
 	"bottom-20 right-[900px] w-[380px]",
 ];
 
 const pointerPositions = [
 	"rotate-[67deg] w-[345px] left-20 top-[348px]",
 	"rotate-[34.5deg] w-[665px] left-[120px] top-[355px]",
-	"rotate-[22deg] w-[800px] left-[348px] top-[340px]",
-	"rotate-[4deg] w-[800px] left-[380px] top-[210px]",
+	"rotate-[18deg] w-[879px] left-[290px] top-[314px]",
+	"rotate-[3deg] w-[865px] left-[377px] top-[180px]",
+];
+
+const voiceOvers = [
+	preservation,
+	spaceDebris,
+	defending,
+	activeDebris,
+	preservation,
+	commentary,
+	launch,
 ];
 
 export default function EarthSpaceshipPage() {
 	const [activeIndex, setActiveIndex] = useState([]);
 	const [count, setCount] = useState(0);
+	const [voice, setVoice] = useState(0);
 	const [hiddenOverlay, setHiddenOverlay] = useState(1);
+
+	// voice overs
+	const { play } = useAudio(voiceOvers[voice], { interrupt: true });
+
+	useEffect(() => {
+		play();
+	}, [voice, play]);
 
 	// controls system of animation
 	const controlsRocket = useAnimationControls();
@@ -77,6 +104,7 @@ export default function EarthSpaceshipPage() {
 
 	const activeTooltips = () => {
 		setActiveIndex([...activeIndex, count]);
+		setVoice(voice + 1);
 		if (count === 5) {
 			startAnimation();
 			return setHiddenOverlay(0);
