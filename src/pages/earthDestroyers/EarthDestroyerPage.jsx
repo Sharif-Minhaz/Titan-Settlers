@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useAudio } from "../../hooks/useAudio";
@@ -25,6 +25,10 @@ export default function EarthDestroyerPage() {
 
 	const images = ["asteroid", "cosmic ray", "sun"];
 	const [selectedIndex, setSelectedIndex] = useState(0);
+
+	useEffect(() => {
+		play();
+	}, [play]);
 
 	const getImageSrc = (imgName) => {
 		switch (imgName) {
@@ -143,7 +147,12 @@ export default function EarthDestroyerPage() {
 						</div>
 					</div>
 				</div>
-				<AudioModal audioPlay={play} audioStop={stop} openModal={false} />
+				<AudioModal
+					audioPlay={play}
+					audioStop={stop}
+					openModal={false}
+					initialPlay={true}
+				/>
 			</MainBackground>
 			{isOpenConfirmationModal && (
 				<Overlay>

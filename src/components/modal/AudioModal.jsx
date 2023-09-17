@@ -4,14 +4,19 @@ import silent from "../../assets/images/silent.png";
 import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
-export default function AudioModal({ openModal = false, audioPlay, audioStop }) {
-	const [play, setPlay] = useState(false);
+export default function AudioModal({
+	initialPlay = false,
+	openModal = false,
+	audioPlay,
+	audioStop,
+}) {
+	const [play, setPlay] = useState(initialPlay);
 	const [open, setOpen] = useState(openModal);
 
 	const openDetailsModal = () => setOpen(true);
 	const closeModal = () => setOpen(false);
 
-	const playAudio = (e) => {
+	const playAudioFun = (e) => {
 		e.stopPropagation();
 		setOpen(false);
 		setPlay(!play);
@@ -41,7 +46,7 @@ export default function AudioModal({ openModal = false, audioPlay, audioStop }) 
 				<div className="p-2 cursor-pointer" onClick={openDetailsModal}>
 					<img
 						className="w-[31px] h-[31px] pointer-events-auto"
-						onClick={playAudio}
+						onClick={playAudioFun}
 						src={play ? audio : silent}
 						alt="audio"
 					/>
@@ -54,5 +59,6 @@ export default function AudioModal({ openModal = false, audioPlay, audioStop }) 
 AudioModal.propTypes = {
 	openModal: PropTypes.bool,
 	audioPlay: PropTypes.func,
+	initialPlay: PropTypes.func,
 	audioStop: PropTypes.func,
 };

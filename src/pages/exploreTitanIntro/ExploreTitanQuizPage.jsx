@@ -76,6 +76,10 @@ export default function ExploreTitanQuizPage() {
 		};
 	}, [data]);
 
+	useEffect(() => {
+		play();
+	}, [play]);
+
 	const createAnswer = (isCorrect, question, shuffledData, usedTitles) => {
 		if (isCorrect) {
 			usedTitles.push(question.data[0]?.title);
@@ -216,7 +220,7 @@ export default function ExploreTitanQuizPage() {
 				</Overlay>
 			)}
 			<ChatContainer />
-			<AudioModal audioPlay={play} audioStop={stop} openModal={true} />
+			<AudioModal audioPlay={play} audioStop={stop} initialPlay={true} />
 		</MainBackground>
 	);
 }

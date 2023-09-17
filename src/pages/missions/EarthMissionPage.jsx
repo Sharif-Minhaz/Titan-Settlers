@@ -4,11 +4,18 @@ import MainBackground from "../../components/MainBackground";
 import Overlay from "../../components/Overlay";
 import earthExpanding from "../../assets/gifs/expanding-earth.gif";
 import { useNavigate } from "react-router-dom";
+import earthAudio from "../../assets/audios/wrong-planet-ambience.mp3";
+import { useAudio } from "../../hooks/useAudio";
 
 export default function EarthMissionPage() {
+	const { play } = useAudio(earthAudio);
 	const navigate = useNavigate();
 	const [progress, setProgress] = useState(0);
 	const [showEarthAnime, setShowEarthAnime] = useState(false);
+
+	useEffect(() => {
+		play();
+	}, [play]);
 
 	useEffect(() => {
 		const interval = setInterval(() => {
@@ -41,7 +48,7 @@ export default function EarthMissionPage() {
 		}, 7700);
 
 		return () => clearTimeout(timeout);
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const gotoEarth = () => navigate("/earth-spaceship-base");

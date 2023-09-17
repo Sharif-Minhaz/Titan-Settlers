@@ -5,9 +5,14 @@ import SideMenu from "../components/home/sidemenu/SideMenu";
 import homeSong from "../assets/audios/rings-of-saturn-162784.mp3";
 import AudioModal from "../components/modal/AudioModal";
 import { useAudio } from "../hooks/useAudio";
+import { useEffect } from "react";
 
 export default function HomePage() {
 	const { play, stop } = useAudio(homeSong, { loop: true });
+
+	useEffect(() => {
+		play();
+	}, [play]);
 
 	return (
 		<MainBackground src="bg-home-img">
@@ -20,7 +25,7 @@ export default function HomePage() {
 					<Segments />
 				</div>
 			</div>
-			<AudioModal audioPlay={play} audioStop={stop} />
+			<AudioModal audioPlay={play} audioStop={stop} initialPlay={true} />
 		</MainBackground>
 	);
 }

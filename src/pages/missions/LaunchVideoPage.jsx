@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import MainBackground from "../../components/MainBackground";
 import rocketLaunchVideo from "../../assets/videos/sep-video.mkv";
 import { motion } from "framer-motion";
@@ -9,6 +10,10 @@ import AudioModal from "./../../components/modal/AudioModal";
 
 export default function LaunchVideoPage() {
 	const { play, stop } = useAudio(spaceAudio, { loop: true, volume: 0.3 });
+
+	useEffect(() => {
+		play();
+	}, [play]);
 
 	return (
 		<MainBackground src="bg-leaving-earth-img" position="bg-top">
@@ -25,7 +30,7 @@ export default function LaunchVideoPage() {
 					<ActionButton text="Continue ≫" />
 				</Link>
 			</motion.div>
-			<AudioModal audioPlay={play} audioStop={stop} />
+			<AudioModal audioPlay={play} audioStop={stop} initialPlay={true} />
 		</MainBackground>
 	);
 }
