@@ -41,7 +41,7 @@ export default function LandingGamePage() {
 		const handleJumpmaster = () => {
 			clearInterval(timer);
 			controlsStage.stop();
-			controlsStage.start({ rotate: 30, y: 900 });
+			controlsStage.start({ rotate: 18, y: 900 });
 			controlsPara.start({ y: -200, x: -63, scale: 1 });
 
 			const timeoutId = setTimeout(() => {
@@ -241,7 +241,7 @@ export default function LandingGamePage() {
 				<Overlay>
 					<MissionIntroTipModal
 						onClick={startChallenge}
-						description='Open Parachute by typing "JUMPMASTER" before the time runs out.'
+						description='Open Parachute by typing "JUMPMASTER" before the time (5s) runs out.'
 					/>
 				</Overlay>
 			)}

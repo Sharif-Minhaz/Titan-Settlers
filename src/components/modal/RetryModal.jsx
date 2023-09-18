@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import sorry from "../../assets/images/sorry!!!.png";
+import sorry from "../../assets/images/sorry.png";
 import ActionButton from "../buttons/ActionButton";
 
 export default function RetryModal({ route }) {
