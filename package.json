@@ -12,6 +12,7 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "framer-motion": "^10.16.2",
+    "mousetrap": "^1.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
