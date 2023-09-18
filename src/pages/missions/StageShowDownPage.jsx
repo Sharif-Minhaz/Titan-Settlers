@@ -13,10 +13,22 @@ import cloud10 from "../../assets/images/clouds/cloud10.png";
 import cloud11 from "../../assets/images/clouds/cloud11.png";
 import cloud12 from "../../assets/images/clouds/cloud12.png";
 import stage from "../../assets/images/little-descent-stage.png";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const DURATION = 4;
 
 export default function StageShowDownPage() {
+	const navigate = useNavigate();
+
+	useEffect(()=> {
+		const navigationTimeout = setTimeout(() => {
+			navigate("/landing-game")
+		}, 5000)
+
+		return () => clearTimeout(navigationTimeout);
+	}, [navigate])
+
 	return (
 		<MainBackground src="bg-titan-sky-img">
 			<div className="relative h-screen">

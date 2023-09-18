@@ -57,14 +57,7 @@ export default function MissionsCarousel() {
 		<div className="flex h-screen justify-center items-center">
 			<div className="w-[800px] h-[430px] bg-sky-950 bg-opacity-90 border-transparent backdrop-blur-3xl p-2.5">
 				<div className="w-full h-full p-5 bg-slate-950 border border-blue-950 backdrop-blur-3xl">
-					<Swiper
-						modules={[Navigation]}
-						spaceBetween={20}
-						slidesPerView={3}
-						navigation
-						onSlideChange={() => console.log("slide change")}
-						onSwiper={(swiper) => console.log(swiper)}
-					>
+					<Swiper modules={[Navigation]} spaceBetween={20} slidesPerView={3} navigation>
 						{missionsInfo.map((item) => (
 							<SwiperSlide key={item._id} className="text-white">
 								<Slide item={item} />

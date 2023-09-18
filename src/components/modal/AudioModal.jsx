@@ -59,6 +59,6 @@ export default function AudioModal({
 AudioModal.propTypes = {
 	openModal: PropTypes.bool,
 	audioPlay: PropTypes.func,
-	initialPlay: PropTypes.func,
+	initialPlay: PropTypes.bool,
 	audioStop: PropTypes.func,
 };

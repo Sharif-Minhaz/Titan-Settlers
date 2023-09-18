@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import titanSatelliteImg from "../assets/icons/Icon.svg";
 import brandImg from "../assets/icons/nasa-spaceship-challenge-Icon.svg";
 import earthImg from "../assets/images/earth.png";
@@ -13,48 +12,31 @@ import GetStartedSection from "../components/intro/GetStartedSection";
 import { useAudio } from "../hooks/useAudio";
 
 export default function IntroPage() {
-    const [playIntroVoice, setPlayIntroVoice] = useState(false);
-    const { play: playIntroSong, stop: stopIntroSong } = useAudio(introSong, {
-        loop: true,
-    });
+	const { play: playIntroSong, stop: stopIntroSong } = useAudio(introSong, { loop: true });
+	const { play: playIntroVoice, stop: stopIntroVoice } = useAudio(introVoice);
 
-    useEffect(() => {
-        if (playIntroVoice) {
-            // Play introVoice when playIntroVoice is true
-            const audio = new Audio(introVoice);
-            audio.play();
-            audio.onended = () => {
-                // When introVoice ends, stop it and start introSong
-                setPlayIntroVoice(false);
-                playIntroSong();
-            };
-        }
-    }, [playIntroVoice, playIntroSong]);
+	const handleAudioPlay = () => {
+		playIntroSong();
+		playIntroVoice();
+	};
 
-    return (
-        <MainBackground src="bg-intro-img" enableScaling={true}>
-            <nav className="flex justify-between items-center px-[70px] py-2">
-                <img src={titanSatelliteImg} alt="titan satellite" />
-                <img src={brandImg} alt="space-logo" />
-            </nav>
-            <Spaceship />
-            <img className="w-2/6 absolute top-2 right-24" src={stars} alt="" />
-            <img
-                className="right-20 top-24 absolute"
-                src={earthImg}
-                alt="earth"
-            />
-            <img
-                src={astronaut}
-                className="absolute right-0 bottom-0 w-[22%]"
-                alt="astronaut"
-            />
-            <GetStartedSection />
-            <AudioModal
-                audioPlay={() => setPlayIntroVoice(true)} // Trigger introVoice when modal opens
-                audioStop={() => stopIntroSong()} // Stop introSong when modal closes
-                openModal={true}
-            />
-        </MainBackground>
-    );
+	const handleAudioStop = () => {
+		stopIntroSong();
+		stopIntroVoice();
+	};
+
+	return (
+		<MainBackground src="bg-intro-img" enableScaling={true}>
+			<nav className="flex justify-between items-center px-[70px] py-2">
+				<img src={titanSatelliteImg} alt="titan satellite" />
+				<img src={brandImg} alt="space-logo" />
+			</nav>
+			<Spaceship />
+			<img className="w-2/6 absolute top-2 right-24" src={stars} alt="" />
+			<img className="right-20 top-24 absolute" src={earthImg} alt="earth" />
+			<img src={astronaut} className="absolute right-0 bottom-0 w-[22%]" alt="astronaut" />
+			<GetStartedSection />
+			<AudioModal audioPlay={handleAudioPlay} audioStop={handleAudioStop} openModal={true} />
+		</MainBackground>
+	);
 }
