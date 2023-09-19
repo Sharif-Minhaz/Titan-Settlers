@@ -28,6 +28,7 @@ export default {
 				"leaving-earth-img": "url('/background-images/leaving-earth.jpeg')",
 				"titan-surface-img": "url('/background-images/titan-surface.jpeg')",
 				"titan-sky-img": "url('/background-images/titan-sky.jpeg')",
+				"plain-surface-img": "url('/background-images/plain-surface.jpeg')",
 			},
 		},
 	},

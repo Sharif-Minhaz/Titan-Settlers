@@ -22,6 +22,7 @@ import TitanSurfaceLandingPage from "../pages/missions/TitanSurfaceLandingPage";
 import StageShowDownPage from "../pages/missions/StageShowDownPage";
 import LandingGamePage from "../pages/missions/LandingGamePage";
 import LandingLocationQuizPage from "../pages/missions/LandingLocationQuizPage";
+import FinalLandingPage from "../pages/missions/FinalLandingPage";
 
 export default function Routers() {
 	return (
@@ -46,6 +47,7 @@ export default function Routers() {
 					<Route path="/showdown-stage" element={<StageShowDownPage />} />
 					<Route path="/landing-game" element={<LandingGamePage />} />
 					<Route path="/landing-location-quiz" element={<LandingLocationQuizPage />} />
+					<Route path="/final-landing" element={<FinalLandingPage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />
