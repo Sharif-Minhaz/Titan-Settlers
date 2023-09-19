@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import MainBackground from "../../components/MainBackground";
-import rocketLaunchVideo from "../../assets/videos/sep-video.mkv";
 import { motion } from "framer-motion";
-import ActionButton from "../../components/buttons/ActionButton";
 import { Link } from "react-router-dom";
-import { useAudio } from "./../../hooks/useAudio";
-import spaceAudio from "../../assets/audios/space-120280.mp3";
-import AudioModal from "./../../components/modal/AudioModal";
+
+import MainBackground from "../../../components/MainBackground";
+import ActionButton from "../../../components/buttons/ActionButton";
+import { useAudio } from "../../../hooks/useAudio";
+import AudioModal from "../../../components/modal/AudioModal";
+
+import rocketLaunchVideo from "../../../assets/videos/sep-video.mkv";
+import spaceAudio from "../../../assets/audios/space-120280.mp3";
 
 export default function LaunchVideoPage() {
 	const { play, stop } = useAudio(spaceAudio, { loop: true, volume: 0.3 });

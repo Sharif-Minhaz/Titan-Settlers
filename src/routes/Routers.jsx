@@ -14,15 +14,16 @@ import TitanQuizPage from "../pages/exploreTitanIntro/ExploreTitanQuizPage";
 import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 import MissionsPage from "../pages/missions/MissionsPage";
-import EarthMissionPage from "../pages/missions/EarthMissionPage";
-import EarthSpaceshipPage from "../pages/missions/EarthSpaceshipPage";
-import LaunchVideoPage from "../pages/missions/LaunchVideoPage";
-import TitanSurfacePage from "../pages/missions/TitanSurfacePage";
-import TitanSurfaceLandingPage from "../pages/missions/TitanSurfaceLandingPage";
-import StageShowDownPage from "../pages/missions/StageShowDownPage";
-import LandingGamePage from "../pages/missions/LandingGamePage";
-import LandingLocationQuizPage from "../pages/missions/LandingLocationQuizPage";
-import FinalLandingPage from "../pages/missions/FinalLandingPage";
+import EarthMissionPage from "./../pages/missions/rover-expedition/EarthMissionPage";
+import EarthSpaceshipPage from '../pages/missions/rover-expedition/EarthSpaceshipPage';
+import LaunchVideoPage from "../pages/missions/rover-expedition/LaunchVideoPage";
+import TitanSurfacePage from "../pages/missions/rover-expedition/TitanSurfacePage";
+import TitanSurfaceLandingPage from "../pages/missions/rover-expedition/TitanSurfaceLandingPage";
+import StageShowDownPage from "../pages/missions/rover-expedition/StageShowDownPage";
+import LandingGamePage from "../pages/missions/rover-expedition/LandingGamePage";
+import LandingLocationQuizPage from "../pages/missions/rover-expedition/LandingLocationQuizPage";
+import FinalLandingPage from "../pages/missions/rover-expedition/FinalLandingPage";
+import SendSubmarinePage from "../pages/missions/send-submarine/SendSubmarinePage";
 
 export default function Routers() {
 	return (
@@ -48,6 +49,7 @@ export default function Routers() {
 					<Route path="/landing-game" element={<LandingGamePage />} />
 					<Route path="/landing-location-quiz" element={<LandingLocationQuizPage />} />
 					<Route path="/final-landing" element={<FinalLandingPage />} />
+					<Route path="/send-submarine-intro" element={<SendSubmarinePage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />

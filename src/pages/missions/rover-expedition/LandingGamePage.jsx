@@ -3,27 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { motion, useAnimationControls } from "framer-motion";
 import Mousetrap from "mousetrap";
 
-import littleDescentStage from "../../assets/images/little-descent-stage.png";
-import cloud1 from "../../assets/images/green-clouds/1.png";
-import cloud2 from "../../assets/images/green-clouds/2.png";
-import cloud3 from "../../assets/images/green-clouds/3.png";
-import cloud4 from "../../assets/images/green-clouds/4.png";
-import cloud5 from "../../assets/images/green-clouds/5.png";
-import cloud6 from "../../assets/images/green-clouds/6.png";
-import cloud7 from "../../assets/images/green-clouds/7.png";
-import cloud8 from "../../assets/images/green-clouds/8.png";
-import cloud9 from "../../assets/images/green-clouds/9.png";
-import cloud10 from "../../assets/images/green-clouds/10.png";
-import titanTip from "../../assets/icons/titan-tip.svg";
-import infoBrown from "../../assets/icons/info-brown.svg";
-import para from "../../assets/images/para.png";
+import littleDescentStage from "../../../assets/images/little-descent-stage.png";
+import cloud1 from "../../../assets/images/green-clouds/1.png";
+import cloud2 from "../../../assets/images/green-clouds/2.png";
+import cloud3 from "../../../assets/images/green-clouds/3.png";
+import cloud4 from "../../../assets/images/green-clouds/4.png";
+import cloud5 from "../../../assets/images/green-clouds/5.png";
+import cloud6 from "../../../assets/images/green-clouds/6.png";
+import cloud7 from "../../../assets/images/green-clouds/7.png";
+import cloud8 from "../../../assets/images/green-clouds/8.png";
+import cloud9 from "../../../assets/images/green-clouds/9.png";
+import cloud10 from "../../../assets/images/green-clouds/10.png";
+import titanTip from "../../../assets/icons/titan-tip.svg";
+import infoBrown from "../../../assets/icons/info-brown.svg";
+import para from "../../../assets/images/para.png";
 
-import MainBackground from "../../components/MainBackground";
-import DestinationIndicator from "../../components/missions/DestinationIndicator";
-import Timer from "../../components/missions/Timer";
-import MissionIntroTipModal from "./../../components/modal/MissionIntroTipModal";
-import Overlay from "./../../components/Overlay";
-import RetryModal from "../../components/modal/RetryModal";
+import MainBackground from "../../../components/MainBackground";
+import DestinationIndicator from "../../../components/missions/DestinationIndicator";
+import Timer from "../../../components/missions/Timer";
+import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
+import Overlay from "../../../components/Overlay";
+import RetryModal from "../../../components/modal/RetryModal";
 
 let timer;
 

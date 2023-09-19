@@ -1,8 +1,8 @@
-import MainBackground from "../../components/MainBackground";
+import MainBackground from "../../../components/MainBackground";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Overlay from './../../components/Overlay';
-import MissionIntroTipModal from "../../components/modal/MissionIntroTipModal";
+import Overlay from '../../../components/Overlay';
+import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
 
 export default function TitanSurfacePage() {
 	const [showTipModal, setShowTipModal] = useState(false);

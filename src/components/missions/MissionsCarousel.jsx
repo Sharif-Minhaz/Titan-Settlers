@@ -8,6 +8,8 @@ import roverExp from "../../assets/images/rover-exp.png";
 import sendSubmarine from "../../assets/gifs/send-submarine.gif";
 import atmStudy from "../../assets/images/atm-study.jpeg";
 import geologyStudy from "../../assets/images/arch-study.jpg";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const missionsInfo = [
 	{
@@ -26,7 +28,7 @@ const missionsInfo = [
 		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
 		img: sendSubmarine,
 		coins: 7000,
-		navigationRoute: "/titan-2",
+		navigationRoute: "/send-submarine-intro",
 		missionTitle: "MISSION 2",
 		locked: true,
 	},
@@ -53,12 +55,35 @@ const missionsInfo = [
 ];
 
 export default function MissionsCarousel() {
+	const { state } = useLocation();
+	const [missionData, setMissionData] = useState(missionsInfo);
+
+	useEffect(() => {
+		setMissionData((prevMissionData) => {
+			const updatedMissionData = prevMissionData.map((item) => {
+				if (item._id === state) {
+					return {
+						...item,
+						locked: false,
+					};
+				}
+				return item;
+			});
+
+			if (JSON.stringify(updatedMissionData) !== JSON.stringify(prevMissionData)) {
+				return updatedMissionData;
+			}
+
+			return prevMissionData;
+		});
+	}, [state]);
+
 	return (
 		<div className="flex h-screen justify-center items-center">
 			<div className="w-[800px] h-[430px] bg-sky-950 bg-opacity-90 border-transparent backdrop-blur-3xl p-2.5">
 				<div className="w-full h-full p-5 bg-slate-950 border border-blue-950 backdrop-blur-3xl">
 					<Swiper modules={[Navigation]} spaceBetween={20} slidesPerView={3} navigation>
-						{missionsInfo.map((item) => (
+						{missionData.map((item) => (
 							<SwiperSlide key={item._id} className="text-white">
 								<Slide item={item} />
 							</SwiperSlide>

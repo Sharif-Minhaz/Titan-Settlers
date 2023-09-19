@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import MainBackground from "../../components/MainBackground";
-import Overlay from "../../components/Overlay";
-import earthExpanding from "../../assets/gifs/expanding-earth.gif";
 import { useNavigate } from "react-router-dom";
-import earthAudio from "../../assets/audios/wrong-planet-ambience.mp3";
-import { useAudio } from "../../hooks/useAudio";
+
+import MainBackground from "../../../components/MainBackground";
+import Overlay from "../../../components/Overlay";
+import earthExpanding from "../../../assets/gifs/expanding-earth.gif";
+import earthAudio from "../../../assets/audios/wrong-planet-ambience.mp3";
+import { useAudio } from "../../../hooks/useAudio";
 
 export default function EarthMissionPage() {
 	const { play } = useAudio(earthAudio);

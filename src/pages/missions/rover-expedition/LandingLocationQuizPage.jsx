@@ -1,19 +1,19 @@
 import { useState } from "react";
-import MainBackground from "../../components/MainBackground";
+import MainBackground from "../../../components/MainBackground";
 
-import Overlay from "../../components/Overlay";
-import questionBase from "../../assets/images/question-base-gold.png";
-import descentStageStatus from "../../assets/images/descent-stage-status.png";
-import rockyLocation from "../../assets/images/rocky-location.png";
-import waterLocation from "../../assets/images/water-location.jpg";
-import hotLocation from "../../assets/images/hot-location.png";
-import volcanicLocation from "../../assets/images/volcanic-location.png";
-import plainLocation from "../../assets/images/plain-location.png";
-import right from "../../assets/images/correct.svg";
-import wrong from "../../assets/images/wrong.svg";
-import LandingQuizModal from "../../components/modal/LandingQuizModal";
-import { isEmptyObject } from "./../../utils/isEmptyObj";
-import { shuffleArray } from "./../../utils/shuffleArray";
+import Overlay from "../../../components/Overlay";
+import questionBase from "../../../assets/images/question-base-gold.png";
+import descentStageStatus from "../../../assets/images/descent-stage-status.png";
+import rockyLocation from "../../../assets/images/rocky-location.png";
+import waterLocation from "../../../assets/images/water-location.jpg";
+import hotLocation from "../../../assets/images/hot-location.png";
+import volcanicLocation from "../../../assets/images/volcanic-location.png";
+import plainLocation from "../../../assets/images/plain-location.png";
+import right from "../../../assets/images/correct.svg";
+import wrong from "../../../assets/images/wrong.svg";
+import LandingQuizModal from "../../../components/modal/LandingQuizModal";
+import { isEmptyObject } from "../../../utils/isEmptyObj";
+import { shuffleArray } from "../../../utils/shuffleArray";
 
 const options = [
 	{ _id: "op-1", title: "Rocky Location", src: rockyLocation },

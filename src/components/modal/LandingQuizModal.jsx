@@ -15,15 +15,19 @@ export default function LandingQuizModal({ data, closeModal }) {
 	return (
 		<div>
 			<div className="text-center">
-				<img className="inline-block w-[350px] h-[220px] object-cover" src={data.src} alt={data.title} />
+				<img
+					className="inline-block w-[350px] h-[220px] object-cover"
+					src={data.src}
+					alt={data.title}
+				/>
 			</div>
 			<div className="text-center mb-3 mt-6">
 				<img className="inline-block" src={isCorrectAns ? correct : sorry} alt="result" />
 			</div>
 			<p className="w-[430px] text-center text-orange-200 text-xl font-normal font-inter tracking-wide mb-3">
 				{isCorrectAns
-					? "Descent stage can land in this place, cause it has the plain surface."
-					: "Descent stage can not land in this place because of the surface obstacles."}
+					? "Excellent! The descent stage can land here due to the flat surface."
+					: "Due to surface obstacles, the descent stage cannot safely land in this location."}
 			</p>
 			<div className="text-center">
 				<ActionButton onClick={handleAns} text={isCorrectAns ? "Next" : "Retry"} />

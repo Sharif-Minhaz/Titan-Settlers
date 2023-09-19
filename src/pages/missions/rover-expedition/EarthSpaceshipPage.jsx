@@ -3,28 +3,28 @@ import { Link } from "react-router-dom";
 import { Fragment, useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
-import MainBackground from "../../components/MainBackground";
-import mainTowerImg from "../../assets/images/tower.png";
-import leftTowerImg from "../../assets/images/station-tower-l.png";
-import rightTowerImg from "../../assets/images/station-tower-r.png";
-import rocketImg from "../../assets/images/base-rocket.png";
-import startBtn from "../../assets/images/start-btn.png";
-import launchBtn from "../../assets/images/launch-btn.png";
-import flames from "../../assets/images/rocket-flame.png";
-import lSmoke from "../../assets/images/smoke-l.png";
-import mSmoke from "../../assets/images/smoke-m.png";
-import rSmoke from "../../assets/images/smoke-r.png";
-import Tip from "../../components/earth-destruction/Tip";
-import ActionButton from "./../../components/buttons/ActionButton";
+import MainBackground from "../../../components/MainBackground";
+import mainTowerImg from "../../../assets/images/tower.png";
+import leftTowerImg from "../../../assets/images/station-tower-l.png";
+import rightTowerImg from "../../../assets/images/station-tower-r.png";
+import rocketImg from "../../../assets/images/base-rocket.png";
+import startBtn from "../../../assets/images/start-btn.png";
+import launchBtn from "../../../assets/images/launch-btn.png";
+import flames from "../../../assets/images/rocket-flame.png";
+import lSmoke from "../../../assets/images/smoke-l.png";
+import mSmoke from "../../../assets/images/smoke-m.png";
+import rSmoke from "../../../assets/images/smoke-r.png";
+import Tip from "../../../components/earth-destruction/Tip";
+import ActionButton from "../../../components/buttons/ActionButton";
 
-import commentary from "../../assets/audios/initial-commentary.mp3";
-import launch from "../../assets/audios/launch.mp3";
-import joinUs from "../../assets/audios/join-us.wav";
-import spaceDebris from "../../assets/audios/residual-fragment.wav";
-import defending from "../../assets/audios/asteroids.wav";
-import preservation from "../../assets/audios/implementation.wav";
-import activeDebris from "../../assets/audios/nasa.wav";
-import { useAudio } from "../../hooks/useAudio";
+import commentary from "../../../assets/audios/initial-commentary.mp3";
+import launch from "../../../assets/audios/launch.mp3";
+import joinUs from "../../../assets/audios/join-us.wav";
+import spaceDebris from "../../../assets/audios/residual-fragment.wav";
+import defending from "../../../assets/audios/asteroids.wav";
+import preservation from "../../../assets/audios/implementation.wav";
+import activeDebris from "../../../assets/audios/nasa.wav";
+import { useAudio } from "../../../hooks/useAudio";
 
 const data = [
 	{
