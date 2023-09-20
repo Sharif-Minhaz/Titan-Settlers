@@ -24,6 +24,8 @@ import LandingGamePage from "../pages/missions/rover-expedition/LandingGamePage"
 import LandingLocationQuizPage from "../pages/missions/rover-expedition/LandingLocationQuizPage";
 import FinalLandingPage from "../pages/missions/rover-expedition/FinalLandingPage";
 import SendSubmarinePage from "../pages/missions/send-submarine/SendSubmarinePage";
+import UnderneathWaterSurface from "../pages/missions/send-submarine/UnderneathWaterSurface";
+import WaterPlaygroundPage from "../pages/missions/send-submarine/WaterPlaygroundPage";
 
 export default function Routers() {
 	return (
@@ -50,6 +52,8 @@ export default function Routers() {
 					<Route path="/landing-location-quiz" element={<LandingLocationQuizPage />} />
 					<Route path="/final-landing" element={<FinalLandingPage />} />
 					<Route path="/send-submarine-intro" element={<SendSubmarinePage />} />
+					<Route path="/underneath-water" element={<UnderneathWaterSurface />} />
+					<Route path="/water-playground" element={<WaterPlaygroundPage />} />
 				</Route>
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />

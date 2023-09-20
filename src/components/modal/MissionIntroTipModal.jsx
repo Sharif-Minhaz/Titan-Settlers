@@ -3,12 +3,17 @@ import msgBox from "../../assets/images/msg-board.png";
 import info from "../../assets/gifs/info.gif";
 import ActionButton from "./../buttons/ActionButton";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function MissionIntroTipModal({ description, onClick }) {
 	const navigate = useNavigate();
 
 	return (
-		<div>
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 1 }}
+		>
 			<div className="relative">
 				<img
 					className="absolute w-[100px] h-[100px] left-3 top-2.5"
@@ -33,7 +38,7 @@ export default function MissionIntroTipModal({ description, onClick }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
