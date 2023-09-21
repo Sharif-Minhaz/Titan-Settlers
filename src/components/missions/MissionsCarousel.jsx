@@ -63,7 +63,7 @@ export default function MissionsCarousel() {
 			const updatedMissionData = prevMissionData.map((item) => {
 				return {
 					...item,
-					locked: state.includes(item._id) ? false : item.locked,
+					locked: state?.includes(item._id) ? false : item.locked,
 				};
 			});
 
