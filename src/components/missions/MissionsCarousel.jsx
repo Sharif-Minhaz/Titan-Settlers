@@ -61,13 +61,10 @@ export default function MissionsCarousel() {
 	useEffect(() => {
 		setMissionData((prevMissionData) => {
 			const updatedMissionData = prevMissionData.map((item) => {
-				if (item._id === state) {
-					return {
-						...item,
-						locked: false,
-					};
-				}
-				return item;
+				return {
+					...item,
+					locked: state.includes(item._id) ? false : item.locked,
+				};
 			});
 
 			if (JSON.stringify(updatedMissionData) !== JSON.stringify(prevMissionData)) {

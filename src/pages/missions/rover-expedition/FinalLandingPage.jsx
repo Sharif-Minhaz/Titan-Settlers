@@ -38,7 +38,7 @@ export default function FinalLandingPage() {
 
 	const handleReturn = () => {
 		addCoins(2000);
-		navigate("/function/missions", { state: "m-2" });
+		navigate("/function/missions", { state: ["m-2"] });
 		toast.success("Rover expedition mission completed!", {
 			position: "top-right",
 		});
