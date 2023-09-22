@@ -1,7 +1,7 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 import rock4 from "../../assets/images/rocks/rock-4.png";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const DURATION = 10;
 
@@ -43,13 +43,14 @@ const data = [
 	},
 ];
 
-export default function FallingRocks() {
+const FallingRocks = ({ rockRefs }) => {
 	const [rocks] = useState(data);
 
 	return (
 		<>
-			{rocks.map((rock) => (
+			{rocks.map((rock, index) => (
 				<motion.img
+					ref={rockRefs[index]}
 					key={rock.id}
 					initial={{ y: -80 }}
 					animate={{ y: rock.y }}
@@ -66,8 +67,10 @@ export default function FallingRocks() {
 			))}
 		</>
 	);
-}
+};
 
 FallingRocks.propTypes = {
-	hideMole: PropTypes.bool,
+	rockRefs: PropTypes.any,
 };
+
+export default FallingRocks;

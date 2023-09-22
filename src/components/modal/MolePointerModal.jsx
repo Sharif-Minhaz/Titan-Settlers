@@ -16,6 +16,9 @@ export default function MolePointerModal({ closeModal }) {
 				<p className="text-center text-blue-100 text-3xl font-normal font-itim capitalize tracking-wide">
 					Collect the methane liquid
 				</p>
+				<p className="text-center text-red-200 text-2xl mt-1 font-normal font-itim capitalize tracking-wide">
+					⚠ Avoid the falling rocks
+				</p>
 				<img
 					className="rounded-full absolute left-[280px] bottom-[72px]"
 					src={pointerMole}
