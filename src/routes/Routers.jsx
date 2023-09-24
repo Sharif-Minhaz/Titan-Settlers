@@ -26,6 +26,8 @@ import FinalLandingPage from "../pages/missions/rover-expedition/FinalLandingPag
 import SendSubmarinePage from "../pages/missions/send-submarine/SendSubmarinePage";
 import UnderneathWaterSurface from "../pages/missions/send-submarine/UnderneathWaterSurface";
 import WaterPlaygroundPage from "../pages/missions/send-submarine/WaterPlaygroundPage";
+import TitanSignalIntroPage from "../pages/missions/titan-signal/TitanSignalIntroPage";
+import SignalStarterPage from './../pages/missions/titan-signal/SignalStarterPage';
 
 export default function Routers() {
 	return (
@@ -34,6 +36,8 @@ export default function Routers() {
 				<Route path="/" element={<BlankLayout />}>
 					<Route index element={<IntroPage />} />
 					<Route path="earth-intro" element={<EarthIntroPage />} />
+
+					{/*-------------------- earth mission routes ----------------*/}
 					<Route path="earth-destroyer">
 						<Route index element={<EarthDestroyerPage />} />
 						<Route path="asteroid" element={<AsteroidPage />} />
@@ -41,7 +45,11 @@ export default function Routers() {
 						<Route path="cosmic ray" element={<CosmicRayPage />} />
 					</Route>
 					<Route path="/explore-titan-intro" element={<ExploreTitanIntro />} />
+
+					{/* ------------------ titan quiz routes ---------------- */}
 					<Route path="/titan-quiz" element={<TitanQuizPage />} />
+
+					{/* ------------------ rover landing routes ---------------- */}
 					<Route path="/launch-mission-earth" element={<EarthMissionPage />} />
 					<Route path="/earth-spaceship-base" element={<EarthSpaceshipPage />} />
 					<Route path="/launch-video" element={<LaunchVideoPage />} />
@@ -51,10 +59,17 @@ export default function Routers() {
 					<Route path="/landing-game" element={<LandingGamePage />} />
 					<Route path="/landing-location-quiz" element={<LandingLocationQuizPage />} />
 					<Route path="/final-landing" element={<FinalLandingPage />} />
+
+					{/*----------------- send submarine routes ------------------*/}
 					<Route path="/send-submarine-intro" element={<SendSubmarinePage />} />
 					<Route path="/underneath-water" element={<UnderneathWaterSurface />} />
 					<Route path="/water-playground" element={<WaterPlaygroundPage />} />
+
+					{/* ----------------- titan signal routes --------------------  */}
+					<Route path="/titan-signal" element={<TitanSignalIntroPage />} />
+					<Route path="/signal-start" element={<SignalStarterPage />} />
 				</Route>
+
 				<Route path="/function" element={<MainLayout />}>
 					<Route index element={<Navigate to="/function/home" />} />
 					<Route path="home" element={<HomePage />} />

@@ -14,8 +14,8 @@ export default function QuizAction({ currentQuestionIndex, nextQuestion, imageCl
 			position: "top-right",
 		});
 
-		navigate("/function/missions", {
-			state: { missions: { launch: true } },
+		navigate("/function/home", {
+			state: { missions: { titan: true, launch: true } },
 			replace: true,
 		});
 	};

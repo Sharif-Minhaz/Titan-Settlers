@@ -38,7 +38,7 @@ const missionsInfo = [
 		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
 		img: atmStudy,
 		coins: 10000,
-		navigationRoute: "/titan-3",
+		navigationRoute: "/titan-signal",
 		missionTitle: "MISSION 3",
 		locked: true,
 	},
