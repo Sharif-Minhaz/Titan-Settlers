@@ -4,16 +4,6 @@ import { motion, useAnimationControls } from "framer-motion";
 import Mousetrap from "mousetrap";
 
 import littleDescentStage from "../../../assets/images/little-descent-stage.png";
-import cloud1 from "../../../assets/images/green-clouds/1.png";
-import cloud2 from "../../../assets/images/green-clouds/2.png";
-import cloud3 from "../../../assets/images/green-clouds/3.png";
-import cloud4 from "../../../assets/images/green-clouds/4.png";
-import cloud5 from "../../../assets/images/green-clouds/5.png";
-import cloud6 from "../../../assets/images/green-clouds/6.png";
-import cloud7 from "../../../assets/images/green-clouds/7.png";
-import cloud8 from "../../../assets/images/green-clouds/8.png";
-import cloud9 from "../../../assets/images/green-clouds/9.png";
-import cloud10 from "../../../assets/images/green-clouds/10.png";
 import titanTip from "../../../assets/icons/titan-tip.svg";
 import infoBrown from "../../../assets/icons/info-brown.svg";
 import para from "../../../assets/images/para.png";
@@ -24,6 +14,7 @@ import Timer from "../../../components/missions/Timer";
 import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
 import Overlay from "../../../components/Overlay";
 import RetryModal from "../../../components/modal/RetryModal";
+import ThickAtmosphere from "../../../components/missions/ThickAtmosphere";
 
 let timer;
 
@@ -101,109 +92,18 @@ export default function LandingGamePage() {
 	return (
 		<MainBackground src="bg-titan-sky-img">
 			<div className="relative h-screen">
-				<div>
-					<div className="absolute left-0 bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: [-15, 0, -15], y: [-5, 0, -5] }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud1}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute z-10 right-10 -bottom-6">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: [-150, 0, -150], y: [-5, 0, -5] }}
-							transition={{ duration: 10, repeat: Infinity }}
-							src={cloud2}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute z-10 right-0 bottom-0">
-						<motion.img
-							initial={{ y: 0 }}
-							animate={{ y: [-0, -10, 0] }}
-							transition={{ duration: 4, repeat: Infinity }}
-							src={cloud3}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud4}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud5}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute z-10 bottom-10">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud6}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute z-20 left-[20%] bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud7}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute right-0 bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud8}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute bottom-3 right-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud9}
-							alt="cloud"
-						/>
-					</div>
-					<div className="absolute left-0 bottom-0">
-						<motion.img
-							initial={{ x: 0, y: 0 }}
-							animate={{ x: 0, y: 0 }}
-							transition={{ duration: 2, repeat: Infinity }}
-							src={cloud10}
-							alt="cloud"
-						/>
-					</div>
-				</div>
+				<ThickAtmosphere />
 				<p className="absolute right-4 top-7 flex items-center gap-2 font-poppins font-medium text-[#543022]">
 					<img src={infoBrown} className="w-6" alt="" />
 					<span>Type &quot;JUMPMASTER&quot; to pass the level</span>
 				</p>
-				<div className="w-64 h-40 absolute right-10 bottom-[380px] bg-black bg-opacity-50 rounded-tl-3xl rounded-br-3xl border-2 border-red-200">
+				<div className="w-64 h-40 absolute right-10 bottom-[380px] bg-black bg-opacity-50 rounded-tl-3xl rounded-br-3xl border-2 border-orange-200">
 					<div className="relative">
-						<div className="text-red-200 text-xl font-semibold font-inter tracking-wide flex items-center justify-center gap-2 mt-3">
+						<div className="text-orange-200 text-xl font-semibold font-inter tracking-wide flex items-center justify-center gap-2 mt-3">
 							<img src={titanTip} alt="" />
 							<span>Thick Atmosphere</span>
 						</div>
-						<p className="text-orange-50 text-base font-poppins p-4">
+						<p className="text-orange-200 text-base font-poppins p-4">
 							In Titan&apos;s thick atmosphere, activate Parachute for a safe
 							spaceship landing.
 						</p>

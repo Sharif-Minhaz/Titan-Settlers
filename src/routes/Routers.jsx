@@ -15,7 +15,7 @@ import CosmicRayPage from "../pages/earthDestroyers/CosmicRayPage";
 import ExploreTitanIntro from "../pages/exploreTitanIntro/ExploreTitanIntro";
 import MissionsPage from "../pages/missions/MissionsPage";
 import EarthMissionPage from "./../pages/missions/rover-expedition/EarthMissionPage";
-import EarthSpaceshipPage from '../pages/missions/rover-expedition/EarthSpaceshipPage';
+import EarthSpaceshipPage from "../pages/missions/rover-expedition/EarthSpaceshipPage";
 import LaunchVideoPage from "../pages/missions/rover-expedition/LaunchVideoPage";
 import TitanSurfacePage from "../pages/missions/rover-expedition/TitanSurfacePage";
 import TitanSurfaceLandingPage from "../pages/missions/rover-expedition/TitanSurfaceLandingPage";
@@ -27,7 +27,9 @@ import SendSubmarinePage from "../pages/missions/send-submarine/SendSubmarinePag
 import UnderneathWaterSurface from "../pages/missions/send-submarine/UnderneathWaterSurface";
 import WaterPlaygroundPage from "../pages/missions/send-submarine/WaterPlaygroundPage";
 import TitanSignalIntroPage from "../pages/missions/titan-signal/TitanSignalIntroPage";
-import SignalStarterPage from './../pages/missions/titan-signal/SignalStarterPage';
+import SignalStarterPage from "./../pages/missions/titan-signal/SignalStarterPage";
+import SignalPassGamePage from "../pages/missions/titan-signal/SignalPassGamePage";
+import SignalSuccessPage from "../pages/missions/titan-signal/SignalSuccessPage";
 
 export default function Routers() {
 	return (
@@ -68,6 +70,8 @@ export default function Routers() {
 					{/* ----------------- titan signal routes --------------------  */}
 					<Route path="/titan-signal" element={<TitanSignalIntroPage />} />
 					<Route path="/signal-start" element={<SignalStarterPage />} />
+					<Route path="/signal-game" element={<SignalPassGamePage />} />
+					<Route path="/signal-success" element={<SignalSuccessPage />} />
 				</Route>
 
 				<Route path="/function" element={<MainLayout />}>

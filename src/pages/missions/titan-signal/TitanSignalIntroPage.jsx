@@ -8,6 +8,7 @@ import MissionIntroTipModal from "./../../../components/modal/MissionIntroTipMod
 import MissionTaskModal from "../../../components/modal/MissionTaskModal";
 import TitanEarthSignalTransmission from "../../../components/missions/TitanEarthSignalTransmission";
 import { useNavigate } from "react-router-dom";
+import LocationReminder from "../../../components/missions/LocationReminder";
 
 export default function TitanSignalIntroPage() {
 	const navigate = useNavigate();
@@ -42,9 +43,7 @@ export default function TitanSignalIntroPage() {
 			>
 				<img src={roverCraft} alt="Rover craft" className="w-full" />
 			</motion.div>
-			<p className="absolute bottom-6 left-8 text-center text-white text-xl font-normal font-itim">
-				Location Titan
-			</p>
+			<LocationReminder location="Location Titan" />
 			{openTipModal && (
 				<Overlay>
 					<MissionIntroTipModal

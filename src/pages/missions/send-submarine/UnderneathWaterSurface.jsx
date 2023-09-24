@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 import MainBackground from "../../../components/MainBackground";
 import submarine from "../../../assets/images/submarine.png";
+import ch4 from "../../../assets/images/ch4.png";
 import { useEffect, useState } from "react";
 import Overlay from "../../../components/Overlay";
 import MolePointerModal from "../../../components/modal/MolePointerModal";
@@ -45,7 +46,7 @@ export default function UnderneathWaterSurface() {
 
 			<Progress />
 			<MoleProgress />
-			<TaskOverview />
+			<TaskOverview img={ch4} text="Methane Liquid" />
 
 			{open && (
 				<Overlay>

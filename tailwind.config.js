@@ -32,6 +32,7 @@ export default {
 				"titan-lake-img": "url('/background-images/titan-lake.jpeg')",
 				"water-surface-img": "url('/background-images/water-surface.jpeg')",
 				"plain-surface-2-img": "url('/background-images/plain-surface-2.jpeg')",
+				"cloudy-titan-sky-img": "url('/background-images/cloudy-titan-sky.png')",
 			},
 		},
 	},

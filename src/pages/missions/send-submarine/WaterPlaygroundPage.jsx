@@ -8,6 +8,7 @@ import UnderWaterRocks from "../../../components/missions/UnderWaterRocks";
 
 import submarine from "../../../assets/images/game-submarine.png";
 import gamepad from "../../../assets/images/gamepad.png";
+import ch4 from "../../../assets/images/ch4.png";
 import Overlay from "./../../../components/Overlay";
 import RetryModal from "./../../../components/modal/RetryModal";
 import CompleteModalBgLess from "./../../../components/modal/CompleteModalBgLess";
@@ -16,6 +17,7 @@ import { MissionStatusContext } from "./../../../contexts/MissionStatusContext";
 import { toast } from "react-hot-toast";
 import FallingRocks from "../../../components/missions/FallingRocks";
 import FloatingMoles from "../../../components/missions/FloatingMoles";
+import { checkCollision } from "../../../utils/checkCollision";
 
 let timer = null;
 
@@ -52,21 +54,6 @@ export default function UnderneathWaterSurface() {
 	}, [handleKeyDown]);
 
 	useEffect(() => {
-		// Function to check if two DOM elements overlap
-		function checkCollision(elem1, elem2) {
-			const rect1 = elem1.getBoundingClientRect();
-			const rect2 = elem2.getBoundingClientRect();
-
-			const check = !(
-				rect1.right < rect2.left ||
-				rect1.left > rect2.right ||
-				rect1.bottom < rect2.top ||
-				rect1.top + 40 > rect2.bottom
-			);
-
-			return check;
-		}
-
 		// Check collision for each rock with the submarine
 		rockRefs.forEach((rockRef) => {
 			if (checkCollision(submarineRef.current, rockRef.current)) {
@@ -124,7 +111,7 @@ export default function UnderneathWaterSurface() {
 			<FallingRocks rockRefs={rockRefs} />
 			<Progress rate={time} />
 			<MoleProgress points={points * 4} />
-			<TaskOverview />
+			<TaskOverview img={ch4} text="Methane Liquid" />
 
 			<div className="flex h-screen justify-center items-center overflow-hidden">
 				<img
