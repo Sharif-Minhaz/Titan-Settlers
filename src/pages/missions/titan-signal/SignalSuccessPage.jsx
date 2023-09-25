@@ -15,6 +15,7 @@ export default function SignalSuccessPage() {
     const navigate = useNavigate();
 	const data = useLocation();
 	const [successModal, setSuccessModal] = useState(false);
+
 	useEffect(() => {
 		const timerId = setTimeout(() => {
 			setSuccessModal(true);
@@ -52,7 +53,7 @@ export default function SignalSuccessPage() {
 			{successModal && (
 				<Overlay>
 					<CompleteModalBgLess
-						onClick={()=> navigate("/function/missions")}
+						onClick={()=> navigate("/function/missions", {state: ["m-2", "m-3", "m-4"]})}
 						coinsAmount={data.state * 100 + 100 || 100}
 						des="You have completed First Phase of the Task successfully"
 					/>

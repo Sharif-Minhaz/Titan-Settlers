@@ -7,7 +7,7 @@ import Slide from "./Slide";
 import roverExp from "../../assets/images/rover-exp.png";
 import sendSubmarine from "../../assets/gifs/send-submarine.gif";
 import atmStudy from "../../assets/images/atm-study.jpeg";
-import geologyStudy from "../../assets/images/arch-study.jpg";
+import buildLab from "../../assets/images/build-lab.jpeg";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -44,11 +44,11 @@ const missionsInfo = [
 	},
 	{
 		_id: "m-4",
-		title: "Study geology",
+		title: "Setting Up the Laboratory",
 		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
-		img: geologyStudy,
-		coins: 14000,
-		navigationRoute: "/titan-4",
+		img: buildLab,
+		coins: 7000,
+		navigationRoute: "/setup-lab",
 		missionTitle: "MISSION 4",
 		locked: true,
 	},

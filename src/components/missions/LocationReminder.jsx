@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export default function LocationReminder({ location }) {
+export default function LocationReminder({ location, position = "bottom-6 left-8", color = "text-white" }) {
 	return (
-		<p className="absolute bottom-6 left-8 text-center text-white text-xl font-normal font-itim">
+		<p className={`absolute text-center text-xl font-normal font-itim ${position} ${color}`}>
 			{location}
 		</p>
 	);
@@ -10,4 +10,6 @@ export default function LocationReminder({ location }) {
 
 LocationReminder.propTypes = {
 	location: PropTypes.string,
+	position: PropTypes.string,
+	color: PropTypes.string,
 };

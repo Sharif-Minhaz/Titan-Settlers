@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import msgBox from "../../assets/images/task-modal-border.png";
-import challenge from "../../assets/images/challenge.png"
+import challenge from "../../assets/images/challenge.png";
 import ActionButton from "./../buttons/ActionButton";
 
 export default function MissionTaskModal({ description, onClick, children }) {
@@ -18,7 +18,11 @@ export default function MissionTaskModal({ description, onClick, children }) {
 					</p>
 				</div>
 				<img className="w-[600px]" src={msgBox} alt="message box" />
-				<div className="flex flex-col justify-center items-center absolute top-[50px] left-[0px] w-[600px] text-orange-200 text-2xl font-normal font-inter tracking-wide">
+				<div
+					className={`flex h-full flex-col justify-center items-center absolute ${
+						typeof children === "undefined" ? "top-0" : "top-[50px]"
+					} left-[0px] w-[600px] text-orange-200 text-2xl font-normal font-inter tracking-wide`}
+				>
 					{children}
 					<p className="p-5 bb-3 text-center text-[19px]">{description}</p>
 					<div className="mt-0">
