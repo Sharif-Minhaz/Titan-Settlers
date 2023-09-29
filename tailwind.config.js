@@ -34,6 +34,7 @@ export default {
 				"plain-surface-2-img": "url('/background-images/plain-surface-2.jpeg')",
 				"cloudy-titan-sky-img": "url('/background-images/cloudy-titan-sky.png')",
 				"lab-ground-img": "url('/background-images/lab-ground.jpeg')",
+				"lab-img": "url('/background-images/lab.jpeg')",
 			},
 		},
 	},
