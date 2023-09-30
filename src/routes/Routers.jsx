@@ -33,6 +33,7 @@ import SignalSuccessPage from "../pages/missions/titan-signal/SignalSuccessPage"
 import SetupLabIntroPage from "../pages/missions/setup-lab/SetupLabIntroPage";
 import LabGroundPage from "../pages/missions/setup-lab/LabGroundPage";
 import LaboratoryPage from "../pages/missions/setup-lab/LaboratoryPage";
+import InjectMedicinePage from "../pages/missions/titan-signal/InjectMedicinePage";
 
 export default function Routers() {
 	return (
@@ -72,6 +73,7 @@ export default function Routers() {
 
 					{/* ----------------- titan signal routes --------------------  */}
 					<Route path="/titan-signal" element={<TitanSignalIntroPage />} />
+					<Route path="/inject-medicine" element={<InjectMedicinePage />} />
 					<Route path="/signal-start" element={<SignalStarterPage />} />
 					<Route path="/signal-game" element={<SignalPassGamePage />} />
 					<Route path="/signal-success" element={<SignalSuccessPage />} />

@@ -55,7 +55,7 @@ export default function TitanSignalIntroPage() {
 			{openTaskModal && (
 				<Overlay>
 					<MissionTaskModal
-						onClick={() => navigate("/signal-start")}
+						onClick={() => navigate("/inject-medicine")}
 						description="Task is collect the Methane liquid from the ocean water using Titan submarine. 100 % fuel is given and for changing submarine position, the will be reduced Task is collect the Methane liquid from the ocean water using Titan submarine. 100 % fuel is given and for changing submarine position, the will be reduced"
 					>
 						<TitanEarthSignalTransmission />
