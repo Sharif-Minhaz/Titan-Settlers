@@ -34,6 +34,7 @@ import SetupLabIntroPage from "../pages/missions/setup-lab/SetupLabIntroPage";
 import LabGroundPage from "../pages/missions/setup-lab/LabGroundPage";
 import LaboratoryPage from "../pages/missions/setup-lab/LaboratoryPage";
 import InjectMedicinePage from "../pages/missions/titan-signal/InjectMedicinePage";
+import AboutPage from "../pages/about/AboutPage";
 
 export default function Routers() {
 	return (
@@ -82,6 +83,9 @@ export default function Routers() {
 					<Route path="/setup-lab" element={<SetupLabIntroPage />} />
 					<Route path="/lab-ground" element={<LabGroundPage />} />
 					<Route path="/laboratory" element={<LaboratoryPage />} />
+
+					{/* --------------------- about team ------------------------ */}
+					<Route path="/about" element={<AboutPage />} />
 				</Route>
 
 				<Route path="/function" element={<MainLayout />}>
