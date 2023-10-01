@@ -8,6 +8,8 @@ import roverExp from "../../assets/images/rover-exp.png";
 import sendSubmarine from "../../assets/gifs/send-submarine.gif";
 import atmStudy from "../../assets/images/atm-study.jpeg";
 import buildLab from "../../assets/images/build-lab.jpeg";
+import artificial from "../../assets/images/artificial.png";
+import titanCity from "../../assets/images/titan-city.jpeg";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -50,6 +52,26 @@ const missionsInfo = [
 		coins: 7000,
 		navigationRoute: "/setup-lab",
 		missionTitle: "MISSION 4",
+		locked: true,
+	},
+	{
+		_id: "m-5",
+		title: "Build ECTOLIFE (Artificial Womb)",
+		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
+		img: artificial,
+		coins: 9000,
+		navigationRoute: "/setup-lab",
+		missionTitle: "MISSION 5",
+		locked: true,
+	},
+	{
+		_id: "m-6",
+		title: "Build City for TITAN",
+		desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dignissimos illum reprehenderit molestiae exercitationem velit quidem sapiente similique nobis dicta praesentium officia",
+		img: titanCity,
+		coins: 10000,
+		navigationRoute: "/setup-lab",
+		missionTitle: "MISSION 6",
 		locked: true,
 	},
 ];
