@@ -22,7 +22,7 @@ export default function LevelInfo() {
 				<img src={levelImg} alt="level" />
 			</div>
 			<NavButton img={mailImg} alt="mail" />
-			<NavButton img={charactersImg} alt="Characters" />
+			<NavButton route="/about" img={charactersImg} alt="Characters" />
 			<NavButton img={settingsImg} alt="settings" />
 		</div>
 	);

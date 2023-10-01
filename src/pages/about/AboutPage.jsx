@@ -8,6 +8,8 @@ import wahid from "../../assets/images/team/wahid.png";
 import mithila from "../../assets/images/team/mithila.png";
 import sharif from "../../assets/images/team/sharif.png";
 import adrita from "../../assets/images/team/adrita.png";
+import prevIcon from "../../assets/icons/prev.svg"
+import { useNavigate } from "react-router-dom";
 
 const teamData = [
 	{
@@ -61,8 +63,18 @@ const teamData = [
 ];
 
 export default function AboutPage() {
+	const navigate = useNavigate();
+
 	return (
 		<MainBackground src="bg-about-img">
+			<div className="absolute top-8 left-8">
+				<img
+					onClick={() => navigate(-1)}
+					className="pointer-events-auto cursor-pointer w-7"
+					src={prevIcon}
+					alt="previous"
+				/>
+			</div>
 			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center">
 				<img className="w-[160px] -mt-12" src={brand} alt="" />
 				<img className="-mt-10 h-[17px]" src={brandName} alt="" />
