@@ -21,7 +21,7 @@ export default function ActionButton({
 		<button
 			disabled={disabled}
 			onClick={onClick}
-			className={`${height} ${width} ${bg} ${textSize} ${rounded} ${className} inline-flex items-center justify-center mt-2 bg-gradient-to-b text-white transition-colors active:scale-95 shadow-inner border ${disabledStyle}`}
+			className={`${height} ${width} ${bg} ${textSize} ${rounded} ${className} inline-flex items-center justify-center mt-2 bg-gradient-to-b text-white transition-all active:scale-95 shadow-inner border ${disabledStyle}`}
 		>
 			{typeof locked !== "undefined" &&
 				(locked ? (

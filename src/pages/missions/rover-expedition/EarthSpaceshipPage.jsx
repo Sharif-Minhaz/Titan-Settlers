@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
 import MainBackground from "../../../components/MainBackground";
@@ -8,13 +7,11 @@ import mainTowerImg from "../../../assets/images/tower.png";
 import leftTowerImg from "../../../assets/images/station-tower-l.png";
 import rightTowerImg from "../../../assets/images/station-tower-r.png";
 import rocketImg from "../../../assets/images/base-rocket.png";
-import startBtn from "../../../assets/images/start-btn.png";
-import launchBtn from "../../../assets/images/launch-btn.png";
+
 import flames from "../../../assets/images/rocket-flame.png";
 import lSmoke from "../../../assets/images/smoke-l.png";
 import mSmoke from "../../../assets/images/smoke-m.png";
 import rSmoke from "../../../assets/images/smoke-r.png";
-import Tip from "../../../components/earth-destruction/Tip";
 import ActionButton from "../../../components/buttons/ActionButton";
 
 import commentary from "../../../assets/audios/initial-commentary.mp3";
@@ -25,45 +22,9 @@ import defending from "../../../assets/audios/asteroids.wav";
 import preservation from "../../../assets/audios/implementation.wav";
 import activeDebris from "../../../assets/audios/nasa.wav";
 import { useAudio } from "../../../hooks/useAudio";
-
-const data = [
-	{
-		_id: "d-1",
-		heading: "Space debris",
-		desc: "Residual fragments endanger space arks. NASA recommends active removal tech like nets and robotic arms to ensure safe cosmic journeys.",
-		link: "https://www.nasa.gov/pdf/503466main_space_tech_grand_challenges_12_02_10.pdf",
-	},
-	{
-		_id: "d-2",
-		heading: "Defending",
-		desc: "Asteroids and comets pose collision threats to space arks. NASA's approach combines detection and deflection.",
-		link: "https://www.nasa.gov/mission_pages/station/news/orbital_debris.html",
-	},
-	{
-		_id: "d-3",
-		heading: "Active Debris Removal",
-		desc: "NASA strongly recommends adopting active debris removal technologies to address this threat. Active debris removal involves actively capturing and eliminating space debris from Earth's orbit.",
-	},
-	{
-		_id: "d-4",
-		heading: "Preservation and Security",
-		desc: "Implementation of active debris removal measures ensures the preservation of the space ark. Removing space debris reduces the risk of collisions and potential damage during the ark's voyage.",
-	},
-];
-
-const positions = [
-	"bottom-[410px] right-10 w-[350px]",
-	"bottom-[440px] right-[420px] w-[355px]",
-	"bottom-[330px] right-[810px] w-[380px]",
-	"bottom-20 right-[900px] w-[380px]",
-];
-
-const pointerPositions = [
-	"rotate-[67deg] w-[345px] left-20 top-[348px]",
-	"rotate-[34.5deg] w-[665px] left-[120px] top-[355px]",
-	"rotate-[18deg] w-[879px] left-[290px] top-[314px]",
-	"rotate-[3deg] w-[865px] left-[377px] top-[180px]",
-];
+import LaunchGuidelineOverlay from "./LaunchGuidelineOverlay";
+import GSuitQuiz from "./GSuitQuiz";
+import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
 
 const voiceOvers = [joinUs, spaceDebris, defending, activeDebris, preservation, commentary, launch];
 
@@ -72,13 +33,19 @@ export default function EarthSpaceshipPage() {
 	const [count, setCount] = useState(0);
 	const [voice, setVoice] = useState(0);
 	const [hiddenOverlay, setHiddenOverlay] = useState(1);
+	// choose suit
+	const [openTipModal, setOpenTipModal] = useState(true);
+	const [openGame, setOpenGame] = useState(false);
+	const [isCompleteGame, setIsCompleteGame] = useState(false);
 
 	// voice overs
 	const { play } = useAudio(voiceOvers[voice], { interrupt: true });
 
 	useEffect(() => {
-		play();
-	}, [voice, play]);
+		if (isCompleteGame) {
+			play();
+		}
+	}, [voice, play, isCompleteGame]);
 
 	// controls system of animation
 	const controlsRocket = useAnimationControls();
@@ -106,9 +73,20 @@ export default function EarthSpaceshipPage() {
 		setCount(count + 1);
 	};
 
+	const openSuitQuiz = () => {
+		setOpenTipModal(false);
+		setOpenGame(true);
+	};
+
+	const closeGame = () => {
+		setOpenGame(false);
+		setIsCompleteGame(true);
+	};
+
 	return (
 		<MainBackground src="bg-earth-base-img" position="bg-[center_20%]">
 			<LaunchGuidelineOverlay
+				hiddenBtn={!isCompleteGame}
 				hiddenOverlay={hiddenOverlay}
 				count={count}
 				activeTooltips={activeTooltips}
@@ -174,56 +152,25 @@ export default function EarthSpaceshipPage() {
 					alt="right-smoke"
 				/>
 			</div>
-			<Link to="/launch-video">
-				<motion.span
-					initial={{ opacity: 0 }}
-					animate={controlsButton}
-					transition={{ duration: 1, delay: 2 }}
-				>
+			<motion.span
+				initial={{ opacity: 0 }}
+				animate={controlsButton}
+				transition={{ duration: 1, delay: 2 }}
+			>
+				<Link to="/launch-video">
 					<ActionButton text="Continue ⨠" className="absolute bottom-6 right-6 z-40" />
-				</motion.span>
-			</Link>
+				</Link>
+			</motion.span>
+			{openTipModal && (
+				<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
+					<MissionIntroTipModal
+						topGap="top-[140px]"
+						onClick={openSuitQuiz}
+						description="Prior to launch, your responsibility is to don a specialized suit designed to shield you from the formidable forces of gravity and intense pressure experienced during liftoff."
+					/>
+				</div>
+			)}
+			{openGame && <GSuitQuiz closeGame={closeGame} />}
 		</MainBackground>
 	);
 }
-
-function LaunchGuidelineOverlay({ hiddenOverlay, count, activeTooltips, activeIndex }) {
-	return (
-		<motion.div
-			initial={{ opacity: 1 }}
-			animate={{ opacity: hiddenOverlay }}
-			transition={{ duration: 1 }}
-			className="fixed bg-black/75 w-full h-full z-30"
-		>
-			<img
-				className="w-[70px] z-[99] pointer-events-auto cursor-pointer absolute bottom-7 right-7"
-				src={count === 5 ? launchBtn : startBtn}
-				alt="start"
-				onClick={activeTooltips}
-			/>
-
-			{count !== 5 && (
-				<>
-					{data.map((tipInfo, index) => (
-						<Fragment key={tipInfo._id}>
-							{activeIndex.includes(index) && (
-								<Tip className={positions[index]} tipInfo={tipInfo}>
-									<div
-										className={`absolute ${pointerPositions[index]} border-t-2 border-dashed border-slate-400`}
-									></div>
-								</Tip>
-							)}
-						</Fragment>
-					))}
-				</>
-			)}
-		</motion.div>
-	);
-}
-
-LaunchGuidelineOverlay.propTypes = {
-	hiddenOverlay: PropTypes.number,
-	count: PropTypes.number,
-	activeTooltips: PropTypes.func,
-	activeIndex: PropTypes.array,
-};

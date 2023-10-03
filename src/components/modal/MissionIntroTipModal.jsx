@@ -5,7 +5,7 @@ import ActionButton from "./../buttons/ActionButton";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-export default function MissionIntroTipModal({ description, onClick }) {
+export default function MissionIntroTipModal({ description, onClick, topGap = "top-[160px]" }) {
 	const navigate = useNavigate();
 
 	return (
@@ -21,7 +21,7 @@ export default function MissionIntroTipModal({ description, onClick }) {
 					alt="info"
 				/>
 				<img src={msgBox} alt="message box" />
-				<div className="flex flex-col justify-center items-center absolute top-[160px] left-[60px] w-[460px] text-orange-200 text-2xl font-normal font-inter tracking-wide">
+				<div className={`flex flex-col justify-center items-center absolute ${topGap} left-[60px] w-[460px] text-orange-200 text-2xl font-normal font-inter tracking-wide`}>
 					<p className="text-center text-[19px]">
 						{description
 							? description
@@ -43,6 +43,7 @@ export default function MissionIntroTipModal({ description, onClick }) {
 }
 
 MissionIntroTipModal.propTypes = {
+	topGap: PropTypes.string,
 	description: PropTypes.string,
 	onClick: PropTypes.func,
 };

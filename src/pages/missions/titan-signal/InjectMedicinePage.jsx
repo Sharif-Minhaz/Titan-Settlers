@@ -14,7 +14,7 @@ import right from "../../../assets/images/correct.svg";
 import wrong from "../../../assets/images/wrong.svg";
 import { shuffleArray } from "../../../utils/shuffleArray";
 import Question from "../../../components/question/Question";
-import InjectionQuizModal from "../../../components/modal/InjectionQuizModal";
+import QuizModal from "../../../components/modal/QuizModal";
 import astronaut from "../../../assets/images/astronaut-signal.png";
 import { useNavigate } from "react-router-dom";
 
@@ -128,7 +128,7 @@ export default function InjectMedicinePage() {
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
-                        transition={{duration: 1}}
+						transition={{ duration: 1 }}
 						className="flex justify-center items-center"
 					>
 						<div className="absolute top-32">
@@ -170,7 +170,12 @@ export default function InjectMedicinePage() {
 
 			{!isEmptyObject(optionData) && (
 				<Overlay>
-					<InjectionQuizModal
+					<QuizModal
+						ansId="op-4"
+						message="Excellent! you choose the correct syringe of "
+						ans="Amifostine"
+						explanation="anti radiation medicine, after injecting you can go outside for signal related	work."
+						failureMsg="is not an anti radiation type medicine."
 						data={optionData}
 						closeModal={handleCloseModal}
 						cancelModal={cancelModal}
