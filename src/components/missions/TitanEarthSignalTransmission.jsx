@@ -4,7 +4,7 @@ import signal from "../../assets/gifs/signal.gif";
 
 export default function TitanEarthSignalTransmission() {
 	return (
-		<div className="flex items-center gap-1">
+		<div className="flex items-center gap-1 -mt-20">
 			<img className="w-[65px] h-[65px]" src={roundingTitan} alt="titan" />
 			<span className="mb-2.5">......</span>
 			<img className="w-[60px] h-[40px]" src={signal} alt="signal" />
