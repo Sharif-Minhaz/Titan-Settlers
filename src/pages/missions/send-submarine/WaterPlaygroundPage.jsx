@@ -18,6 +18,8 @@ import { toast } from "react-hot-toast";
 import FallingRocks from "../../../components/missions/FallingRocks";
 import FloatingMoles from "../../../components/missions/FloatingMoles";
 import { checkCollision } from "../../../utils/checkCollision";
+import { useWindow } from "../../../hooks/useWindow";
+import DevWarning from "../../../components/DevWarning";
 
 let timer = null;
 
@@ -29,6 +31,7 @@ export default function UnderneathWaterSurface() {
 	const [openSuccessModal, setOpenSuccessModal] = useState(false);
 	const [time, setTime] = useState(120);
 	const [position, setPosition] = useState(0);
+	const willBroken = useWindow(970);
 
 	const submarineRef = useRef();
 	const rock1Refs = useRef();
@@ -107,6 +110,7 @@ export default function UnderneathWaterSurface() {
 
 	return (
 		<MainBackground src="bg-water-surface-img" position="bg-[center_45%] overflow-hidden">
+			{willBroken && <DevWarning />}
 			<UnderWaterRocks hideMole={true} />
 			<FallingRocks rockRefs={rockRefs} />
 			<Progress rate={time} />

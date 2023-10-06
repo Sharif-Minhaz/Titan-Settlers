@@ -15,6 +15,8 @@ import cosmicRay from "../../assets/images/cosmic-ray-lightning.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import cosmicRayStable from "../../assets/images/cosmic-ray-stable.png";
 import cosmicRayDestroyingGif from "../../assets/gifs/cosmic-ray-destroying.gif";
+import { useWindow } from "../../hooks/useWindow";
+import DevWarning from "../../components/DevWarning";
 
 const data = [
 	{ _id: "attr-01", heading: "NATURE", value: "Protons & nuclei" },
@@ -58,6 +60,7 @@ export default function CosmicRayPage() {
 	const [tipCount, setTipCount] = useState(-1);
 	const [completed, setCompleted] = useState(false);
 	const navigate = useNavigate();
+	const willBroken = useWindow(1100);
 
 	const handleAsteroidPos = () => {
 		setTipCount((prev) => {
@@ -79,6 +82,7 @@ export default function CosmicRayPage() {
 
 	return (
 		<MainBackground src="bg-dark-sky-img">
+			{willBroken && <DevWarning />}
 			<EarthDestroyerNavbar />
 			<div className="mt-3.5 px-10">
 				<Attributes data={data} title="cosmic ray" />

@@ -3,10 +3,13 @@ import MainBackground from "../../../components/MainBackground";
 import Overlay from "../../../components/Overlay";
 import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
 import { useNavigate } from "react-router-dom";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 export default function SendSubmarinePage() {
 	const [open, setOpen] = useState(false);
 	const navigate = useNavigate();
+	const willBroken = useWindow(575);
 
 	const sendToWaterPage = () => {
 		navigate("/underneath-water");
@@ -22,6 +25,7 @@ export default function SendSubmarinePage() {
 
 	return (
 		<MainBackground src="bg-titan-lake-img">
+			{willBroken && <DevWarning />}
 			{open && (
 				<Overlay>
 					<MissionIntroTipModal

@@ -14,6 +14,8 @@ import wrong from "../../../assets/images/wrong.svg";
 import LandingQuizModal from "../../../components/modal/LandingQuizModal";
 import { isEmptyObject } from "../../../utils/isEmptyObj";
 import { shuffleArray } from "../../../utils/shuffleArray";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 const options = [
 	{ _id: "op-1", title: "Rocky Location", src: rockyLocation },
@@ -26,6 +28,7 @@ const options = [
 export default function LandingLocationQuizPage() {
 	const [allOptions, setAllOptions] = useState(options);
 	const [optionData, setOptionData] = useState({});
+	const willBroken = useWindow(925);
 
 	const handleCloseModal = () => {
 		setOptionData({});
@@ -34,6 +37,7 @@ export default function LandingLocationQuizPage() {
 
 	return (
 		<MainBackground src="bg-titan-sky-img">
+			{willBroken && <DevWarning />}
 			<Overlay>
 				<div className="w-full h-screen">
 					<img

@@ -15,6 +15,8 @@ import solarPanel from "../../assets/images/solar-panel.png";
 import asteroid from "../../assets/images/asteroid.png";
 import earthBGM from "../../assets/audios/planet-earth-109360.mp3";
 import AudioModal from "../../components/modal/AudioModal";
+import DevWarning from "../../components/DevWarning";
+import { useWindow } from "../../hooks/useWindow";
 
 export default function EarthDestroyerPage() {
 	const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function EarthDestroyerPage() {
 	const [isTaskComplete, setIsTaskComplete] = useState(false);
 	const [rotateDeg, setRotateDeg] = useState(0);
 	const { play, stop } = useAudio(earthBGM, { loop: true });
+	const willBroken = useWindow(925);
 
 	const images = ["asteroid", "cosmic ray", "sun"];
 	const [selectedIndex, setSelectedIndex] = useState(0);
@@ -74,6 +77,7 @@ export default function EarthDestroyerPage() {
 	return (
 		<>
 			<MainBackground src="bg-dark-sky-img">
+				{willBroken && <DevWarning />}
 				<div className="bg-black/25 absolute inset-0">
 					<EarthDestroyerNavbar openModal={openModal} />
 					<div className="relative h-screen">

@@ -8,6 +8,7 @@ export default function Astronaut() {
 			initial={{ y: 0, rotate: 0 }}
 			animate={{ y: ["-10px", "10px", "-10px"], rotate: [5, -2, 5] }}
 			transition={{ duration: 8, repeat: Infinity }}
+			className="hidden lg:block"
 		>
 			<img className="w-[350px]" src={astronautImg} alt="astronaut" />
 		</motion.div>

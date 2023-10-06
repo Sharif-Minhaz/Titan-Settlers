@@ -6,9 +6,12 @@ import homeSong from "../assets/audios/rings-of-saturn-162784.mp3";
 import AudioModal from "../components/modal/AudioModal";
 import { useAudio } from "../hooks/useAudio";
 import { useEffect } from "react";
+import { useWindow } from "../hooks/useWindow";
+import DevWarning from "../components/DevWarning";
 
 export default function HomePage() {
 	const { play, stop } = useAudio(homeSong, { loop: true });
+	const willBroken = useWindow(886);
 
 	useEffect(() => {
 		play();
@@ -16,6 +19,7 @@ export default function HomePage() {
 
 	return (
 		<MainBackground src="bg-home-img">
+			{willBroken && <DevWarning />}
 			<div className="flex h-full justify-between items-center px-[70px] py-2">
 				<div className="flex gap-5 items-center">
 					<SideMenu />

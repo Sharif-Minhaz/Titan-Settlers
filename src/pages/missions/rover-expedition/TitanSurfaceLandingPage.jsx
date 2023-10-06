@@ -6,10 +6,15 @@ import frameB from "../../../assets/images/frame-bottom.png";
 import { motion } from "framer-motion";
 import ActionButton from "../../../components/buttons/ActionButton";
 import { Link } from "react-router-dom";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 export default function TitanSurfaceLandingPage() {
+	const willBroken = useWindow(1150);
+
 	return (
 		<MainBackground src="bg-titan-sky-img">
+			{willBroken && <DevWarning />}
 			<div className="grid grid-cols-2 place-items-center h-screen">
 				<div className="relative w-[470px] h-[320px] bg-black bg-opacity-60 p-4 flex flex-col justify-center items-center gap-3">
 					<h1 className="text-orange-200 flex items-center gap-2 justify-center text-2xl font-semibold font-inter uppercase tracking-wider">
@@ -19,7 +24,8 @@ export default function TitanSurfaceLandingPage() {
 					<ul className="list-inside list-disc flex flex-col gap-4 px-4 mt-2 pb-2">
 						<li className="text-red-100 text-[18px] font-normal font-poppins text-center">
 							Phase 1: &quot;Open Parachute on Titan landing, navigate the thick
-							atmosphere, and earn 2000 coins for your precision and skill by typing JUMPMASTER using your keyboard or input device.&quot;
+							atmosphere, and earn 2000 coins for your precision and skill by typing
+							JUMPMASTER using your keyboard or input device.&quot;
 						</li>
 					</ul>
 					<div className="text-center">

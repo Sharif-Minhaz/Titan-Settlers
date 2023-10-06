@@ -15,6 +15,8 @@ import sunImg from "../../assets/images/sun.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import earthDestroyingStable from "../../assets/images/earth-destroying-sun.jpeg";
 import earthDestroySunGif from "../../assets/gifs/earth-destroying-sun.gif";
+import { useWindow } from "../../hooks/useWindow";
+import DevWarning from "../../components/DevWarning";
 
 
 const data = [
@@ -99,6 +101,7 @@ export default function SunPage() {
 	const [earthTipCount, setEarthTipCount] = useState(-1);
 	const [completed, setCompleted] = useState({ sun: false, earth: false });
 	const navigate = useNavigate();
+	const willBroken = useWindow(980);
 
 	const handleTips = () => {
 		setTipCount((prev) => {
@@ -134,6 +137,7 @@ export default function SunPage() {
 
 	return (
 		<MainBackground src="bg-dark-sky-img">
+			{willBroken && <DevWarning />}
 			<EarthDestroyerNavbar />
 			<div className="mt-3.5 px-10">
 				<Attributes data={data} title="sun" />

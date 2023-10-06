@@ -7,7 +7,7 @@ import playB from "../../assets/images/gamepad-arrows/bottom.png";
 
 export default function SignalGamepad({ start }) {
 	return (
-		<div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10">
+		<div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-50">
 			<div className="relative w-[135px] h-[135px]">
 				<img
 					className="absolute top-1/2 -translate-y-1/2 left-0 w-[59px]"

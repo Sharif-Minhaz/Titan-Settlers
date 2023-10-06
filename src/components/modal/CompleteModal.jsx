@@ -6,7 +6,7 @@ import trophy from "../../assets/images/trophy.png";
 
 export default function CompleteModal() {
 	return (
-		<section className="flex flex-col gap-4 items-center justify-center w-[710px] h-[500px] bg-cover bg-complete-task-img rounded-sm border border-slate-400 font-poppins">
+		<section className="flex flex-col gap-4 items-center justify-center w-full sm:w-[710px] h-[500px] bg-cover bg-complete-task-img rounded-sm border border-slate-400 font-poppins">
 			<div>
 				<img src={trophy} alt="trophy" />
 			</div>

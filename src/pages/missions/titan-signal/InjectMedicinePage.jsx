@@ -17,6 +17,8 @@ import Question from "../../../components/question/Question";
 import QuizModal from "../../../components/modal/QuizModal";
 import astronaut from "../../../assets/images/astronaut-signal.png";
 import { useNavigate } from "react-router-dom";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 const options = [
 	{
@@ -64,6 +66,7 @@ export default function InjectMedicinePage() {
 	const [optionData, setOptionData] = useState({});
 	const roverControls = useAnimationControls();
 	const [land, setLand] = useState(0);
+	const willBroken = useWindow(825);
 
 	useEffect(() => {
 		roverControls.start({ x: 1300 });
@@ -98,6 +101,7 @@ export default function InjectMedicinePage() {
 
 	return (
 		<MainBackground src="bg-plain-surface-2-img" position="bg-[center_85%]">
+			{willBroken && <DevWarning />}
 			<motion.div
 				className="absolute bottom-[10%] w-[200px]"
 				initial={{ x: -300 }}

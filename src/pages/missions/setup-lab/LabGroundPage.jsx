@@ -9,11 +9,14 @@ import click from "../../../assets/gifs/click.gif";
 import { motion } from "framer-motion";
 import LocationReminder from './../../../components/missions/LocationReminder';
 import { useNavigate } from "react-router-dom";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 export default function LabGroundPage() {
 	const navigate = useNavigate();
 	const [open, setOpen] = useState(false);
 	const [opacity, setOpacity] = useState(0);
+	const willBroken = useWindow(650);
 
 	useEffect(() => {
 		const timeOutId = setTimeout(() => {
@@ -25,6 +28,7 @@ export default function LabGroundPage() {
 
 	return (
 		<MainBackground src="bg-lab-ground-img" position="bg-[center_100%]">
+			{willBroken && <DevWarning />}
 			{opacity === 1 && (
 				<>
 					<LocationReminder

@@ -25,6 +25,8 @@ import { useAudio } from "../../../hooks/useAudio";
 import LaunchGuidelineOverlay from "./LaunchGuidelineOverlay";
 import GSuitQuiz from "./GSuitQuiz";
 import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal";
+import { useWindow } from "../../../hooks/useWindow";
+import DevWarning from "../../../components/DevWarning";
 
 const voiceOvers = [joinUs, spaceDebris, defending, activeDebris, preservation, commentary, launch];
 
@@ -37,6 +39,7 @@ export default function EarthSpaceshipPage() {
 	const [openTipModal, setOpenTipModal] = useState(true);
 	const [openGame, setOpenGame] = useState(false);
 	const [isCompleteGame, setIsCompleteGame] = useState(false);
+	const willBroken = useWindow(1281);
 
 	// voice overs
 	const { play } = useAudio(voiceOvers[voice], { interrupt: true });
@@ -85,6 +88,7 @@ export default function EarthSpaceshipPage() {
 
 	return (
 		<MainBackground src="bg-earth-base-img" position="bg-[center_20%]">
+			{willBroken && <DevWarning />}
 			<LaunchGuidelineOverlay
 				hiddenBtn={!isCompleteGame}
 				hiddenOverlay={hiddenOverlay}

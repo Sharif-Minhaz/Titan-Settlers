@@ -15,6 +15,8 @@ import MissionIntroTipModal from "../../../components/modal/MissionIntroTipModal
 import Overlay from "../../../components/Overlay";
 import RetryModal from "../../../components/modal/RetryModal";
 import ThickAtmosphere from "../../../components/missions/ThickAtmosphere";
+import { useWindow } from "../../../hooks/useWindow";
+import DevWarning from "../../../components/DevWarning";
 
 let timer;
 
@@ -27,6 +29,7 @@ export default function LandingGamePage() {
 	const [running, setRunning] = useState(false);
 	const [time, setTime] = useState(5);
 	const [km, setKm] = useState(20);
+	const willBroken = useWindow(575);
 
 	useEffect(() => {
 		const handleJumpmaster = () => {
@@ -91,6 +94,7 @@ export default function LandingGamePage() {
 
 	return (
 		<MainBackground src="bg-titan-sky-img">
+			{willBroken && <DevWarning />}
 			<div className="relative h-screen">
 				<ThickAtmosphere />
 				<p className="absolute right-4 top-7 flex items-center gap-2 font-poppins font-medium text-[#543022]">

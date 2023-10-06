@@ -20,6 +20,8 @@ import centrifuge from "../../../assets/images/lab/centrifuge.png";
 // import rtg from "../../../assets/images/lab/rtg.png";
 import grpRtg from "../../../assets/images/lab/group-rtg.png";
 import { motion } from "framer-motion";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 const labItems = [
 	{ id: "l-1", src: centrifuge },
@@ -35,6 +37,7 @@ const labItems = [
 export default function LaboratoryPage() {
 	const [open, setOpen] = useState(false);
 	const [start, setStart] = useState(false);
+	const willBroken = useWindow(990);
 
 	useEffect(() => {
 		const timeOutId = setTimeout(() => {
@@ -46,12 +49,13 @@ export default function LaboratoryPage() {
 
 	return (
 		<MainBackground src="bg-lab-img">
+			{willBroken && <DevWarning />}
 			{open && (
 				<Overlay>
 					<CustomModal>
 						<div className="flex flex-col justify-center items-center gap-4">
 							<img src={find} className="w-[200px]" alt="" />
-							<div className="w-[700px] text-center text-white text-xl font-normal font-inter tracking-wide">
+							<div className="w-full sm:w-[700px] text-center text-white text-xl font-normal font-inter tracking-wide">
 								Identify the correct laboratory equipment and position it
 								appropriately to successfully complete the task.
 							</div>

@@ -44,7 +44,7 @@ export default function ExploreTitanIntro() {
 					transition={{ duration: 1.5, delay: 0.6 }}
 				>
 					<img
-						className="absolute bottom-0 left-1/2 -translate-x-1/2"
+						className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10"
 						src={rocket}
 						alt="rocket"
 					/>

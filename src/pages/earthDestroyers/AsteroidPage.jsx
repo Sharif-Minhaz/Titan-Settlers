@@ -15,6 +15,8 @@ import littleAsteroid from "../../assets/images/little-asteroid.png";
 import roundingEarth from "../../assets/images/rounded-earth.png";
 import earthDestroying from "../../assets/images/earth-destroying.jpeg";
 import earthDestroyingGif from "../../assets/gifs/earth-destroying.gif";
+import { useWindow } from './../../hooks/useWindow';
+import DevWarning from './../../components/DevWarning';
 
 const data = [
 	{ _id: "attr-01", heading: "age", value: "4.6B years" },
@@ -62,6 +64,7 @@ export default function AsteroidPage() {
 	const [completed, setCompleted] = useState(false);
 	const [tipCount, setTipCount] = useState(-1);
 	const navigate = useNavigate();
+	const willBroken = useWindow(1080);
 
 	const handleAsteroidPos = () => {
 		setAsteroidRotate(asteroidRotate + deg[Math.floor(Math.random() * 2)]);
@@ -82,6 +85,7 @@ export default function AsteroidPage() {
 
 	return (
 		<MainBackground src="bg-dark-sky-img">
+			{willBroken && <DevWarning />}
 			<EarthDestroyerNavbar />
 			<div className="mt-3.5 px-10">
 				<Attributes data={data} title="asteroid" />

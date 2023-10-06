@@ -10,10 +10,13 @@ import MainBackground from "../components/MainBackground";
 import Spaceship from "../components/Spaceship";
 import GetStartedSection from "../components/intro/GetStartedSection";
 import { useAudio } from "../hooks/useAudio";
+import DevWarning from "../components/DevWarning";
+import { useWindow } from "../hooks/useWindow";
 
 export default function IntroPage() {
 	const { play: playIntroSong, stop: stopIntroSong } = useAudio(introSong, { loop: true });
 	const { play: playIntroVoice, stop: stopIntroVoice } = useAudio(introVoice);
+	const willBroken = useWindow(498);
 
 	const handleAudioPlay = () => {
 		playIntroSong();
@@ -27,6 +30,7 @@ export default function IntroPage() {
 
 	return (
 		<MainBackground src="bg-intro-img" enableScaling={true}>
+			{willBroken && <DevWarning />}
 			<nav className="flex justify-between items-center px-[70px] py-2">
 				<img src={titanSatelliteImg} alt="titan satellite" />
 				<img src={brandImg} alt="space-logo" />

@@ -8,11 +8,14 @@ import MissionIntroTipModal from "./../../../components/modal/MissionIntroTipMod
 import MissionTaskModal from "../../../components/modal/MissionTaskModal";
 import { useNavigate } from "react-router-dom";
 import LocationReminder from "../../../components/missions/LocationReminder";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 export default function SetupLabIntroPage() {
 	const navigate = useNavigate();
 	const [openTipModal, setOpenTipModal] = useState(false);
 	const [openTaskModal, setOpenTaskModal] = useState(false);
+	const willBroken = useWindow(580);
 
 	const closeTipModal = () => {
 		setOpenTipModal(false);
@@ -29,6 +32,7 @@ export default function SetupLabIntroPage() {
 
 	return (
 		<MainBackground src="bg-plain-surface-img">
+			{willBroken && <DevWarning />}
 			<img
 				className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[450px]"
 				src={descentStage}
@@ -42,7 +46,11 @@ export default function SetupLabIntroPage() {
 			>
 				<img src={roverCraft} alt="Rover craft" className="w-full" />
 			</motion.div>
-			<LocationReminder position="top-6 left-6" color="text-stone-700" location="Let’s Go To Build Laboratory in TITAN...." />
+			<LocationReminder
+				position="top-6 left-6"
+				color="text-stone-700"
+				location="Let’s Go To Build Laboratory in TITAN...."
+			/>
 			<LocationReminder location="Location Titan" />
 			{openTipModal && (
 				<Overlay>

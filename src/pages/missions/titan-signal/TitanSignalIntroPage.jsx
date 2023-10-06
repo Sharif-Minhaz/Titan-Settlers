@@ -9,11 +9,14 @@ import MissionTaskModal from "../../../components/modal/MissionTaskModal";
 import TitanEarthSignalTransmission from "../../../components/missions/TitanEarthSignalTransmission";
 import { useNavigate } from "react-router-dom";
 import LocationReminder from "../../../components/missions/LocationReminder";
+import DevWarning from "../../../components/DevWarning";
+import { useWindow } from "../../../hooks/useWindow";
 
 export default function TitanSignalIntroPage() {
 	const navigate = useNavigate();
 	const [openTipModal, setOpenTipModal] = useState(false);
 	const [openTaskModal, setOpenTaskModal] = useState(false);
+	const willBroken = useWindow(586);
 
 	const closeTipModal = () => {
 		setOpenTipModal(false);
@@ -30,6 +33,7 @@ export default function TitanSignalIntroPage() {
 
 	return (
 		<MainBackground src="bg-plain-surface-img">
+			{willBroken && <DevWarning />}
 			<img
 				className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[450px]"
 				src={descentStage}

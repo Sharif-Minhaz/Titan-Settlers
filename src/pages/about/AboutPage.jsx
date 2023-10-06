@@ -10,6 +10,8 @@ import sharif from "../../assets/images/team/sharif.png";
 import adrita from "../../assets/images/team/adrita.png";
 import prevIcon from "../../assets/icons/prev.svg"
 import { useNavigate } from "react-router-dom";
+import { useWindow } from './../../hooks/useWindow';
+import DevWarning from './../../components/DevWarning';
 
 const teamData = [
 	{
@@ -64,9 +66,11 @@ const teamData = [
 
 export default function AboutPage() {
 	const navigate = useNavigate();
+	const willBroken = useWindow(970);
 
 	return (
 		<MainBackground src="bg-about-img">
+			{willBroken && <DevWarning />}
 			<div className="absolute top-8 left-8">
 				<img
 					onClick={() => navigate(-1)}
@@ -89,7 +93,7 @@ export default function AboutPage() {
 function TeamMember({ member }) {
 	return (
 		<div
-			className={`w-[270px] h-[170px] bg-slate-900 border border-neutral-400 backdrop-blur-2xl absolute ${member.position}`}
+			className={`w-[270px] h-[170px] bg-slate-900 border border-neutral-400 backdrop-blur-2xl absolute hover:scale-110 transition-transform hover:z-40 ${member.position}`}
 		>
 			<img
 				src={member.src}

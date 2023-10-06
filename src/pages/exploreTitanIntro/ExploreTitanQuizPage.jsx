@@ -17,6 +17,8 @@ import ChatContainer from "./../../components/chat/ChatContainer";
 import { useAudio } from "../../hooks/useAudio";
 import quizAudio from "../../assets/audios/many-moons-of-saturn-146147.mp3";
 import AudioModal from "../../components/modal/AudioModal";
+import { useWindow } from './../../hooks/useWindow';
+import DevWarning from './../../components/DevWarning';
 
 const MAX_ALLOWED_ITERATION = 150;
 
@@ -36,6 +38,7 @@ export default function ExploreTitanQuizPage() {
 	const [imageClicked, setImageClicked] = useState(false);
 	const [modalOpen, setModalOpen] = useState(true);
 	const [correctAnsModalOpen, setCorrectAnsModalOpen] = useState(false);
+	const willBroken = useWindow(850);
 
 	useEffect(() => {
 		document.querySelector("main").style.overflowY = "auto";
@@ -169,6 +172,7 @@ export default function ExploreTitanQuizPage() {
 
 	return (
 		<MainBackground src="bg-stars-img">
+			{willBroken && <DevWarning />}
 			<section>
 				<section className="fixed z-10 top-0 w-full flex flex-col justify-center border-b border-blue-300 bg-stars-img">
 					<Navbar />

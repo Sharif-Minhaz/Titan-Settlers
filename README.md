@@ -12,7 +12,7 @@
 
 ### Our Extraordinary Team
 ---
-<img src='./template/images/teams.png' alt='the-titans'>
+<img src='./template/images/team.jpg' alt='the-titans'>
 <hr>
 
 ### About Project
