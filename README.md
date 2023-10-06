@@ -9,9 +9,14 @@
 <hr>
 <img src='./template/images/logo.png' alt='titan-settlers'>
 <hr>
+
+### Our Extraordinary Team
+---
 <img src='./template/images/teams.png' alt='the-titans'>
 <hr>
 
+### About Project
+---
 The project `Titan Settlers` is focused on addressing the challenges of exploring and potentially settling on Titan, Saturn's largest moon. The project is part of NASA's Space Apps Challenge 2023 and aims to not only tackle the technical challenges of space exploration but also inspire and educate the next generation of space enthusiasts with outstanding missions-based game.
 
 In "Titan Settlers," players must complete missions to address the challenges of Titan's environment:
@@ -20,7 +25,7 @@ In "Titan Settlers," players must complete missions to address the challenges of
 <div>
   <img src="./template/images/earth-mission.png" alt="Image 1" style="width:48%; border: 1px solid black; margin-right: 2px; display:inline-block;">
   <img src="./template/images/earth-mission-2.png" alt="Image 2" style="width:48%; border: 1px solid black; display:inline-block;">
-  <img src="./template/images/asteroid.png" alt="Image 2" style="width:98%; border: 1px solid black; display:inline-block;">
+  <img src="./template/images/asteroid.png" alt="Image 2" style="width:97%; border: 1px solid black; display:inline-block;">
   <img src="./template/images/sun-mission.png" alt="Image 1" style="width:48%; border: 1px solid black; margin-right: 2px; display:inline-block;">
   <img src="./template/images/cosmic-ray.png" alt="Image 2" style="width:48%; border: 1px solid black; display:inline-block;"><hr>
 </div>
@@ -82,3 +87,29 @@ In "Titan Settlers," players must complete missions to address the challenges of
     <img src='./template/images/quiz-res.png' alt='titan-settlers' style="width:48%; border: 1px solid black; display:inline-block;">
     <hr />
 </div>
+
+## Getting Started
+
+### Player guide
+- Live Project: [https://titan-settlers.netlify.app](https://titan-settlers.netlify.app)
+- Live Project (backup): [https://titan-settlers.vercel.app](https://titan-settlers.vercel.app) 
+
+### Developer guide
+- Clone the project in your local machine
+- Install all the dependencies using `npm install`
+- Use `npm run dev` to run your client
+
+## Contributing
+
+We welcome contributions to this project in the form of code, documentation, or financial support. If you are interested in contributing, please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or suggestions, please feel free to reach out to us at
+[shaikotkunduakash@gmail.com](mailto:shaikotkunduakash@gmail.com) or [sharifmdminhazurrahman@gmail.com](mailto:sharifmdminhazurrahman@gmail.com). 
+
+Thank you, let's learn together.
