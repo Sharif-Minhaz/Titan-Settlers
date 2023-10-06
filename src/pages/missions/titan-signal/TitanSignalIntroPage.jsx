@@ -12,11 +12,13 @@ import LocationReminder from "../../../components/missions/LocationReminder";
 import DevWarning from "../../../components/DevWarning";
 import { useWindow } from "../../../hooks/useWindow";
 
+const references = ["https://www.nasa.gov/scientificballoons/faqs/"];
+
 export default function TitanSignalIntroPage() {
 	const navigate = useNavigate();
 	const [openTipModal, setOpenTipModal] = useState(false);
 	const [openTaskModal, setOpenTaskModal] = useState(false);
-	const willBroken = useWindow(586);
+	const willBroken = useWindow(777);
 
 	const closeTipModal = () => {
 		setOpenTipModal(false);
@@ -51,8 +53,13 @@ export default function TitanSignalIntroPage() {
 			{openTipModal && (
 				<Overlay>
 					<MissionIntroTipModal
+						topGap="top-[180px]"
+						infoPos="left-8 top-8"
+						references={references}
+						width="w-[750px]"
+						placeWidth="w-[660px]"
 						onClick={closeTipModal}
-						description="You will learn about the signal interference in Titan and a techniques preferred by NASA to overcome that situation"
+						description="NASA is contemplating the use of scientific balloons for Titan-to-Earth long-distance communication. This is because Titan's dense atmosphere and lack of radio signals present obstacles. Through the use of scientific balloons that can navigate Titan's atmosphere, scientists intend to establish a reliable communication link. This innovative strategy would facilitate the transmission of vital data and information from Titan to Earth, thereby advancing our understanding of this intriguing moon."
 					/>
 				</Overlay>
 			)}
@@ -60,7 +67,7 @@ export default function TitanSignalIntroPage() {
 				<Overlay>
 					<MissionTaskModal
 						onClick={() => navigate("/inject-medicine")}
-						description="Task is collect the Methane liquid from the ocean water using Titan submarine. 100 % fuel is given and for changing submarine position, the will be reduced Task is collect the Methane liquid from the ocean water using Titan submarine. 100 % fuel is given and for changing submarine position, the will be reduced"
+						description="Navigating beyond the protective thick atmosphere bubble is challenging. Safely transmitting data to Earth is the goal, earning valuable coins as a reward for this daring feat."
 					>
 						<TitanEarthSignalTransmission />
 					</MissionTaskModal>

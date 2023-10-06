@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Slide({ item }) {
 	const navigate = useNavigate();
-	const { title, desc, img, coins, navigationRoute, missionTitle, locked } = item;
+	const { title, desc, img, coins, navigationRoute, missionTitle, locked, dev } = item;
 
 	return (
 		<div>
@@ -13,9 +13,7 @@ export default function Slide({ item }) {
 				<div className="absolute bg-black/75 h-0 transition-all group-hover:h-full group-hover:py-3 border border-white/40 overflow-hidden px-3.5 z-20 text-orange-200 font-normal">
 					{desc}
 				</div>
-				<SlideHeading className="top-0 text-orange-200 ">
-					{title}
-				</SlideHeading>
+				<SlideHeading className="top-0 text-orange-200 ">{title}</SlideHeading>
 				<img
 					className="shadow border border-blue-100 w-full h-[310px] object-cover"
 					src={img}
@@ -26,7 +24,9 @@ export default function Slide({ item }) {
 			</div>
 			<div className="text-center mt-2.5">
 				<ActionButton
-					onClick={() => navigate(navigationRoute)}
+					onClick={() =>
+						dev ? (window.location.href = navigationRoute) : navigate(navigationRoute)
+					}
 					width="w-40"
 					rounded="rounded-sm"
 					locked={locked}

@@ -90,9 +90,10 @@ In "Titan Settlers," players must complete missions to address the challenges of
 
 ## Getting Started
 
-### Player guide
+### Project Links
 - Live Project: [https://titan-settlers.netlify.app](https://titan-settlers.netlify.app)
 - Live Project (backup): [https://titan-settlers.vercel.app](https://titan-settlers.vercel.app) 
+- Prototype (completed): [figma](https://www.figma.com/file/VhpWsbDKZl0iWAmuVwREPm/The_Titans?node-id=78%3A7614&mode=dev) 
 
 ### Developer guide
 - Clone the project in your local machine

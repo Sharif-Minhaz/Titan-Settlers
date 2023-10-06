@@ -55,6 +55,9 @@ export default function SetupLabIntroPage() {
 			{openTipModal && (
 				<Overlay>
 					<MissionIntroTipModal
+						references={[
+							"https://rps.nasa.gov/power-and-thermal-systems/power-systems/",
+						]}
 						onClick={closeTipModal}
 						description="Be Aware of radiation, Manage temperature, Quest For Energy on the surface Of Titan."
 					/>

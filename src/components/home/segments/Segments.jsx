@@ -9,7 +9,7 @@ const segmentCardInfo = [
 	{
 		id: "s-1",
 		img: earthMissionImg,
-		title: "Earth Explore",
+		title: "World Crisis Taskforce",
 		description: "Alert humans of Earth's danger and save lives through action.",
 		route: "/earth-intro",
 		mission: "earth",
@@ -18,7 +18,8 @@ const segmentCardInfo = [
 		id: "s-2",
 		img: titanMissionImg,
 		title: "Titan Exploration",
-		description: "Set up labs, study Titan and ensure survival for colonization.",
+		description:
+			"Match Titans' surface titles, aided by a flight chatbot explaining space emotional effects, sleep disruptions.",
 		route: "/titan-quiz",
 		mission: "titan",
 	},
@@ -30,7 +31,7 @@ const horizontalCardInfo = {
 	title: "Launch Mission",
 	description:
 		"Launch spaceship, save lives by exploring Titan, establish colony, and prevent human extinction with mission completion.",
-	route: "/launch-mission",
+	route: "/function/missions",
 	mission: "launch",
 };
 
