@@ -134,6 +134,6 @@ By contributing to this project, you agree that your contributions will be licen
 
 ---
 
-We appreciate your time and efforts in contributing to MediAid! If you have any questions or need further assistance, feel free to reach out to the project maintainers.
+We appreciate your time and efforts in contributing to Titan Settlers! If you have any questions or need further assistance, feel free to reach out to the project maintainers.
 
 Happy coding!
