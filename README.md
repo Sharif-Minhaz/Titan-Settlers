@@ -94,20 +94,29 @@ In "Titan Settlers," players must complete missions to address the challenges of
     <hr />
 </div>
 
+## Development Methodology and Architecture
+
+This project follows the Agile Software Development Life Cycle (SDLC) and utilizes a monolithic architecture. The next section provides a step-by-step guide on how to set up and contribute to the development of this project.
+
+<div style="display: flex; gap: 12px;">
+    <img style="width: 50%;" src="./template/images/agile.jpg">
+    <img style="width: 50%;" src="./template/images/mono.jpeg">
+</div>
+
 ## Getting Started
 
 ### Project Links
 
-- Live Project: [https://titan-settlers.netlify.app](https://titan-settlers.netlify.app)
-- Live Project (backup): [https://titan-settlers.vercel.app](https://titan-settlers.vercel.app)
-- Prototype (completed): [figma](https://www.figma.com/file/VhpWsbDKZl0iWAmuVwREPm/The_Titans?node-id=78%3A7614&mode=dev)
+-   Live Project: [https://titan-settlers.netlify.app](https://titan-settlers.netlify.app)
+-   Live Project (backup): [https://titan-settlers.vercel.app](https://titan-settlers.vercel.app)
+-   Prototype (completed): [figma](https://www.figma.com/file/VhpWsbDKZl0iWAmuVwREPm/The_Titans?node-id=78%3A7614&mode=dev)
 
 ### Developer guide
 
-- Clone the project in your local machine
-- Install all the dependencies using `npm install`
-- Use `npm run dev` to run your client
-- Note: Full responsive support is not avaiable right now
+-   Clone the project in your local machine
+-   Install all the dependencies using `npm install`
+-   Use `npm run dev` to run your client
+-   Note: Full responsive support is not avaiable right now
 
 ## Contributing
 
